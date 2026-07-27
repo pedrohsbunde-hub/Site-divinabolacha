@@ -1,0 +1,4 @@
+Branquinho;Doce;5;https://imgs.search.brave.com/OE876b9tiKcxQ8sjwFH8JtBwwx8PpVF_FRaqChvC0JU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly8xODVl/YzAyNzQ1LmNsdmF3/LWNkbnduZC5jb20v/NGFiYWE5MzJjNGU1/NzUzMmMyY2E5NGI2/NjA2MzZmMjAvMjAw/MDAyNjEwLTFkZDEw/MWRkMTEvQnJhbnF1/aW5obyUyMChPJTIw/Q2wlQzMlQTFzc2lj/byUyMEJlaWppbmhv/JTIwc2VtJTIwQ29j/bykuanBlZz9waD0x/ODVlYzAyNzQ1
+Bolo de chocolate;Bolo;50;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtFFSw8vtgAQXDp4_51Fs3UDXuUlZ14SbIIKS9EoLwBA&s=10
+Bolo de laranja;Bolo;30;https://imgs.search.brave.com/HpoREle800QFpXCqLZZL9dPVe1jKgEVOsgakZai51to/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzE1LzEx/LzhiLzE1MTE4YjQ4/MGM1ZDdjMzZlMjU2/NGVmY2ExNjYxZDg4/LmpwZw
+Torta de morango;Torta;45;https://imgs.search.brave.com/M5mSitxU8Mm62id5fPhnviHnHJKCmvOIY3Ys1GRAegM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jZG4udHJpcGFk/dmlzb3IuY29tL21l/ZGlhL3Bob3RvLW8v/MDcvZTQvNmYvMjUv/Y2FmZS1kb2NlbGFu/ZGlhLmpwZw

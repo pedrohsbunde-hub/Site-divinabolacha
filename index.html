@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divina Bolacha | Confeitaria Artesanal e Kits Festa em Pelotas</title>
+    <meta name="description" content="Bolos, docinhos, cupcakes e salgadinhos artesanais em Pelotas. Monte seu pedido online e envie pelo WhatsApp com praticidade!">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bordo: #800020;
+            --bordo-dark: #6B1224;
+            --creme-suave: #FDFBF7;
+            --creme-medio: #F7F3EE;
+            --branco: #FFFFFF;
+            --texto-principal: #2B1E1E;
+            --texto-suave: #5C4E4E;
+            --verde-whatsapp: #25D366;
+            --verde-whatsapp-hover: #20ba5a;
+            
+            --fonte-titulo: 'Playfair Display', serif;
+            --fonte-corpo: 'Plus Jakarta Sans', sans-serif;
+            
+            --sombra-leve: 0 8px 24px rgba(0, 0, 0, 0.04);
+            --sombra-card: 0 12px 32px rgba(107, 18, 36, 0.06);
+            --border-radius: 16px;
+            --border-radius-btn: 50px;
+            
+            --transicao: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--fonte-corpo);
+            color: var(--texto-principal);
+            background-color: var(--creme-suave);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 70px;
+        }
+
+        @media (min-width: 992px) {
+            body { padding-bottom: 0; }
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-padding { padding: 60px 0; }
+
+        @media (min-width: 992px) {
+            .section-padding { padding: 90px 0; }
+        }
+
+        .text-center { text-align: center; }
+
+        .section-badge {
+            display: inline-block;
+            background-color: var(--creme-medio);
+            color: var(--bordo);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            border: 1px solid rgba(128, 0, 32, 0.1);
+        }
+
+        .section-title {
+            font-family: var(--fonte-titulo);
+            font-size: 2rem;
+            color: var(--bordo);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            .section-title { font-size: 2.5rem; }
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--texto-suave);
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: var(--border-radius-btn);
+            font-weight: 600;
+            font-size: 1rem;
+            min-height: 52px;
+            cursor: pointer;
+            transition: var(--transicao);
+            border: none;
+            text-align: center;
+        }
+
+        .btn-bordo {
+            background-color: var(--bordo);
+            color: var(--branco);
+            box-shadow: 0 4px 16px rgba(128, 0, 32, 0.25);
+        }
+
+        .btn-bordo:hover {
+            background-color: var(--bordo-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--bordo);
+            border: 2px solid var(--bordo);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bordo);
+            color: var(--branco);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--verde-whatsapp);
+            color: var(--branco);
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--verde-whatsapp-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Navbar */
+        .header {
+            background-color: var(--creme-suave);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--fonte-titulo);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--bordo);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Hero */
+        .hero {
+            background-color: var(--branco);
+            padding: 40px 0 60px 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 60px;
+            }
+        }
+
+        .hero-title {
+            font-family: var(--fonte-titulo);
+            font-size: 2.25rem;
+            color: var(--bordo);
+            line-height: 1.25;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title { font-size: 3rem; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--texto-suave);
+            margin-bottom: 30px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 480px) {
+            .hero-ctas { flex-direction: row; }
+        }
+
+        .hero-social-proof {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: var(--texto-suave);
+        }
+
+        .stars { color: #FFC107; }
+
+        .hero-image-wrapper { position: relative; }
+
+        .hero-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: var(--sombra-card);
+        }
+
+        @media (min-width: 768px) {
+            .hero-img { height: 480px; }
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: var(--branco);
+            padding: 12px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--bordo);
+            font-size: 0.9rem;
+        }
+
+        /* Metrics */
+        .metrics-bar {
+            background-color: var(--bordo);
+            color: var(--branco);
+            padding: 30px 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        @media (min-width: 576px) {
+            .metrics-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .metric-number {
+            font-family: var(--fonte-titulo);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        /* MONTE SEU PEDIDO */
+        .builder-section {
+            background-color: var(--creme-suave);
+        }
+
+        .builder-card {
+            background-color: var(--branco);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--sombra-card);
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .builder-group {
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed rgba(128, 0, 32, 0.15);
+        }
+
+        .builder-group:last-of-type {
+            border-bottom: none;
+        }
+
+        .builder-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--bordo);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .builder-select, .builder-input {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.15);
+            background-color: var(--creme-suave);
+            font-family: var(--fonte-corpo);
+            font-size: 0.95rem;
+            color: var(--texto-principal);
+            outline: none;
+            transition: var(--transicao);
+        }
+
+        .builder-select:focus, .builder-input:focus {
+            border-color: var(--bordo);
+            background-color: var(--branco);
+        }
+
+        .builder-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 576px) {
+            .builder-grid-2 { grid-template-columns: 1fr 1fr; }
+        }
+
+        .salgado-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 576px) {
+            .salgado-row { grid-template-columns: 2fr 1fr; }
+        }
+
+        .builder-summary {
+            background-color: var(--creme-medio);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(128, 0, 32, 0.1);
+        }
+
+        @media (min-width: 576px) {
+            .builder-summary { flex-direction: row; }
+        }
+
+        .total-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--bordo);
+        }
+
+        /* Cardápio Section */
+        .cardapio-section { background-color: var(--branco); }
+
+        .cardapio-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 24px;
+        }
+
+        @media (min-width: 576px) {
+            .cardapio-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 992px) {
+            .cardapio-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .cardapio-card {
+            background-color: var(--creme-suave);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--sombra-leve);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transicao);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cardapio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--sombra-card);
+        }
+
+        .cardapio-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            object-position: top;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .cardapio-info {
+            padding: 16px;
+            text-align: center;
+        }
+
+        .cardapio-info h3 {
+            font-family: var(--fonte-titulo);
+            font-size: 1.2rem;
+            color: var(--bordo);
+            margin-bottom: 4px;
+        }
+
+        .cardapio-info p {
+            font-size: 0.85rem;
+            color: var(--texto-suave);
+        }
+
+        /* Modal Image Zoom */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 40px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 12px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Differentials & Steps */
+        .diff-section { background-color: var(--branco); }
+
+        .diff-grid, .steps-grid, .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .diff-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps-grid { grid-template-columns: repeat(3, 1fr); }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 992px) {
+            .diff-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .diff-card {
+            padding: 20px;
+            border-left: 3px solid var(--bordo);
+            background-color: var(--creme-suave);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .diff-card i {
+            font-size: 1.8rem;
+            color: var(--bordo);
+            margin-bottom: 12px;
+        }
+
+        .step-card {
+            background-color: var(--branco);
+            padding: 32px 24px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--sombra-leve);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--bordo);
+            color: var(--branco);
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+        }
+
+        .testimonial-card {
+            background-color: var(--creme-suave);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--sombra-leve);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--texto-suave);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--bordo);
+        }
+
+        /* FAQ */
+        .faq-wrapper { max-width: 800px; margin: 0 auto; }
+
+        .faq-item {
+            background-color: var(--branco);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            box-shadow: var(--sombra-leve);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--texto-principal);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: var(--fonte-corpo);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 24px;
+            color: var(--texto-suave);
+        }
+
+        .faq-answer p { padding-bottom: 20px; }
+
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+
+        /* Footer & CTA Final */
+        .cta-final {
+            background-color: var(--bordo);
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .cta-final .section-title { color: var(--branco); }
+
+        .cta-final p {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .footer {
+            background-color: var(--bordo-dark);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 30px 0;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--verde-whatsapp);
+            color: var(--branco);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+
+        @media (max-width: 991px) {
+            .whatsapp-float { display: none; }
+        }
+
+        .mobile-sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--branco);
+            padding: 10px 16px;
+            box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
+            z-index: 998;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mobile-sticky-bar .btn { width: 100%; }
+
+        @media (min-width: 992px) {
+            .mobile-sticky-bar { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-cookie-bite"></i>
+                Divina Bolacha
+            </a>
+            <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20encomendas." target="_blank" class="btn btn-outline" style="padding: 10px 20px; min-height: auto; font-size: 0.9rem;">
+                <i class="fa-brands fa-whatsapp"></i> (53) 98151-7232
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="section-badge">📍 Confeitaria Artesanal em Pelotas</span>
+                    <h1 class="hero-title">A festa perfeita e sem estresse: Kits artesanais com o sabor de Pelotas.</h1>
+                    <p class="hero-subtitle">Tortas, docinhos, salgados e kits festa fresquinhos, feitos à mão. Monte seu pedido personalizado abaixo!</p>
+                    
+                    <div class="hero-ctas">
+                        <a href="#monte-seu-pedido" class="btn btn-bordo">
+                            <i class="fa-solid fa-utensils"></i> Monte Seu Pedido Online
+                        </a>
+                    </div>
+
+                    <div class="hero-social-proof">
+                        <div class="stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span>⭐ 4.9/5 em Pelotas • Praticidade em Encomendas</span>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrapper">
+                    <img src="torta-especial.jpg" alt="Tortas Doces Especiais Divina Bolacha" class="hero-img">
+                    <div class="floating-badge">
+                        <i class="fa-solid fa-box-open"></i>
+                        <span>Kit Pronto para Servir</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAIXA DE MÉTRICAS -->
+    <section class="metrics-bar">
+        <div class="container">
+            <div class="metrics-grid">
+                <div>
+                    <div class="metric-number">+1.000</div>
+                    <div>Festas adoçadas em Pelotas</div>
+                </div>
+                <div>
+                    <div class="metric-number">100%</div>
+                    <div>Produção artesanal e diária</div>
+                </div>
+                <div>
+                    <div class="metric-number">4.9/5★</div>
+                    <div>Avaliação média dos clientes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO MONTE SEU PEDIDO -->
+    <section class="section-padding builder-section" id="monte-seu-pedido">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-badge">Monte Seu Pedido</span>
+                <h2 class="section-title">Monte sua Encomenda Personalizada</h2>
+                <p class="section-subtitle">Escolha o tamanho da sua torta, os sabores dos docinhos e combine diferentes salgados!</p>
+            </div>
+
+            <div class="builder-card">
+                <form id="orderForm">
+                    
+                    <!-- 1. Torta / Bolo -->
+                    <div class="builder-group">
+                        <label><i class="fa-solid fa-cake-candles"></i> 1. Escolha a Torta / Bolo (Opcional):</label>
+                        <div class="builder-grid-2">
+                            <select id="tortaCategoria" class="builder-select" onchange="updateTortaOptions()">
+                                <option value="nenhuma" data-price="0">Sem Torta</option>
+                                <option value="tradicional">Torta Tradicional</option>
+                                <option value="especial">Torta Especial</option>
+                                <option value="outro">Outro (Personalizado)</option>
+                            </select>
+                            <select id="tortaTamanho" class="builder-select" onchange="updateSaborField(); calculateTotal();">
+                                <option value="nenhum" data-price="0">Selecione a categoria primeiro</option>
+                            </select>
+                        </div>
+
+                        <!-- Campo Dinâmico de Sabor da Torta -->
+                        <div id="tortaSaborContainer" style="margin-top: 12px; display: none;">
+                            <label style="font-size: 0.9rem; font-weight: 600;">Sabor da Torta:</label>
+                            <select id="tortaSaborSelect" class="builder-select" onchange="checkTortaCustomSabor()">
+                                <option value="">Selecione o sabor...</option>
+                            </select>
+                            <input type="text" id="tortaSaborOutro" class="builder-input" placeholder="Digite o sabor ou detalhes da torta..." style="margin-top: 8px; display: none;">
+                        </div>
+                    </div>
+
+                    <!-- 2. Docinhos -->
+                    <div class="builder-group">
+                        <label><i class="fa-solid fa-candy-cane"></i> 2. Escolha os Docinhos (Opcional):</label>
+                        <div class="builder-grid-2">
+                            <select id="docinhoTipo" class="builder-select" onchange="updateDocinhoOptions()">
+                                <option value="nenhum">Sem Docinhos</option>
+                                <option value="tradicional">Tradicionais (Brigadeiro, Branquinho, etc)</option>
+                                <option value="gourmet">Gourmet (Ninho c/ Nutella, Churros, etc)</option>
+                                <option value="especial">Especiais (Nozes, Confeito Belga, etc)</option>
+                                <option value="outro">Outro (SABORES MISTOS / PERSONALIZADO)</option>
+                            </select>
+                            <select id="docinhoQtd" class="builder-select" onchange="calculateTotal()">
+                                <option value="nenhum" data-price="0">Selecione o tipo primeiro</option>
+                            </select>
+                        </div>
+                        <input type="text" id="docinhoOutroInput" class="builder-input" placeholder="Especifique os sabores dos docinhos..." style="margin-top: 12px; display: none;">
+                    </div>
+
+                    <!-- 3. Salgados (Múltipla Seleção) -->
+                    <div class="builder-group">
+                        <label><i class="fa-solid fa-bread-slice"></i> 3. Escolha os Salgados (Combine vários tipos):</label>
+                        
+                        <!-- Salgado 1 -->
+                        <div class="salgado-row">
+                            <select id="salgadoTipo1" class="builder-select" onchange="calculateTotal()">
+                                <option value="Nenhum" data-price="0">Nenhum salgado</option>
+                                <option value="Folhados e Fritos" data-price="130">Folhados e Fritos — R$ 130,00/cento</option>
+                                <option value="Clássicos" data-price="150">Clássicos (Barquete, Canudinho, etc) — R$ 150,00/cento</option>
+                                <option value="Especiais" data-price="180">Especiais (Hamburguinho, Bauruzinho) — R$ 180,00/cento</option>
+                                <option value="Outro (Personalizado)" data-price="0">Outro / Misto (A combinar)</option>
+                            </select>
+                            <input type="number" id="salgadoQtd1" class="builder-input" placeholder="Centos (ex: 1)" min="1" value="1" onchange="calculateTotal()" oninput="calculateTotal()">
+                        </div>
+
+                        <!-- Salgado 2 -->
+                        <div class="salgado-row">
+                            <select id="salgadoTipo2" class="builder-select" onchange="calculateTotal()">
+                                <option value="Nenhum" data-price="0">+ Adicionar 2º tipo de salgado...</option>
+                                <option value="Folhados e Fritos" data-price="130">Folhados e Fritos — R$ 130,00/cento</option>
+                                <option value="Clássicos" data-price="150">Clássicos (Barquete, Canudinho, etc) — R$ 150,00/cento</option>
+                                <option value="Especiais" data-price="180">Especiais (Hamburguinho, Bauruzinho) — R$ 180,00/cento</option>
+                                <option value="Outro (Personalizado)" data-price="0">Outro / Misto (A combinar)</option>
+                            </select>
+                            <input type="number" id="salgadoQtd2" class="builder-input" placeholder="Centos (ex: 1)" min="1" value="1" onchange="calculateTotal()" oninput="calculateTotal()">
+                        </div>
+
+                        <!-- Salgado 3 -->
+                        <div class="salgado-row">
+                            <select id="salgadoTipo3" class="builder-select" onchange="calculateTotal()">
+                                <option value="Nenhum" data-price="0">+ Adicionar 3º tipo de salgado...</option>
+                                <option value="Folhados e Fritos" data-price="130">Folhados e Fritos — R$ 130,00/cento</option>
+                                <option value="Clássicos" data-price="150">Clássicos (Barquete, Canudinho, etc) — R$ 150,00/cento</option>
+                                <option value="Especiais" data-price="180">Especiais (Hamburguinho, Bauruzinho) — R$ 180,00/cento</option>
+                                <option value="Outro (Personalizado)" data-price="0">Outro / Misto (A combinar)</option>
+                            </select>
+                            <input type="number" id="salgadoQtd3" class="builder-input" placeholder="Centos (ex: 1)" min="1" value="1" onchange="calculateTotal()" oninput="calculateTotal()">
+                        </div>
+                    </div>
+
+                    <!-- Observações Gerais -->
+                    <div class="builder-group">
+                        <label><i class="fa-solid fa-pen-to-square"></i> Data do Evento e Observações:</label>
+                        <input type="text" id="observacoes" class="builder-input" placeholder="Ex: Entrega para o dia 15/08 às 15h. Preferência por coxinha e risóles.">
+                    </div>
+
+                    <!-- Resumo e Envio -->
+                    <div class="builder-summary">
+                        <div>
+                            <span>Total Estimado:</span>
+                            <div class="total-price" id="totalDisplay">R$ 0,00</div>
+                        </div>
+                        <button type="button" class="btn btn-whatsapp" onclick="sendOrderToWhatsApp()">
+                            <i class="fa-brands fa-whatsapp"></i> Enviar Pedido no WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA DO CARDÁPIO OFICIAL -->
+    <section class="section-padding cardapio-section" id="cardapio">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-badge">Cardápio Oficial</span>
+                <h2 class="section-title">Confira Nossas Delícias e Valores</h2>
+                <p class="section-subtitle">Clique em qualquer imagem do cardápio para ampliar e ver todas as opções de recheios e tamanhos.</p>
+            </div>
+
+            <div class="cardapio-grid">
+                <div class="cardapio-card" onclick="openModal('torta-especial.jpg')">
+                    <img src="torta-especial.jpg" alt="Cardápio Tortas Doces Especiais" class="cardapio-img">
+                    <div class="cardapio-info">
+                        <h3>Tortas Doces Especiais</h3>
+                        <p>Clique para ampliar <i class="fa-solid fa-magnifying-glass-plus"></i></p>
+                    </div>
+                </div>
+
+                <div class="cardapio-card" onclick="openModal('torta-tradicional.jpg')">
+                    <img src="torta-tradicional.jpg" alt="Cardápio Tortas Doces Tradicionais" class="cardapio-img">
+                    <div class="cardapio-info">
+                        <h3>Tortas Tradicionais</h3>
+                        <p>Clique para ampliar <i class="fa-solid fa-magnifying-glass-plus"></i></p>
+                    </div>
+                </div>
+
+                <div class="cardapio-card" onclick="openModal('docinhos.jpg')">
+                    <img src="docinhos.jpg" alt="Cardápio Docinhos Tradicionais e Gourmet" class="cardapio-img">
+                    <div class="cardapio-info">
+                        <h3>Docinhos & Gourmet</h3>
+                        <p>Clique para ampliar <i class="fa-solid fa-magnifying-glass-plus"></i></p>
+                    </div>
+                </div>
+
+                <div class="cardapio-card" onclick="openModal('salgados.jpg')">
+                    <img src="salgados.jpg" alt="Cardápio Salgados Folhados, Fritos e Assados" class="cardapio-img">
+                    <div class="cardapio-info">
+                        <h3>Salgados Variados</h3>
+                        <p>Clique para ampliar <i class="fa-solid fa-magnifying-glass-plus"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE VISUALIZAÇÃO DE IMAGEM -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="imgModalTarget">
+    </div>
+
+    <!-- SOBRE NÓS -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <img src="docinhos.jpg" alt="Produção Artesanal Divina Bolacha" style="width:100%; height:350px; object-fit:cover; border-radius:var(--border-radius);">
+                </div>
+                <div>
+                    <span class="section-badge">Nossa História</span>
+                    <h2 class="section-title">Feito à mão, para celebrar momentos inesquecíveis.</h2>
+                    <p style="margin-bottom:16px; color:var(--texto-suave);">A Divina Bolacha nasceu do amor por reunir pessoas queridas ao redor de uma mesa farta e saborosa. Em Pelotas, uma cidade que respira a tradição dos bons doces, nosso propósito é unir receitas afetivas com a praticidade que a sua rotina exige.</p>
+                    <p style="color:var(--texto-suave);">Não somos apenas uma confeitaria; somos o seu parceiro de celebração. Queremos que você aproveite a sua festa sem se preocupar com os preparativos. Cada salgadinho, cada fatia de torta e cada docinho que sai da nossa cozinha é preparado com ingredientes selecionados, dedicação e aquele toque artesanal que faz toda a diferença no paladar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="section-padding diff-section">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-badge">Por Que a Divina Bolacha?</span>
+                <h2 class="section-title">O Cuidado Que Faz A Diferença</h2>
+                <p class="section-subtitle">Pensamos em cada detalhe para que sua única preocupação seja aproveitar a festa.</p>
+            </div>
+
+            <div class="diff-grid">
+                <div class="diff-card">
+                    <i class="fa-solid fa-utensils"></i>
+                    <h3>Tudo em um só lugar</h3>
+                    <p>Sem necessidade de cotar em múltiplos locais. Resolvemos doces, salgados e torta no mesmo pedido.</p>
+                </div>
+
+                <div class="diff-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3>Praticidade Escolar</h3>
+                    <p>Kits embalados individualmente, perfeitos para festas de aniversário na sala de aula.</p>
+                </div>
+
+                <div class="diff-card">
+                    <i class="fa-solid fa-heart"></i>
+                    <h3>100% Artesanal</h3>
+                    <p>Receitas afetivas com sabor real de comida feita em casa, sem sabor de produção industrial.</p>
+                </div>
+
+                <div class="diff-card">
+                    <i class="fa-solid fa-clock"></i>
+                    <h3>Pontualidade Garantida</h3>
+                    <p>Respeito rigoroso aos horários combinados para que nada atrase a sua comemoração.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ETAPAS DE ATENDIMENTO -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-badge">Passo a Passo</span>
+                <h2 class="section-title">Sua Encomenda Pronta em 3 Passos</h2>
+                <p class="section-subtitle">Simplicidade e rapidez para agendar seu pedido pelo WhatsApp.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Monte Seu Pedido</h3>
+                    <p>Selecione sua torta, docinhos e salgados no nosso formulário interativo acima.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Combine no WhatsApp</h3>
+                    <p>Fale conosco no (53) 98151-7232 para definir os recheios e agendar data/horário.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Aproveite a sua Festa</h3>
+                    <p>Receba tudo fresquinho e pronto para ser servido e elogiado por todos os convidados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="section-padding testimonials-section">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-badge">Depoimentos</span>
+                <h2 class="section-title">Quem Experimenta em Pelotas, Recomenda!</h2>
+                <p class="section-subtitle">A alegria e satisfação de quem já comemorou com as nossas delícias.</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars" style="margin-bottom: 12px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Encomendei os docinhos e os salgados para o aniversário do meu filho. O atendimento no WhatsApp foi super rápido e o pedido veio impecável!"</p>
+                    <div class="testimonial-author">— Camila, Bairro Areal</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars" style="margin-bottom: 12px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"A torta de 4 Leites é simplesmente maravilhosa e os salgados folhados chegaram fresquinhos. Recomendo de olhos fechados!"</p>
+                    <div class="testimonial-author">— Roberto, Centro</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-badge">Tire suas Dúvidas</span>
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <p class="section-subtitle">Respostas para as principais dúvidas sobre pedidos e entregas.</p>
+            </div>
+
+            <div class="faq-wrapper">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Com quanta antecedência devo fazer a minha encomenda?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Recomendamos que os pedidos sejam feitos com antecedência para garantirmos a disponibilidade da data e prepararmos tudo com a excelência que seu evento merece.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Vocês fazem entregas em Pelotas? Onde fica a loja?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Realizamos entregas na região de Pelotas ou você pode retirar sua encomenda no nosso endereço oficial: R. Dr. Edmundo Berchon, 199.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Posso alterar os itens ou personalizar os sabores?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Com certeza! Você pode personalizar as opções de tortas, os centos de salgados e os docinhos diretamente no nosso atendimento do WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL E RODAPÉ -->
+    <section class="section-padding cta-final">
+        <div class="container">
+            <h2 class="section-title">Pronto para deixar sua festa ainda mais especial?</h2>
+            <p>Fale conosco agora no WhatsApp e garanta a sua encomenda com o cardápio oficial da Divina Bolacha.</p>
+            <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Gostaria%20de%20garantir%20a%20data%20da%20minha%20festa." target="_blank" class="btn btn-whatsapp" style="font-size: 1.1rem; padding: 18px 36px;">
+                <i class="fa-brands fa-whatsapp"></i> Garantir Encomenda no (53) 98151-7232
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p><strong>Divina Bolacha — Confeitaria Artesanal por Aline Fernandes</strong></p>
+            <p>📍 R. Dr. Edmundo Berchon, 199 - Pelotas/RS</p>
+            <p>📞 WhatsApp: (53) 98151-7232</p>
+            <p style="font-size: 0.75rem; margin-top: 16px; opacity: 0.6;">© 2026 Divina Bolacha. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." target="_blank" class="whatsapp-float" aria-label="Atendimento via WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Barra Fixa Mobile -->
+    <div class="mobile-sticky-bar">
+        <a href="#monte-seu-pedido" class="btn btn-whatsapp">
+            <i class="fa-solid fa-utensils"></i> Monte Seu Pedido Online
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Modais das Imagens
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('imgModalTarget');
+            modal.style.display = "block";
+            modalImg.src = imageSrc;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+
+        // FAQ
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.parentElement;
+                    const faqAnswer = question.nextElementSibling;
+
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        if (item !== faqItem) {
+                            item.classList.remove('active');
+                            item.querySelector('.faq-answer').style.maxHeight = null;
+                        }
+                    });
+
+                    faqItem.classList.toggle('active');
+                    if (faqItem.classList.contains('active')) {
+                        faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
+                    } else {
+                        faqAnswer.style.maxHeight = null;
+                    }
+                });
+            });
+        });
+
+        // LISTA DE SABORES DAS TORTAS
+        const saboresTradicionais = ["Chocolatudo", "Morango", "Divina", "Sensação", "Abacaxi", "Julia", "Mousse", "Bombom", "Dois Amores", "Outro (digitar abaixo)"];
+        const saboresEspeciais = ["4 Leites", "Supreme", "Nozes", "Abacaxi com Côco", "Dueto", "Festa", "Três Amores", "Floresta Negra", "Marta Rocha", "Outro (digitar abaixo)"];
+
+        // LÓGICA DO MONTE SEU PEDIDO
+        function updateTortaOptions() {
+            const cat = document.getElementById('tortaCategoria').value;
+            const tamanhoSelect = document.getElementById('tortaTamanho');
+            const saborContainer = document.getElementById('tortaSaborContainer');
+            const saborSelect = document.getElementById('tortaSaborSelect');
+            
+            tamanhoSelect.innerHTML = '';
+            saborSelect.innerHTML = '<option value="">Selecione o sabor...</option>';
+
+            if (cat === 'tradicional') {
+                tamanhoSelect.innerHTML = `
+                    <option value="Torta Tradicional P (12 fatias)" data-price="130">P (até 12 fatias) — R$ 130,00</option>
+                    <option value="Torta Tradicional M (28 fatias)" data-price="200">M (até 28 fatias) — R$ 200,00</option>
+                    <option value="Torta Tradicional G (38 fatias)" data-price="270">G (até 38 fatias) — R$ 270,00</option>
+                    <option value="Torta Tradicional GG (56 fatias)" data-price="340">GG (até 56 fatias) — R$ 340,00</option>
+                `;
+                saboresTradicionais.forEach(sabor => {
+                    saborSelect.innerHTML += `<option value="${sabor}">${sabor}</option>`;
+                });
+                saborContainer.style.display = 'block';
+            } else if (cat === 'especial') {
+                tamanhoSelect.innerHTML = `
+                    <option value="Torta Especial P (12 fatias)" data-price="150">P (até 12 fatias) — R$ 150,00</option>
+                    <option value="Torta Especial M (28 fatias)" data-price="230">M (até 28 fatias) — R$ 230,00</option>
+                    <option value="Torta Especial G (38 fatias)" data-price="300">G (até 38 fatias) — R$ 300,00</option>
+                    <option value="Torta Especial GG (56 fatias)" data-price="370">GG (até 56 fatias) — R$ 370,00</option>
+                `;
+                saboresEspeciais.forEach(sabor => {
+                    saborSelect.innerHTML += `<option value="${sabor}">${sabor}</option>`;
+                });
+                saborContainer.style.display = 'block';
+            } else if (cat === 'outro') {
+                tamanhoSelect.innerHTML = `<option value="Torta Personalizada / Outro" data-price="0">Torta Personalizada (A combinar)</option>`;
+                saborSelect.innerHTML = `<option value="Outro (digitar abaixo)">Personalizado</option>`;
+                saborContainer.style.display = 'block';
+                document.getElementById('tortaSaborOutro').style.display = 'block';
+            } else {
+                tamanhoSelect.innerHTML = `<option value="Sem Torta" data-price="0">Sem Torta</option>`;
+                saborContainer.style.display = 'none';
+            }
+            updateSaborField();
+            calculateTotal();
+        }
+
+        function updateSaborField() {
+            const cat = document.getElementById('tortaCategoria').value;
+            const saborContainer = document.getElementById('tortaSaborContainer');
+            if (cat === 'nenhuma') {
+                saborContainer.style.display = 'none';
+            } else {
+                saborContainer.style.display = 'block';
+            }
+        }
+
+        function checkTortaCustomSabor() {
+            const val = document.getElementById('tortaSaborSelect').value;
+            const outroInput = document.getElementById('tortaSaborOutro');
+            if (val.includes('Outro')) {
+                outroInput.style.display = 'block';
+            } else {
+                outroInput.style.display = 'none';
+            }
+        }
+
+        function updateDocinhoOptions() {
+            const tipo = document.getElementById('docinhoTipo').value;
+            const qtdSelect = document.getElementById('docinhoQtd');
+            const outroInput = document.getElementById('docinhoOutroInput');
+            qtdSelect.innerHTML = '';
+
+            if (tipo === 'tradicional') {
+                qtdSelect.innerHTML = `
+                    <option value="25 Docinhos Tradicionais" data-price="50">25 unidades — R$ 50,00</option>
+                    <option value="35 Docinhos Tradicionais" data-price="70">35 unidades — R$ 70,00</option>
+                    <option value="50 Docinhos Tradicionais" data-price="100">50 unidades — R$ 100,00</option>
+                    <option value="100 Docinhos Tradicionais" data-price="180">100 unidades (Cento) — R$ 180,00</option>
+                `;
+                outroInput.style.display = 'none';
+            } else if (tipo === 'gourmet') {
+                qtdSelect.innerHTML = `
+                    <option value="25 Docinhos Gourmet" data-price="60">25 unidades — R$ 60,00</option>
+                    <option value="35 Docinhos Gourmet" data-price="80">35 unidades — R$ 80,00</option>
+                    <option value="50 Docinhos Gourmet" data-price="120">50 unidades — R$ 120,00</option>
+                    <option value="100 Docinhos Gourmet" data-price="220">100 unidades (Cento) — R$ 220,00</option>
+                `;
+                outroInput.style.display = 'none';
+            } else if (tipo === 'especial') {
+                qtdSelect.innerHTML = `
+                    <option value="25 Docinhos Especiais" data-price="80">25 unidades — R$ 80,00</option>
+                    <option value="35 Docinhos Especiais" data-price="110">35 unidades — R$ 110,00</option>
+                    <option value="50 Docinhos Especiais" data-price="150">50 unidades — R$ 150,00</option>
+                    <option value="100 Docinhos Especiais" data-price="280">100 unidades (Cento) — R$ 280,00</option>
+                `;
+                outroInput.style.display = 'none';
+            } else if (tipo === 'outro') {
+                qtdSelect.innerHTML = `<option value="Docinhos Misto / Personalizado" data-price="0">Quantidade e Sabores Misto (A combinar)</option>`;
+                outroInput.style.display = 'block';
+            } else {
+                qtdSelect.innerHTML = `<option value="Sem Docinhos" data-price="0">Sem Docinhos</option>`;
+                outroInput.style.display = 'none';
+            }
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            let total = 0;
+
+            // Torta
+            const tortaSelect = document.getElementById('tortaTamanho');
+            if (tortaSelect.options.length > 0) {
+                const tortaPrice = parseFloat(tortaSelect.options[tortaSelect.selectedIndex].getAttribute('data-price') || 0);
+                total += tortaPrice;
+            }
+
+            // Docinhos
+            const docinhoSelect = document.getElementById('docinhoQtd');
+            if (docinhoSelect.options.length > 0) {
+                const docinhoPrice = parseFloat(docinhoSelect.options[docinhoSelect.selectedIndex].getAttribute('data-price') || 0);
+                total += docinhoPrice;
+            }
+
+            // Salgados 1, 2 e 3
+            for (let i = 1; i <= 3; i++) {
+                const salgadoSelect = document.getElementById(`salgadoTipo${i}`);
+                const salgadoQtdInput = document.getElementById(`salgadoQtd${i}`);
+                const salgadoPriceUnit = parseFloat(salgadoSelect.options[salgadoSelect.selectedIndex].getAttribute('data-price') || 0);
+                
+                if (salgadoPriceUnit > 0) {
+                    let qtd = parseInt(salgadoQtdInput.value) || 1;
+                    if (qtd < 1) qtd = 1;
+                    total += (salgadoPriceUnit * qtd);
+                }
+            }
+
+            document.getElementById('totalDisplay').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            return total;
+        }
+
+        function sendOrderToWhatsApp() {
+            // Torta
+            const tortaCat = document.getElementById('tortaCategoria').value;
+            let tortaInfo = "Sem Torta";
+            if (tortaCat !== 'nenhuma') {
+                const tortaSelect = document.getElementById('tortaTamanho');
+                const tortaText = tortaSelect.options.length > 0 ? tortaSelect.options[tortaSelect.selectedIndex].text : '';
+                
+                let saborVal = document.getElementById('tortaSaborSelect').value;
+                if (saborVal.includes('Outro') || tortaCat === 'outro') {
+                    saborVal = document.getElementById('tortaSaborOutro').value || 'Sabor a combinar';
+                }
+                tortaInfo = `${tortaText} (Sabor: ${saborVal || 'Não informado'})`;
+            }
+
+            // Docinhos
+            const docinhoTipo = document.getElementById('docinhoTipo').value;
+            let docinhoInfo = "Sem Docinhos";
+            if (docinhoTipo !== 'nenhum') {
+                const docinhoSelect = document.getElementById('docinhoQtd');
+                const docinhoText = docinhoSelect.options.length > 0 ? docinhoSelect.options[docinhoSelect.selectedIndex].text : '';
+                const docinhoOutro = document.getElementById('docinhoOutroInput').value;
+                docinhoInfo = docinhoOutro ? `${docinhoText} - Detalhes: ${docinhoOutro}` : docinhoText;
+            }
+
+            // Salgados Múltiplos
+            let salgadosLista = [];
+            for (let i = 1; i <= 3; i++) {
+                const salgadoSelect = document.getElementById(`salgadoTipo${i}`);
+                const salgadoVal = salgadoSelect.value;
+                if (salgadoVal !== 'Nenhum') {
+                    const qtd = document.getElementById(`salgadoQtd${i}`).value || 1;
+                    salgadosLista.push(`${qtd}x cento(s) de ${salgadoVal}`);
+                }
+            }
+            const salgadosText = salgadosLista.length > 0 ? salgadosLista.join(', ') : 'Sem Salgados';
+
+            const observacoes = document.getElementById('observacoes').value || 'Não informado';
+            const total = document.getElementById('totalDisplay').innerText;
+
+            let mensagem = `*Olá! Montei meu pedido no site da Divina Bolacha:*\n\n`;
+            mensagem += `🎂 *Torta/Bolo:* ${tortaInfo}\n`;
+            mensagem += `🍬 *Docinhos:* ${docinhoInfo}\n`;
+            mensagem += `🥐 *Salgados:* ${salgadosText}\n`;
+            mensagem += `📝 *Observações/Data:* ${observacoes}\n\n`;
+            mensagem += `💰 *Total Estimado:* ${total}\n\n`;
+            mensagem += `Gostaria de confirmar a disponibilidade da data e finalizar a encomenda!`;
+
+            const url = `https://wa.me/5553981517232?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
