@@ -1,6 +1,0 @@
-Pastel;Salgados;8;Massa, Carne e Ovo;https://pubimg.band.com.br/files/feadade27e644c2c7a98.png
-Pao de Queijo;Salgados;6;Queijo e creme de leite;https://cdn.oceanserver.com.br/lojas/gymchef/uploads_produto/pao-de-queijo-site-696435bd92f69.png
-Quindim;Doces;6;Doce de Leite e Ovos;https://www.osazeitesdaespanha.com/wp-content/uploads/2024/05/Receita-Quindim.jpg
-Torrada;Salgados;8;Pao, Queijo e Presunto;https://static.ndmais.com.br/2024/08/capa-torrada-de-ovo.jpg
-Figurinha da Copa;Figuras;7;Papel;https://http2.mlstatic.com/D_NQ_NP_721598-MLB111124970062_052026-O.webp
-Brigadeiro;Doces;6;Chocolate e Leite Condensado;https://upload.wikimedia.org/wikipedia/commons/a/a4/Brigadeiro.jpg
