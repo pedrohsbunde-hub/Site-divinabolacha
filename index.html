@@ -357,15 +357,57 @@
             .builder-grid-2 { grid-template-columns: 1fr 1fr; }
         }
 
-        .salgado-row {
+        /* SELETORES DE ITENS COM QUANTIDADE LIVRE */
+        .item-category-box {
+            background-color: var(--creme-suave);
+            border: 1px solid rgba(128, 0, 32, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .item-category-title {
+            font-weight: 700;
+            color: var(--bordo);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .item-row-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(1, 1fr);
             gap: 10px;
-            margin-bottom: 10px;
         }
 
         @media (min-width: 576px) {
-            .salgado-row { grid-template-columns: 2fr 1fr; }
+            .item-row-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .item-unit-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--branco);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.06);
+            gap: 10px;
+        }
+
+        .item-unit-row span {
+            font-size: 0.88rem;
+            color: var(--texto-principal);
+            font-weight: 500;
+        }
+
+        .item-unit-row input[type="number"] {
+            width: 75px;
+            padding: 6px;
+            border-radius: 6px;
+            border: 1px solid rgba(0,0,0,0.2);
+            text-align: center;
+            font-size: 0.88rem;
         }
 
         .builder-summary {
@@ -679,7 +721,7 @@
                 <div class="hero-content">
                     <span class="section-badge">📍 Confeitaria Artesanal em Pelotas</span>
                     <h1 class="hero-title">A festa perfeita e sem estresse: Kits artesanais com o sabor de Pelotas.</h1>
-                    <p class="hero-subtitle">Tortas, docinhos, salgados e kits festa fresquinhos, feitos à mão. Monte seu pedido personalizado abaixo!</p>
+                    <p class="hero-subtitle">Tortas, docinhos, salgados e kits festa fresquinhos, feitos à mão. Digite a quantidade de cada item e veja o cálculo na hora!</p>
                     
                     <div class="hero-ctas">
                         <a href="#monte-seu-pedido" class="btn btn-bordo">
@@ -736,7 +778,7 @@
             <div class="text-center">
                 <span class="section-badge">Monte Seu Pedido</span>
                 <h2 class="section-title">Monte sua Encomenda Personalizada</h2>
-                <p class="section-subtitle">Escolha o tamanho da sua torta, os sabores dos docinhos e combine diferentes salgados!</p>
+                <p class="section-subtitle">Escolha o tamanho da sua torta e digite a quantidade de unidades que desejar para cada doce ou salgado!</p>
             </div>
 
             <div class="builder-card">
@@ -757,7 +799,6 @@
                             </select>
                         </div>
 
-                        <!-- Campo Dinâmico de Sabor da Torta -->
                         <div id="tortaSaborContainer" style="margin-top: 12px; display: none;">
                             <label style="font-size: 0.9rem; font-weight: 600;">Sabor da Torta:</label>
                             <select id="tortaSaborSelect" class="builder-select" onchange="checkTortaCustomSabor()">
@@ -767,69 +808,261 @@
                         </div>
                     </div>
 
-                    <!-- 2. Docinhos -->
+                    <!-- 2. Docinhos com Quantidade Livre -->
                     <div class="builder-group">
-                        <label><i class="fa-solid fa-candy-cane"></i> 2. Escolha os Docinhos (Opcional):</label>
-                        <div class="builder-grid-2">
-                            <select id="docinhoTipo" class="builder-select" onchange="updateDocinhoOptions()">
-                                <option value="nenhum">Sem Docinhos</option>
-                                <option value="tradicional">Tradicionais (Brigadeiro, Branquinho, etc)</option>
-                                <option value="gourmet">Gourmet (Ninho c/ Nutella, Churros, etc)</option>
-                                <option value="especial">Especiais (Nozes, Confeito Belga, etc)</option>
-                                <option value="outro">Outro (SABORES MISTOS / PERSONALIZADO)</option>
-                            </select>
-                            <select id="docinhoQtd" class="builder-select" onchange="calculateTotal()">
-                                <option value="nenhum" data-price="0">Selecione o tipo primeiro</option>
-                            </select>
+                        <label><i class="fa-solid fa-candy-cane"></i> 2. Escolha os Docinhos (Digite a quantidade de unidades):</label>
+                        
+                        <!-- Tradicionais -->
+                        <div class="item-category-box">
+                            <span class="item-category-title">🍬 Tradicionais (R$ 1,80 / unidade - Cento R$ 180,00)</span>
+                            <div class="item-row-grid">
+                                <div class="item-unit-row">
+                                    <span>Brigadeiro Tradicional</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Brigadeiro Tradicional" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Branquinho no Açúcar</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Branquinho no Açúcar" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Beijinho (Côco)</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Beijinho (Côco)" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Nesquick</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Nesquick" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Casadinho</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Casadinho" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                            </div>
                         </div>
-                        <input type="text" id="docinhoOutroInput" class="builder-input" placeholder="Especifique os sabores dos docinhos..." style="margin-top: 12px; display: none;">
+
+                        <!-- Gourmet -->
+                        <div class="item-category-box">
+                            <span class="item-category-title">✨ Gourmet (R$ 2,20 / unidade - Cento R$ 220,00)</span>
+                            <div class="item-row-grid">
+                                <div class="item-unit-row">
+                                    <span>Ninho com Nutella</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Ninho com Nutella" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Coloridos / Neon</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Coloridos / Neon" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Branco c/ Raspas</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Branco c/ Raspas" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Ao Leite c/ Raspas</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Ao Leite c/ Raspas" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Churros</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Churros" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Paçoca</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Paçoca" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Meio Amargo c/ Raspas</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Meio Amargo c/ Raspas" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Stikadinho / M&M's</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Stikadinho / M&M's" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Especiais -->
+                        <div class="item-category-box">
+                            <span class="item-category-title">⭐ Especiais (R$ 2,80 / unidade - Cento R$ 280,00)</span>
+                            <div class="item-row-grid">
+                                <div class="item-unit-row">
+                                    <span>Nozes</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Nozes" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Meio Amargo c/ Belga</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Meio Amargo c/ Belga" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Ao Leite c/ Belga</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Ao Leite c/ Belga" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Amêndoas / Brulè</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Amêndoas / Brulè" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>KitKat / Oreo</span>
+                                    <input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="KitKat / Oreo" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="text" id="docinhoOutroInput" class="builder-input" placeholder="Outros docinhos ou observações personalizadas..." style="margin-top: 8px;">
                     </div>
 
-                    <!-- 3. Salgados (Múltipla Seleção) -->
+                    <!-- 3. Salgados com Quantidade Livre -->
                     <div class="builder-group">
-                        <label><i class="fa-solid fa-bread-slice"></i> 3. Escolha os Salgados (Combine vários tipos):</label>
+                        <label><i class="fa-solid fa-bread-slice"></i> 3. Escolha os Salgados (Digite a quantidade de unidades):</label>
                         
-                        <!-- Salgado 1 -->
-                        <div class="salgado-row">
-                            <select id="salgadoTipo1" class="builder-select" onchange="calculateTotal()">
-                                <option value="Nenhum" data-price="0">Nenhum salgado</option>
-                                <option value="Folhados e Fritos" data-price="130">Folhados e Fritos — R$ 130,00/cento</option>
-                                <option value="Clássicos" data-price="150">Clássicos (Barquete, Canudinho, etc) — R$ 150,00/cento</option>
-                                <option value="Especiais" data-price="180">Especiais (Hamburguinho, Bauruzinho) — R$ 180,00/cento</option>
-                                <option value="Outro (Personalizado)" data-price="0">Outro / Misto (A combinar)</option>
-                            </select>
-                            <input type="number" id="salgadoQtd1" class="builder-input" placeholder="Centos (ex: 1)" min="1" value="1" onchange="calculateTotal()" oninput="calculateTotal()">
+                        <!-- FOLHADOS -->
+                        <div class="item-category-box">
+                            <span class="item-category-title">🥐 Folhados (R$ 1,30 / unidade - Cento R$ 130,00)</span>
+                            <div class="item-row-grid">
+                                <div class="item-unit-row">
+                                    <span>Croissant Chocolate</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croissant Chocolate" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Croissant Presunto/Queijo</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croissant Presunto e Queijo" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Empadinha de Frango</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Empadinha de Frango" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Enroladinho de Salsicha</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Enroladinho de Salsicha" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Enroladinho de Goiabada</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Enroladinho de Goiabada" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Folhadinho de Ricota</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Folhadinho de Ricota" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Pastelzinho Frango/Req.</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Pastelzinho Frango e Requeijão" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Salgado 2 -->
-                        <div class="salgado-row">
-                            <select id="salgadoTipo2" class="builder-select" onchange="calculateTotal()">
-                                <option value="Nenhum" data-price="0">+ Adicionar 2º tipo de salgado...</option>
-                                <option value="Folhados e Fritos" data-price="130">Folhados e Fritos — R$ 130,00/cento</option>
-                                <option value="Clássicos" data-price="150">Clássicos (Barquete, Canudinho, etc) — R$ 150,00/cento</option>
-                                <option value="Especiais" data-price="180">Especiais (Hamburguinho, Bauruzinho) — R$ 180,00/cento</option>
-                                <option value="Outro (Personalizado)" data-price="0">Outro / Misto (A combinar)</option>
-                            </select>
-                            <input type="number" id="salgadoQtd2" class="builder-input" placeholder="Centos (ex: 1)" min="1" value="1" onchange="calculateTotal()" oninput="calculateTotal()">
+                        <!-- FRITOS -->
+                        <div class="item-category-box">
+                            <span class="item-category-title">🍗 Fritos (R$ 1,30 / unidade - Cento R$ 130,00)</span>
+                            <div class="item-row-grid">
+                                <div class="item-unit-row">
+                                    <span>Bolinhas de Provolone</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Bolinhas de Provolone" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Coxinha</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Coxinha" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Croquete de Carne</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croquete de Carne" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Croquete Carne c/ Req.</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croquete Carne c/ Requeijão" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Croquete de Calabresa</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croquete de Calabresa" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Mini Churros</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Mini Churros" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Pastelzinho de Carne</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Pastelzinho de Carne" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Pastelzinho de Queijo</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Pastelzinho de Queijo" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Risóles de Queijo</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Risóles de Queijo" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Risóles Presunto/Queijo</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Risóles Presunto e Queijo" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Salgado 3 -->
-                        <div class="salgado-row">
-                            <select id="salgadoTipo3" class="builder-select" onchange="calculateTotal()">
-                                <option value="Nenhum" data-price="0">+ Adicionar 3º tipo de salgado...</option>
-                                <option value="Folhados e Fritos" data-price="130">Folhados e Fritos — R$ 130,00/cento</option>
-                                <option value="Clássicos" data-price="150">Clássicos (Barquete, Canudinho, etc) — R$ 150,00/cento</option>
-                                <option value="Especiais" data-price="180">Especiais (Hamburguinho, Bauruzinho) — R$ 180,00/cento</option>
-                                <option value="Outro (Personalizado)" data-price="0">Outro / Misto (A combinar)</option>
-                            </select>
-                            <input type="number" id="salgadoQtd3" class="builder-input" placeholder="Centos (ex: 1)" min="1" value="1" onchange="calculateTotal()" oninput="calculateTotal()">
+                        <!-- CLÁSSICOS -->
+                        <div class="item-category-box">
+                            <span class="item-category-title">🧁 Clássicos (R$ 1,50 / unidade - Cento R$ 150,00)</span>
+                            <div class="item-row-grid">
+                                <div class="item-unit-row">
+                                    <span>Barquete (Frango)</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Barquete Frango" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Barquete (Saladinha)</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Barquete Saladinha" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Bregeré</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Bregeré" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Canudinho (Frango)</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Canudinho Frango" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Canudinho (Carne)</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Canudinho Carne" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Mini Pizza (Frios)</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Mini Pizza Frios" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Mini Pizza (Calabresa)</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Mini Pizza Calabresa" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- ESPECIAIS -->
+                        <div class="item-category-box">
+                            <span class="item-category-title">🍔 Especiais (R$ 1,80 / unidade - Cento R$ 180,00)</span>
+                            <div class="item-row-grid">
+                                <div class="item-unit-row">
+                                    <span>Cachorrinho</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Cachorrinho" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Hamburguinho</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Hamburguinho" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Sanduíchinho (Frios)</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Sanduíchinho Frios" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Sanduíchinho (Atum/Ricota)</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Sanduíchinho Atum/Ricota" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                                <div class="item-unit-row">
+                                    <span>Bauruzinho</span>
+                                    <input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Bauruzinho" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="text" id="salgadoOutroInput" class="builder-input" placeholder="Outros salgados ou observações personalizadas..." style="margin-top: 8px;">
                     </div>
 
                     <!-- Observações Gerais -->
                     <div class="builder-group">
                         <label><i class="fa-solid fa-pen-to-square"></i> Data do Evento e Observações:</label>
-                        <input type="text" id="observacoes" class="builder-input" placeholder="Ex: Entrega para o dia 15/08 às 15h. Preferência por coxinha e risóles.">
+                        <input type="text" id="observacoes" class="builder-input" placeholder="Ex: Entrega para o dia 15/08 às 15h.">
                     </div>
 
                     <!-- Resumo e Envio -->
@@ -1089,7 +1322,6 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // Modais das Imagens
         function openModal(imageSrc) {
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('imgModalTarget');
@@ -1101,7 +1333,6 @@
             document.getElementById('imageModal').style.display = "none";
         }
 
-        // FAQ
         document.addEventListener('DOMContentLoaded', function() {
             const faqQuestions = document.querySelectorAll('.faq-question');
             faqQuestions.forEach(question => {
@@ -1126,11 +1357,9 @@
             });
         });
 
-        // LISTA DE SABORES DAS TORTAS
         const saboresTradicionais = ["Chocolatudo", "Morango", "Divina", "Sensação", "Abacaxi", "Julia", "Mousse", "Bombom", "Dois Amores", "Outro (digitar abaixo)"];
         const saboresEspeciais = ["4 Leites", "Supreme", "Nozes", "Abacaxi com Côco", "Dueto", "Festa", "Três Amores", "Floresta Negra", "Marta Rocha", "Outro (digitar abaixo)"];
 
-        // LÓGICA DO MONTE SEU PEDIDO
         function updateTortaOptions() {
             const cat = document.getElementById('tortaCategoria').value;
             const tamanhoSelect = document.getElementById('tortaTamanho');
@@ -1195,46 +1424,6 @@
             }
         }
 
-        function updateDocinhoOptions() {
-            const tipo = document.getElementById('docinhoTipo').value;
-            const qtdSelect = document.getElementById('docinhoQtd');
-            const outroInput = document.getElementById('docinhoOutroInput');
-            qtdSelect.innerHTML = '';
-
-            if (tipo === 'tradicional') {
-                qtdSelect.innerHTML = `
-                    <option value="25 Docinhos Tradicionais" data-price="50">25 unidades — R$ 50,00</option>
-                    <option value="35 Docinhos Tradicionais" data-price="70">35 unidades — R$ 70,00</option>
-                    <option value="50 Docinhos Tradicionais" data-price="100">50 unidades — R$ 100,00</option>
-                    <option value="100 Docinhos Tradicionais" data-price="180">100 unidades (Cento) — R$ 180,00</option>
-                `;
-                outroInput.style.display = 'none';
-            } else if (tipo === 'gourmet') {
-                qtdSelect.innerHTML = `
-                    <option value="25 Docinhos Gourmet" data-price="60">25 unidades — R$ 60,00</option>
-                    <option value="35 Docinhos Gourmet" data-price="80">35 unidades — R$ 80,00</option>
-                    <option value="50 Docinhos Gourmet" data-price="120">50 unidades — R$ 120,00</option>
-                    <option value="100 Docinhos Gourmet" data-price="220">100 unidades (Cento) — R$ 220,00</option>
-                `;
-                outroInput.style.display = 'none';
-            } else if (tipo === 'especial') {
-                qtdSelect.innerHTML = `
-                    <option value="25 Docinhos Especiais" data-price="80">25 unidades — R$ 80,00</option>
-                    <option value="35 Docinhos Especiais" data-price="110">35 unidades — R$ 110,00</option>
-                    <option value="50 Docinhos Especiais" data-price="150">50 unidades — R$ 150,00</option>
-                    <option value="100 Docinhos Especiais" data-price="280">100 unidades (Cento) — R$ 280,00</option>
-                `;
-                outroInput.style.display = 'none';
-            } else if (tipo === 'outro') {
-                qtdSelect.innerHTML = `<option value="Docinhos Misto / Personalizado" data-price="0">Quantidade e Sabores Misto (A combinar)</option>`;
-                outroInput.style.display = 'block';
-            } else {
-                qtdSelect.innerHTML = `<option value="Sem Docinhos" data-price="0">Sem Docinhos</option>`;
-                outroInput.style.display = 'none';
-            }
-            calculateTotal();
-        }
-
         function calculateTotal() {
             let total = 0;
 
@@ -1245,25 +1434,23 @@
                 total += tortaPrice;
             }
 
-            // Docinhos
-            const docinhoSelect = document.getElementById('docinhoQtd');
-            if (docinhoSelect.options.length > 0) {
-                const docinhoPrice = parseFloat(docinhoSelect.options[docinhoSelect.selectedIndex].getAttribute('data-price') || 0);
-                total += docinhoPrice;
-            }
-
-            // Salgados 1, 2 e 3
-            for (let i = 1; i <= 3; i++) {
-                const salgadoSelect = document.getElementById(`salgadoTipo${i}`);
-                const salgadoQtdInput = document.getElementById(`salgadoQtd${i}`);
-                const salgadoPriceUnit = parseFloat(salgadoSelect.options[salgadoSelect.selectedIndex].getAttribute('data-price') || 0);
-                
-                if (salgadoPriceUnit > 0) {
-                    let qtd = parseInt(salgadoQtdInput.value) || 1;
-                    if (qtd < 1) qtd = 1;
-                    total += (salgadoPriceUnit * qtd);
+            // Docinhos Individuais (por unidade)
+            document.querySelectorAll('.docinho-item-qtd').forEach(input => {
+                const qtd = parseInt(input.value) || 0;
+                const unitPrice = parseFloat(input.getAttribute('data-price') || 0);
+                if (qtd > 0) {
+                    total += (qtd * unitPrice);
                 }
-            }
+            });
+
+            // Salgados Individuais (por unidade)
+            document.querySelectorAll('.salgado-item-qtd').forEach(input => {
+                const qtd = parseInt(input.value) || 0;
+                const unitPrice = parseFloat(input.getAttribute('data-price') || 0);
+                if (qtd > 0) {
+                    total += (qtd * unitPrice);
+                }
+            });
 
             document.getElementById('totalDisplay').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
             return total;
@@ -1285,34 +1472,44 @@
             }
 
             // Docinhos
-            const docinhoTipo = document.getElementById('docinhoTipo').value;
-            let docinhoInfo = "Sem Docinhos";
-            if (docinhoTipo !== 'nenhum') {
-                const docinhoSelect = document.getElementById('docinhoQtd');
-                const docinhoText = docinhoSelect.options.length > 0 ? docinhoSelect.options[docinhoSelect.selectedIndex].text : '';
-                const docinhoOutro = document.getElementById('docinhoOutroInput').value;
-                docinhoInfo = docinhoOutro ? `${docinhoText} - Detalhes: ${docinhoOutro}` : docinhoText;
+            let docinhosResumo = [];
+            document.querySelectorAll('.docinho-item-qtd').forEach(input => {
+                const qtd = parseInt(input.value) || 0;
+                if (qtd > 0) {
+                    const nome = input.getAttribute('data-nome');
+                    docinhosResumo.push(`• ${qtd}un de ${nome}`);
+                }
+            });
+            const docinhoOutro = document.getElementById('docinhoOutroInput').value;
+            if (docinhoOutro) {
+                docinhosResumo.push(`• *Outros/Obs Doces:* ${docinhoOutro}`);
+            }
+            const docinhoText = docinhosResumo.length > 0 ? "\n" + docinhosResumo.join("\n") : "Sem Docinhos";
+
+            // Salgados
+            let salgadosResumo = [];
+            document.querySelectorAll('.salgado-item-qtd').forEach(input => {
+                const qtd = parseInt(input.value) || 0;
+                if (qtd > 0) {
+                    const nome = input.getAttribute('data-nome');
+                    salgadosResumo.push(`• ${qtd}un de ${nome}`);
+                }
+            });
+
+            const salgadoOutro = document.getElementById('salgadoOutroInput').value;
+            if (salgadoOutro) {
+                salgadosResumo.push(`• *Outros/Obs Salgados:* ${salgadoOutro}`);
             }
 
-            // Salgados Múltiplos
-            let salgadosLista = [];
-            for (let i = 1; i <= 3; i++) {
-                const salgadoSelect = document.getElementById(`salgadoTipo${i}`);
-                const salgadoVal = salgadoSelect.value;
-                if (salgadoVal !== 'Nenhum') {
-                    const qtd = document.getElementById(`salgadoQtd${i}`).value || 1;
-                    salgadosLista.push(`${qtd}x cento(s) de ${salgadoVal}`);
-                }
-            }
-            const salgadosText = salgadosLista.length > 0 ? salgadosLista.join(', ') : 'Sem Salgados';
+            const salgadosText = salgadosResumo.length > 0 ? "\n" + salgadosResumo.join("\n") : "Sem Salgados";
 
             const observacoes = document.getElementById('observacoes').value || 'Não informado';
             const total = document.getElementById('totalDisplay').innerText;
 
             let mensagem = `*Olá! Montei meu pedido no site da Divina Bolacha:*\n\n`;
-            mensagem += `🎂 *Torta/Bolo:* ${tortaInfo}\n`;
-            mensagem += `🍬 *Docinhos:* ${docinhoInfo}\n`;
-            mensagem += `🥐 *Salgados:* ${salgadosText}\n`;
+            mensagem += `🎂 *Torta/Bolo:* ${tortaInfo}\n\n`;
+            mensagem += `🍬 *Docinhos:* ${docinhoText}\n\n`;
+            mensagem += `🥐 *Salgados:* ${salgadosText}\n\n`;
             mensagem += `📝 *Observações/Data:* ${observacoes}\n\n`;
             mensagem += `💰 *Total Estimado:* ${total}\n\n`;
             mensagem += `Gostaria de confirmar a disponibilidade da data e finalizar a encomenda!`;
