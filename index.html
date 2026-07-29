@@ -9,7 +9,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- FontAwesome para Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,21 +17,22 @@
     <style>
         :root {
             --bordo: #800020;
-            --bordo-dark: #6B1224;
-            --creme-suave: #FDFBF7;
-            --creme-medio: #F7F3EE;
+            --bordo-dark: #5A0016;
+            --creme-suave: #FAF7F2;
+            --creme-medio: #F2ECE1;
             --branco: #FFFFFF;
-            --texto-principal: #2B1E1E;
-            --texto-suave: #5C4E4E;
+            --texto-principal: #231F20;
+            --texto-suave: #5C5254;
             --verde-whatsapp: #25D366;
-            --verde-whatsapp-hover: #20ba5a;
+            --verde-whatsapp-hover: #1EBE5A;
+            --dourado: #D4AF37;
             
             --fonte-titulo: 'Playfair Display', serif;
             --fonte-corpo: 'Plus Jakarta Sans', sans-serif;
             
-            --sombra-leve: 0 8px 24px rgba(0, 0, 0, 0.04);
-            --sombra-card: 0 12px 32px rgba(107, 18, 36, 0.06);
-            --border-radius: 16px;
+            --sombra-leve: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --sombra-card: 0 16px 40px rgba(128, 0, 32, 0.08);
+            --border-radius: 20px;
             --border-radius-btn: 50px;
             
             --transicao: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -63,48 +64,52 @@
         a { text-decoration: none; color: inherit; }
 
         .container {
-            width: 90%;
+            width: 92%;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section-padding { padding: 60px 0; }
+        .section-padding { padding: 70px 0; }
 
         @media (min-width: 992px) {
-            .section-padding { padding: 90px 0; }
+            .section-padding { padding: 100px 0; }
         }
 
         .text-center { text-align: center; }
 
         .section-badge {
-            display: inline-block;
-            background-color: var(--creme-medio);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: rgba(128, 0, 32, 0.08);
             color: var(--bordo);
-            padding: 6px 16px;
+            padding: 8px 18px;
             border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            border: 1px solid rgba(128, 0, 32, 0.1);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            border: 1px solid rgba(128, 0, 32, 0.15);
         }
 
         .section-title {
             font-family: var(--fonte-titulo);
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--bordo);
             margin-bottom: 16px;
             line-height: 1.2;
         }
 
         @media (min-width: 768px) {
-            .section-title { font-size: 2.5rem; }
+            .section-title { font-size: 2.8rem; }
         }
 
         .section-subtitle {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: var(--texto-suave);
-            max-width: 650px;
-            margin: 0 auto 40px auto;
+            max-width: 680px;
+            margin: 0 auto 50px auto;
         }
 
         /* Botões */
@@ -112,12 +117,12 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 16px 32px;
+            gap: 12px;
+            padding: 16px 36px;
             border-radius: var(--border-radius-btn);
-            font-weight: 600;
-            font-size: 1rem;
-            min-height: 52px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            min-height: 56px;
             cursor: pointer;
             transition: var(--transicao);
             border: none;
@@ -125,14 +130,14 @@
         }
 
         .btn-bordo {
-            background-color: var(--bordo);
+            background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
             color: var(--branco);
-            box-shadow: 0 4px 16px rgba(128, 0, 32, 0.25);
+            box-shadow: 0 8px 24px rgba(128, 0, 32, 0.3);
         }
 
         .btn-bordo:hover {
-            background-color: var(--bordo-dark);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(128, 0, 32, 0.4);
         }
 
         .btn-outline {
@@ -147,24 +152,25 @@
         }
 
         .btn-whatsapp {
-            background-color: var(--verde-whatsapp);
+            background: linear-gradient(135deg, var(--verde-whatsapp) 0%, var(--verde-whatsapp-hover) 100%);
             color: var(--branco);
-            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
         }
 
         .btn-whatsapp:hover {
-            background-color: var(--verde-whatsapp-hover);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
         }
 
-        /* Navbar */
+        /* Navbar com Logo */
         .header {
-            background-color: var(--creme-suave);
-            padding: 20px 0;
+            background-color: rgba(250, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .header .container {
@@ -173,26 +179,48 @@
             justify-content: space-between;
         }
 
-        .logo {
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--bordo);
+            box-shadow: 0 4px 12px rgba(128, 0, 32, 0.15);
+        }
+
+        .logo-text {
             font-family: var(--fonte-titulo);
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--bordo);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            line-height: 1.1;
+        }
+
+        .logo-subtext {
+            font-size: 0.72rem;
+            color: var(--texto-suave);
+            font-family: var(--fonte-corpo);
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         /* Hero */
         .hero {
             background-color: var(--branco);
-            padding: 40px 0 60px 0;
+            padding: 50px 0 80px 0;
+            position: relative;
         }
 
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 50px;
             align-items: center;
         }
 
@@ -205,27 +233,27 @@
 
         .hero-title {
             font-family: var(--fonte-titulo);
-            font-size: 2.25rem;
+            font-size: 2.5rem;
             color: var(--bordo);
-            line-height: 1.25;
-            margin-bottom: 20px;
+            line-height: 1.2;
+            margin-bottom: 24px;
         }
 
         @media (min-width: 768px) {
-            .hero-title { font-size: 3rem; }
+            .hero-title { font-size: 3.3rem; }
         }
 
         .hero-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--texto-suave);
-            margin-bottom: 30px;
+            margin-bottom: 36px;
         }
 
         .hero-ctas {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            margin-bottom: 30px;
+            margin-bottom: 36px;
         }
 
         @media (min-width: 480px) {
@@ -236,53 +264,124 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--texto-suave);
+            font-weight: 600;
         }
 
-        .stars { color: #FFC107; }
+        .stars { color: var(--dourado); }
 
-        .hero-image-wrapper { position: relative; }
+        .hero-image-wrapper { 
+            position: relative; 
+            display: flex;
+            justify-content: center;
+        }
 
         .hero-img {
             width: 100%;
-            height: 380px;
+            max-width: 480px;
+            height: 480px;
             object-fit: cover;
             border-radius: var(--border-radius);
-            box-shadow: var(--sombra-card);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            transition: var(--transicao);
         }
 
-        @media (min-width: 768px) {
-            .hero-img { height: 480px; }
+        .hero-img:hover {
+            transform: scale(1.02);
         }
 
         .floating-badge {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
+            bottom: -20px;
+            left: 10px;
             background-color: var(--branco);
-            padding: 12px 20px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            padding: 14px 24px;
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: 600;
+            gap: 12px;
+            font-weight: 700;
             color: var(--bordo);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            border: 1px solid rgba(128, 0, 32, 0.1);
+        }
+
+        /* MOSAICO VISUAL DOS PRODUTOS REAIS */
+        .showcase-section {
+            background-color: var(--creme-suave);
+        }
+
+        .mosaic-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .mosaic-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .mosaic-card {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--sombra-card);
+            height: 320px;
+            transition: var(--transicao);
+        }
+
+        .mosaic-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .mosaic-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transicao);
+        }
+
+        .mosaic-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .mosaic-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(35, 31, 32, 0.85) 0%, rgba(35, 31, 32, 0) 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            color: var(--branco);
+        }
+
+        .mosaic-overlay h3 {
+            font-family: var(--fonte-titulo);
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        .mosaic-overlay p {
+            font-size: 0.88rem;
+            opacity: 0.9;
         }
 
         /* Metrics */
         .metrics-bar {
-            background-color: var(--bordo);
+            background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
             color: var(--branco);
-            padding: 30px 0;
+            padding: 40px 0;
         }
 
         .metrics-grid {
             display: grid;
             grid-template-columns: repeat(1, 1fr);
-            gap: 24px;
+            gap: 30px;
             text-align: center;
         }
 
@@ -292,9 +391,10 @@
 
         .metric-number {
             font-family: var(--fonte-titulo);
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 4px;
+            color: var(--branco);
         }
 
         /* MONTE SEU PEDIDO */
@@ -305,16 +405,17 @@
         .builder-card {
             background-color: var(--branco);
             border-radius: var(--border-radius);
-            padding: 30px;
+            padding: 36px;
             box-shadow: var(--sombra-card);
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
+            border: 1px solid rgba(128, 0, 32, 0.08);
         }
 
         .builder-group {
-            margin-bottom: 24px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed rgba(128, 0, 32, 0.15);
+            margin-bottom: 32px;
+            padding-bottom: 28px;
+            border-bottom: 1px dashed rgba(128, 0, 32, 0.2);
         }
 
         .builder-group:last-of-type {
@@ -325,18 +426,18 @@
             display: block;
             font-weight: 700;
             color: var(--bordo);
-            margin-bottom: 8px;
-            font-size: 1rem;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
         }
 
         .builder-select, .builder-input {
             width: 100%;
-            padding: 14px 18px;
-            border-radius: 10px;
-            border: 1px solid rgba(0,0,0,0.15);
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.12);
             background-color: var(--creme-suave);
             font-family: var(--fonte-corpo);
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--texto-principal);
             outline: none;
             transition: var(--transicao);
@@ -345,6 +446,7 @@
         .builder-select:focus, .builder-input:focus {
             border-color: var(--bordo);
             background-color: var(--branco);
+            box-shadow: 0 0 0 4px rgba(128, 0, 32, 0.1);
         }
 
         .builder-grid-2 {
@@ -360,24 +462,26 @@
         /* SELETORES DE ITENS COM QUANTIDADE LIVRE */
         .item-category-box {
             background-color: var(--creme-suave);
-            border: 1px solid rgba(128, 0, 32, 0.1);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 16px;
+            border: 1px solid rgba(128, 0, 32, 0.12);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
 
         .item-category-title {
             font-weight: 700;
             color: var(--bordo);
-            font-size: 0.95rem;
-            margin-bottom: 12px;
+            font-size: 1rem;
+            margin-bottom: 16px;
             display: block;
+            border-bottom: 1px solid rgba(128, 0, 32, 0.1);
+            padding-bottom: 8px;
         }
 
         .item-row-grid {
             display: grid;
             grid-template-columns: repeat(1, 1fr);
-            gap: 10px;
+            gap: 12px;
         }
 
         @media (min-width: 576px) {
@@ -389,38 +493,47 @@
             align-items: center;
             justify-content: space-between;
             background-color: var(--branco);
-            padding: 8px 12px;
-            border-radius: 8px;
+            padding: 10px 14px;
+            border-radius: 10px;
             border: 1px solid rgba(0,0,0,0.06);
             gap: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: var(--transicao);
+        }
+
+        .item-unit-row:hover {
+            border-color: rgba(128, 0, 32, 0.2);
         }
 
         .item-unit-row span {
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             color: var(--texto-principal);
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .item-unit-row input[type="number"] {
             width: 75px;
-            padding: 6px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,0,0,0.2);
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.18);
             text-align: center;
-            font-size: 0.88rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--bordo);
+            background-color: var(--creme-suave);
         }
 
         .builder-summary {
-            background-color: var(--creme-medio);
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
+            background: linear-gradient(135deg, var(--creme-medio) 0%, var(--creme-suave) 100%);
+            padding: 24px;
+            border-radius: 16px;
+            margin-top: 24px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
             align-items: center;
             justify-content: space-between;
-            border: 1px solid rgba(128, 0, 32, 0.1);
+            border: 1px solid rgba(128, 0, 32, 0.15);
         }
 
         @media (min-width: 576px) {
@@ -428,7 +541,7 @@
         }
 
         .total-price {
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--bordo);
         }
@@ -463,7 +576,7 @@
         }
 
         .cardapio-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px);
             box-shadow: var(--sombra-card);
         }
 
@@ -476,19 +589,19 @@
         }
 
         .cardapio-info {
-            padding: 16px;
+            padding: 18px;
             text-align: center;
         }
 
         .cardapio-info h3 {
             font-family: var(--fonte-titulo);
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--bordo);
             margin-bottom: 4px;
         }
 
         .cardapio-info p {
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--texto-suave);
         }
 
@@ -503,8 +616,8 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.85);
-            backdrop-filter: blur(4px);
+            background-color: rgba(0,0,0,0.88);
+            backdrop-filter: blur(5px);
         }
 
         .modal-content {
@@ -545,50 +658,56 @@
         }
 
         .diff-card {
-            padding: 20px;
-            border-left: 3px solid var(--bordo);
+            padding: 24px;
+            border-left: 4px solid var(--bordo);
             background-color: var(--creme-suave);
             border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            box-shadow: var(--sombra-leve);
         }
 
         .diff-card i {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--bordo);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .step-card {
             background-color: var(--branco);
-            padding: 32px 24px;
+            padding: 36px 28px;
             border-radius: var(--border-radius);
             text-align: center;
             box-shadow: var(--sombra-leve);
+            border: 1px solid rgba(0,0,0,0.04);
         }
 
         .step-number {
-            width: 40px;
-            height: 40px;
-            background-color: var(--bordo);
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
             color: var(--branco);
             font-weight: 700;
+            font-size: 1.1rem;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 16px auto;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 6px 16px rgba(128, 0, 32, 0.25);
         }
 
         .testimonial-card {
             background-color: var(--creme-suave);
-            padding: 30px;
+            padding: 32px;
             border-radius: var(--border-radius);
             box-shadow: var(--sombra-leve);
+            border: 1px solid rgba(128, 0, 32, 0.08);
         }
 
         .testimonial-text {
             font-style: italic;
             color: var(--texto-suave);
             margin-bottom: 20px;
+            font-size: 1.05rem;
         }
 
         .testimonial-author {
@@ -601,19 +720,20 @@
 
         .faq-item {
             background-color: var(--branco);
-            border-radius: 12px;
-            margin-bottom: 12px;
+            border-radius: 14px;
+            margin-bottom: 14px;
             box-shadow: var(--sombra-leve);
             overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.04);
         }
 
         .faq-question {
-            padding: 20px 24px;
+            padding: 22px 26px;
             width: 100%;
             text-align: left;
             background: none;
             border: none;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--texto-principal);
             display: flex;
@@ -627,17 +747,17 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
-            padding: 0 24px;
+            padding: 0 26px;
             color: var(--texto-suave);
         }
 
-        .faq-answer p { padding-bottom: 20px; }
+        .faq-answer p { padding-bottom: 22px; }
 
         .faq-item.active .faq-question i { transform: rotate(180deg); }
 
         /* Footer & CTA Final */
         .cta-final {
-            background-color: var(--bordo);
+            background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
             color: var(--branco);
             text-align: center;
         }
@@ -646,33 +766,39 @@
 
         .cta-final p {
             color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
-            margin: 0 auto 30px auto;
+            max-width: 620px;
+            margin: 0 auto 36px auto;
+            font-size: 1.1rem;
         }
 
         .footer {
             background-color: var(--bordo-dark);
             color: rgba(255, 255, 255, 0.85);
-            padding: 30px 0;
-            font-size: 0.875rem;
+            padding: 36px 0;
+            font-size: 0.9rem;
             text-align: center;
         }
 
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
+            bottom: 24px;
+            right: 24px;
+            width: 64px;
+            height: 64px;
             background-color: var(--verde-whatsapp);
             color: var(--branco);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            font-size: 2.2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
             z-index: 999;
+            transition: var(--transicao);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
         }
 
         @media (max-width: 991px) {
@@ -685,8 +811,8 @@
             left: 0;
             width: 100%;
             background-color: var(--branco);
-            padding: 10px 16px;
-            box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
+            padding: 12px 20px;
+            box-shadow: 0 -6px 20px rgba(0,0,0,0.12);
             z-index: 998;
             display: flex;
             justify-content: center;
@@ -704,11 +830,14 @@
     <!-- CABEÇALHO -->
     <header class="header">
         <div class="container">
-            <a href="#" class="logo">
-                <i class="fa-solid fa-cookie-bite"></i>
-                Divina Bolacha
+            <a href="#" class="logo-brand">
+                <img src="logo.jpg" alt="Logo Divina Bolacha" class="logo-img">
+                <div>
+                    <div class="logo-text">Divina Bolacha</div>
+                    <div class="logo-subtext">por Aline Fernandes</div>
+                </div>
             </a>
-            <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20encomendas." target="_blank" class="btn btn-outline" style="padding: 10px 20px; min-height: auto; font-size: 0.9rem;">
+            <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20encomendas." target="_blank" class="btn btn-outline" style="padding: 10px 22px; min-height: auto; font-size: 0.92rem;">
                 <i class="fa-brands fa-whatsapp"></i> (53) 98151-7232
             </a>
         </div>
@@ -719,9 +848,9 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
-                    <span class="section-badge">📍 Confeitaria Artesanal em Pelotas</span>
+                    <span class="section-badge"><i class="fa-solid fa-location-dot"></i> Confeitaria Artesanal em Pelotas</span>
                     <h1 class="hero-title">A festa perfeita e sem estresse: Kits artesanais com o sabor de Pelotas.</h1>
-                    <p class="hero-subtitle">Tortas, docinhos, salgados e kits festa fresquinhos, feitos à mão. Digite a quantidade de cada item e veja o cálculo na hora!</p>
+                    <p class="hero-subtitle">Tortas, docinhos e salgadinhos fritos e assados feitos no dia. Digite a quantidade exata de cada item abaixo para calcular na hora!</p>
                     
                     <div class="hero-ctas">
                         <a href="#monte-seu-pedido" class="btn btn-bordo">
@@ -737,15 +866,52 @@
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <span>⭐ 4.9/5 em Pelotas • Praticidade em Encomendas</span>
+                        <span>⭐ 4.9/5 em Pelotas • Praticidade e Sabor Artesanal</span>
                     </div>
                 </div>
 
                 <div class="hero-image-wrapper">
-                    <img src="torta-especial.jpg" alt="Tortas Doces Especiais Divina Bolacha" class="hero-img">
+                    <img src="bolo.jpg" alt="Torta Especial de Chocolate Divina Bolacha" class="hero-img">
                     <div class="floating-badge">
-                        <i class="fa-solid fa-box-open"></i>
-                        <span>Kit Pronto para Servir</span>
+                        <i class="fa-solid fa-box-open" style="color: var(--bordo);"></i>
+                        <span>Produção Artesanal Diária</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VITRINE VISUAL DOS PRODUTOS REAIS -->
+    <section class="section-padding showcase-section">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-badge"><i class="fa-solid fa-camera"></i> Nossas Delícias</span>
+                <h2 class="section-title">Qualidade Que Dá Água Na Boca</h2>
+                <p class="section-subtitle">Salgadinhos crocantes e sequinhos, preparados artesanalmente para tornar qualquer momento inesquecível.</p>
+            </div>
+
+            <div class="mosaic-grid">
+                <div class="mosaic-card">
+                    <img src="salgados1.jpg" alt="Caixa com Salgados Assados e Folhados">
+                    <div class="mosaic-overlay">
+                        <h3>Folhados e Assados</h3>
+                        <p>Croissants, empadinhas e folhadinhos recheados</p>
+                    </div>
+                </div>
+
+                <div class="mosaic-card">
+                    <img src="salgados2.jpg" alt="Caixa Mista de Salgados Fritos e Folhados">
+                    <div class="mosaic-overlay">
+                        <h3>Fritos Crocantes</h3>
+                        <p>Coxinhas, croquetes e bolinhas de queijo douradas</p>
+                    </div>
+                </div>
+
+                <div class="mosaic-card">
+                    <img src="salgados3.jpg" alt="Caixa com Salgados Especiais">
+                    <div class="mosaic-overlay">
+                        <h3>Salgados Especiais</h3>
+                        <p>Pastelzinhos, empadas e folhados finos</p>
                     </div>
                 </div>
             </div>
@@ -776,7 +942,7 @@
     <section class="section-padding builder-section" id="monte-seu-pedido">
         <div class="container">
             <div class="text-center">
-                <span class="section-badge">Monte Seu Pedido</span>
+                <span class="section-badge"><i class="fa-solid fa-calculator"></i> Calculadora de Pedidos</span>
                 <h2 class="section-title">Monte sua Encomenda Personalizada</h2>
                 <p class="section-subtitle">Escolha o tamanho da sua torta e digite a quantidade de unidades que desejar para cada doce ou salgado!</p>
             </div>
@@ -799,12 +965,12 @@
                             </select>
                         </div>
 
-                        <div id="tortaSaborContainer" style="margin-top: 12px; display: none;">
-                            <label style="font-size: 0.9rem; font-weight: 600;">Sabor da Torta:</label>
+                        <div id="tortaSaborContainer" style="margin-top: 14px; display: none;">
+                            <label style="font-size: 0.95rem; font-weight: 600;">Sabor da Torta:</label>
                             <select id="tortaSaborSelect" class="builder-select" onchange="checkTortaCustomSabor()">
                                 <option value="">Selecione o sabor...</option>
                             </select>
-                            <input type="text" id="tortaSaborOutro" class="builder-input" placeholder="Digite o sabor ou detalhes da torta..." style="margin-top: 8px; display: none;">
+                            <input type="text" id="tortaSaborOutro" class="builder-input" placeholder="Digite o sabor ou detalhes da torta..." style="margin-top: 10px; display: none;">
                         </div>
                     </div>
 
@@ -814,7 +980,7 @@
                         
                         <!-- Tradicionais -->
                         <div class="item-category-box">
-                            <span class="item-category-title">🍬 Tradicionais (R$ 1,80 / unidade - Cento R$ 180,00)</span>
+                            <span class="item-category-title">🍬 Tradicionais (R$ 1,80 / unidade — Cento R$ 180,00)</span>
                             <div class="item-row-grid">
                                 <div class="item-unit-row">
                                     <span>Brigadeiro Tradicional</span>
@@ -841,7 +1007,7 @@
 
                         <!-- Gourmet -->
                         <div class="item-category-box">
-                            <span class="item-category-title">✨ Gourmet (R$ 2,20 / unidade - Cento R$ 220,00)</span>
+                            <span class="item-category-title">✨ Gourmet (R$ 2,20 / unidade — Cento R$ 220,00)</span>
                             <div class="item-row-grid">
                                 <div class="item-unit-row">
                                     <span>Ninho com Nutella</span>
@@ -880,7 +1046,7 @@
 
                         <!-- Especiais -->
                         <div class="item-category-box">
-                            <span class="item-category-title">⭐ Especiais (R$ 2,80 / unidade - Cento R$ 280,00)</span>
+                            <span class="item-category-title">⭐ Especiais (R$ 2,80 / unidade — Cento R$ 280,00)</span>
                             <div class="item-row-grid">
                                 <div class="item-unit-row">
                                     <span>Nozes</span>
@@ -905,7 +1071,7 @@
                             </div>
                         </div>
 
-                        <input type="text" id="docinhoOutroInput" class="builder-input" placeholder="Outros docinhos ou observações personalizadas..." style="margin-top: 8px;">
+                        <input type="text" id="docinhoOutroInput" class="builder-input" placeholder="Outros docinhos ou observações personalizadas..." style="margin-top: 10px;">
                     </div>
 
                     <!-- 3. Salgados com Quantidade Livre -->
@@ -914,7 +1080,7 @@
                         
                         <!-- FOLHADOS -->
                         <div class="item-category-box">
-                            <span class="item-category-title">🥐 Folhados (R$ 1,30 / unidade - Cento R$ 130,00)</span>
+                            <span class="item-category-title">🥐 Folhados (R$ 1,30 / unidade — Cento R$ 130,00)</span>
                             <div class="item-row-grid">
                                 <div class="item-unit-row">
                                     <span>Croissant Chocolate</span>
@@ -949,7 +1115,7 @@
 
                         <!-- FRITOS -->
                         <div class="item-category-box">
-                            <span class="item-category-title">🍗 Fritos (R$ 1,30 / unidade - Cento R$ 130,00)</span>
+                            <span class="item-category-title">🍗 Fritos (R$ 1,30 / unidade — Cento R$ 130,00)</span>
                             <div class="item-row-grid">
                                 <div class="item-unit-row">
                                     <span>Bolinhas de Provolone</span>
@@ -996,7 +1162,7 @@
 
                         <!-- CLÁSSICOS -->
                         <div class="item-category-box">
-                            <span class="item-category-title">🧁 Clássicos (R$ 1,50 / unidade - Cento R$ 150,00)</span>
+                            <span class="item-category-title">🧁 Clássicos (R$ 1,50 / unidade — Cento R$ 150,00)</span>
                             <div class="item-row-grid">
                                 <div class="item-unit-row">
                                     <span>Barquete (Frango)</span>
@@ -1031,7 +1197,7 @@
 
                         <!-- ESPECIAIS -->
                         <div class="item-category-box">
-                            <span class="item-category-title">🍔 Especiais (R$ 1,80 / unidade - Cento R$ 180,00)</span>
+                            <span class="item-category-title">🍔 Especiais (R$ 1,80 / unidade — Cento R$ 180,00)</span>
                             <div class="item-row-grid">
                                 <div class="item-unit-row">
                                     <span>Cachorrinho</span>
@@ -1056,7 +1222,7 @@
                             </div>
                         </div>
 
-                        <input type="text" id="salgadoOutroInput" class="builder-input" placeholder="Outros salgados ou observações personalizadas..." style="margin-top: 8px;">
+                        <input type="text" id="salgadoOutroInput" class="builder-input" placeholder="Outros salgados ou observações personalizadas..." style="margin-top: 10px;">
                     </div>
 
                     <!-- Observações Gerais -->
@@ -1068,7 +1234,7 @@
                     <!-- Resumo e Envio -->
                     <div class="builder-summary">
                         <div>
-                            <span>Total Estimado:</span>
+                            <span style="font-size: 0.95rem; color: var(--texto-suave); font-weight: 600;">Total Estimado:</span>
                             <div class="total-price" id="totalDisplay">R$ 0,00</div>
                         </div>
                         <button type="button" class="btn btn-whatsapp" onclick="sendOrderToWhatsApp()">
@@ -1084,9 +1250,9 @@
     <section class="section-padding cardapio-section" id="cardapio">
         <div class="container">
             <div class="text-center">
-                <span class="section-badge">Cardápio Oficial</span>
+                <span class="section-badge"><i class="fa-solid fa-book-open"></i> Menu Oficial</span>
                 <h2 class="section-title">Confira Nossas Delícias e Valores</h2>
-                <p class="section-subtitle">Clique em qualquer imagem do cardápio para ampliar e ver todas as opções de recheios e tamanhos.</p>
+                <p class="section-subtitle">Clique em qualquer imagem para ampliar e ver as tabelas completas de sabores e recheios.</p>
             </div>
 
             <div class="cardapio-grid">
@@ -1134,15 +1300,12 @@
     <!-- SOBRE NÓS -->
     <section class="section-padding">
         <div class="container">
-            <div class="about-grid">
+            <div class="about-grid" style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 40px; align-items: center;">
                 <div>
-                    <img src="docinhos.jpg" alt="Produção Artesanal Divina Bolacha" style="width:100%; height:350px; object-fit:cover; border-radius:var(--border-radius);">
-                </div>
-                <div>
-                    <span class="section-badge">Nossa História</span>
+                    <span class="section-badge"><i class="fa-solid fa-heart"></i> Nossa História</span>
                     <h2 class="section-title">Feito à mão, para celebrar momentos inesquecíveis.</h2>
-                    <p style="margin-bottom:16px; color:var(--texto-suave);">A Divina Bolacha nasceu do amor por reunir pessoas queridas ao redor de uma mesa farta e saborosa. Em Pelotas, uma cidade que respira a tradição dos bons doces, nosso propósito é unir receitas afetivas com a praticidade que a sua rotina exige.</p>
-                    <p style="color:var(--texto-suave);">Não somos apenas uma confeitaria; somos o seu parceiro de celebração. Queremos que você aproveite a sua festa sem se preocupar com os preparativos. Cada salgadinho, cada fatia de torta e cada docinho que sai da nossa cozinha é preparado com ingredientes selecionados, dedicação e aquele toque artesanal que faz toda a diferença no paladar.</p>
+                    <p style="margin-bottom:16px; color:var(--texto-suave); font-size: 1.05rem;">A Divina Bolacha nasceu do amor por reunir pessoas queridas ao redor de uma mesa farta e saborosa. Em Pelotas, uma cidade que respira a tradição dos bons doces, nosso propósito é unir receitas afetivas com a praticidade que a sua rotina exige.</p>
+                    <p style="color:var(--texto-suave); font-size: 1.05rem;">Não somos apenas uma confeitaria; somos o seu parceiro de celebração. Queremos que você aproveite a sua festa sem se preocupar com os preparativos. Cada salgadinho, cada fatia de torta e cada docinho é preparado com ingredientes selecionados e muito carinho.</p>
                 </div>
             </div>
         </div>
@@ -1152,7 +1315,7 @@
     <section class="section-padding diff-section">
         <div class="container">
             <div class="text-center">
-                <span class="section-badge">Por Que a Divina Bolacha?</span>
+                <span class="section-badge"><i class="fa-solid fa-star"></i> Diferenciais</span>
                 <h2 class="section-title">O Cuidado Que Faz A Diferença</h2>
                 <p class="section-subtitle">Pensamos em cada detalhe para que sua única preocupação seja aproveitar a festa.</p>
             </div>
@@ -1160,25 +1323,25 @@
             <div class="diff-grid">
                 <div class="diff-card">
                     <i class="fa-solid fa-utensils"></i>
-                    <h3>Tudo em um só lugar</h3>
+                    <h3 style="margin-bottom: 8px; color: var(--bordo);">Tudo em um só lugar</h3>
                     <p>Sem necessidade de cotar em múltiplos locais. Resolvemos doces, salgados e torta no mesmo pedido.</p>
                 </div>
 
                 <div class="diff-card">
                     <i class="fa-solid fa-graduation-cap"></i>
-                    <h3>Praticidade Escolar</h3>
+                    <h3 style="margin-bottom: 8px; color: var(--bordo);">Praticidade Escolar</h3>
                     <p>Kits embalados individualmente, perfeitos para festas de aniversário na sala de aula.</p>
                 </div>
 
                 <div class="diff-card">
                     <i class="fa-solid fa-heart"></i>
-                    <h3>100% Artesanal</h3>
-                    <p>Receitas afetivas com sabor real de comida feita em casa, sem sabor de produção industrial.</p>
+                    <h3 style="margin-bottom: 8px; color: var(--bordo);">100% Artesanal</h3>
+                    <p>Receitas afetivas com sabor real de comida feita em casa, sem produção industrial.</p>
                 </div>
 
                 <div class="diff-card">
                     <i class="fa-solid fa-clock"></i>
-                    <h3>Pontualidade Garantida</h3>
+                    <h3 style="margin-bottom: 8px; color: var(--bordo);">Pontualidade Garantida</h3>
                     <p>Respeito rigoroso aos horários combinados para que nada atrase a sua comemoração.</p>
                 </div>
             </div>
@@ -1189,7 +1352,7 @@
     <section class="section-padding">
         <div class="container">
             <div class="text-center">
-                <span class="section-badge">Passo a Passo</span>
+                <span class="section-badge"><i class="fa-solid fa-list-check"></i> Passo a Passo</span>
                 <h2 class="section-title">Sua Encomenda Pronta em 3 Passos</h2>
                 <p class="section-subtitle">Simplicidade e rapidez para agendar seu pedido pelo WhatsApp.</p>
             </div>
@@ -1197,19 +1360,19 @@
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">1</div>
-                    <h3>Monte Seu Pedido</h3>
-                    <p>Selecione sua torta, docinhos e salgados no nosso formulário interativo acima.</p>
+                    <h3 style="margin-bottom: 10px; color: var(--bordo);">Monte Seu Pedido</h3>
+                    <p>Selecione sua torta, docinhos e salgados na nossa calculadora interativa acima.</p>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">2</div>
-                    <h3>Combine no WhatsApp</h3>
+                    <h3 style="margin-bottom: 10px; color: var(--bordo);">Combine no WhatsApp</h3>
                     <p>Fale conosco no (53) 98151-7232 para definir os recheios e agendar data/horário.</p>
                 </div>
 
                 <div class="step-card">
                     <div class="step-number">3</div>
-                    <h3>Aproveite a sua Festa</h3>
+                    <h3 style="margin-bottom: 10px; color: var(--bordo);">Aproveite a sua Festa</h3>
                     <p>Receba tudo fresquinho e pronto para ser servido e elogiado por todos os convidados.</p>
                 </div>
             </div>
@@ -1217,17 +1380,17 @@
     </section>
 
     <!-- DEPOIMENTOS -->
-    <section class="section-padding testimonials-section">
+    <section class="section-padding">
         <div class="container">
             <div class="text-center">
-                <span class="section-badge">Depoimentos</span>
+                <span class="section-badge"><i class="fa-solid fa-comment-dots"></i> Depoimentos</span>
                 <h2 class="section-title">Quem Experimenta em Pelotas, Recomenda!</h2>
                 <p class="section-subtitle">A alegria e satisfação de quem já comemorou com as nossas delícias.</p>
             </div>
 
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <div class="stars" style="margin-bottom: 12px;">
+                    <div class="stars" style="margin-bottom: 14px;">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="testimonial-text">"Encomendei os docinhos e os salgados para o aniversário do meu filho. O atendimento no WhatsApp foi super rápido e o pedido veio impecável!"</p>
@@ -1235,7 +1398,7 @@
                 </div>
 
                 <div class="testimonial-card">
-                    <div class="stars" style="margin-bottom: 12px;">
+                    <div class="stars" style="margin-bottom: 14px;">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="testimonial-text">"A torta de 4 Leites é simplesmente maravilhosa e os salgados folhados chegaram fresquinhos. Recomendo de olhos fechados!"</p>
@@ -1249,7 +1412,7 @@
     <section class="section-padding">
         <div class="container">
             <div class="text-center">
-                <span class="section-badge">Tire suas Dúvidas</span>
+                <span class="section-badge"><i class="fa-solid fa-circle-question"></i> Tire suas Dúvidas</span>
                 <h2 class="section-title">Perguntas Frequentes</h2>
                 <p class="section-subtitle">Respostas para as principais dúvidas sobre pedidos e entregas.</p>
             </div>
@@ -1293,7 +1456,7 @@
         <div class="container">
             <h2 class="section-title">Pronto para deixar sua festa ainda mais especial?</h2>
             <p>Fale conosco agora no WhatsApp e garanta a sua encomenda com o cardápio oficial da Divina Bolacha.</p>
-            <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Gostaria%20de%20garantir%20a%20data%20da%20minha%20festa." target="_blank" class="btn btn-whatsapp" style="font-size: 1.1rem; padding: 18px 36px;">
+            <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Gostaria%20de%20garantir%20a%20data%20da%20minha%20festa." target="_blank" class="btn btn-whatsapp" style="font-size: 1.15rem; padding: 20px 40px;">
                 <i class="fa-brands fa-whatsapp"></i> Garantir Encomenda no (53) 98151-7232
             </a>
         </div>
@@ -1302,9 +1465,9 @@
     <footer class="footer">
         <div class="container">
             <p><strong>Divina Bolacha — Confeitaria Artesanal por Aline Fernandes</strong></p>
-            <p>📍 R. Dr. Edmundo Berchon, 199 - Pelotas/RS</p>
+            <p style="margin: 4px 0;">📍 R. Dr. Edmundo Berchon, 199 - Pelotas/RS</p>
             <p>📞 WhatsApp: (53) 98151-7232</p>
-            <p style="font-size: 0.75rem; margin-top: 16px; opacity: 0.6;">© 2026 Divina Bolacha. Todos os direitos reservados.</p>
+            <p style="font-size: 0.78rem; margin-top: 18px; opacity: 0.6;">© 2026 Divina Bolacha. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -1434,7 +1597,7 @@
                 total += tortaPrice;
             }
 
-            // Docinhos Individuais (por unidade)
+            // Docinhos
             document.querySelectorAll('.docinho-item-qtd').forEach(input => {
                 const qtd = parseInt(input.value) || 0;
                 const unitPrice = parseFloat(input.getAttribute('data-price') || 0);
@@ -1443,7 +1606,7 @@
                 }
             });
 
-            // Salgados Individuais (por unidade)
+            // Salgados
             document.querySelectorAll('.salgado-item-qtd').forEach(input => {
                 const qtd = parseInt(input.value) || 0;
                 const unitPrice = parseFloat(input.getAttribute('data-price') || 0);
