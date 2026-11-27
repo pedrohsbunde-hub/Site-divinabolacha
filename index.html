@@ -1,1685 +1,2097 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divina Bolacha | Confeitaria Artesanal e Kits Festa em Pelotas</title>
-    <meta name="description" content="Bolos, docinhos, cupcakes e salgadinhos artesanais em Pelotas. Monte seu pedido online e envie pelo WhatsApp com praticidade!">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome para Ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root {
-            --bordo: #800020;
-            --bordo-dark: #5A0016;
-            --creme-suave: #FAF7F2;
-            --creme-medio: #F2ECE1;
-            --branco: #FFFFFF;
-            --texto-principal: #231F20;
-            --texto-suave: #5C5254;
-            --verde-whatsapp: #25D366;
-            --verde-whatsapp-hover: #1EBE5A;
-            --dourado: #D4AF37;
-            
-            --fonte-titulo: 'Playfair Display', serif;
-            --fonte-corpo: 'Plus Jakarta Sans', sans-serif;
-            
-            --sombra-leve: 0 10px 30px rgba(0, 0, 0, 0.05);
-            --sombra-card: 0 16px 40px rgba(128, 0, 32, 0.08);
-            --border-radius: 20px;
-            --border-radius-btn: 50px;
-            
-            --transicao: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: var(--fonte-corpo);
-            color: var(--texto-principal);
-            background-color: var(--creme-suave);
-            line-height: 1.6;
-            overflow-x: hidden;
-            padding-bottom: 70px;
-        }
-
-        @media (min-width: 992px) {
-            body { padding-bottom: 0; }
-        }
-
-        img { max-width: 100%; height: auto; display: block; }
-
-        a { text-decoration: none; color: inherit; }
-
-        .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-padding { padding: 70px 0; }
-
-        @media (min-width: 992px) {
-            .section-padding { padding: 100px 0; }
-        }
-
-        .text-center { text-align: center; }
-
-        .section-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background-color: rgba(128, 0, 32, 0.08);
-            color: var(--bordo);
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            border: 1px solid rgba(128, 0, 32, 0.15);
-        }
-
-        .section-title {
-            font-family: var(--fonte-titulo);
-            font-size: 2.2rem;
-            color: var(--bordo);
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        @media (min-width: 768px) {
-            .section-title { font-size: 2.8rem; }
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--texto-suave);
-            max-width: 680px;
-            margin: 0 auto 50px auto;
-        }
-
-        /* Botões */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 16px 36px;
-            border-radius: var(--border-radius-btn);
-            font-weight: 700;
-            font-size: 1.05rem;
-            min-height: 56px;
-            cursor: pointer;
-            transition: var(--transicao);
-            border: none;
-            text-align: center;
-        }
-
-        .btn-bordo {
-            background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
-            color: var(--branco);
-            box-shadow: 0 8px 24px rgba(128, 0, 32, 0.3);
-        }
-
-        .btn-bordo:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(128, 0, 32, 0.4);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--bordo);
-            border: 2px solid var(--bordo);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--bordo);
-            color: var(--branco);
-        }
-
-        .btn-whatsapp {
-            background: linear-gradient(135deg, var(--verde-whatsapp) 0%, var(--verde-whatsapp-hover) 100%);
-            color: var(--branco);
-            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
-        }
-
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
-        }
-
-        /* Navbar com Logo */
-        .header {
-            background-color: rgba(250, 247, 242, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 12px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .header .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-img {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--bordo);
-            box-shadow: 0 4px 12px rgba(128, 0, 32, 0.15);
-        }
-
-        .logo-text {
-            font-family: var(--fonte-titulo);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--bordo);
-            line-height: 1.1;
-        }
-
-        .logo-subtext {
-            font-size: 0.72rem;
-            color: var(--texto-suave);
-            font-family: var(--fonte-corpo);
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        /* Hero */
-        .hero {
-            background-color: var(--branco);
-            padding: 50px 0 80px 0;
-            position: relative;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        @media (min-width: 992px) {
-            .hero-grid {
-                grid-template-columns: 1.1fr 0.9fr;
-                gap: 60px;
-            }
-        }
-
-        .hero-title {
-            font-family: var(--fonte-titulo);
-            font-size: 2.5rem;
-            color: var(--bordo);
-            line-height: 1.2;
-            margin-bottom: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .hero-title { font-size: 3.3rem; }
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--texto-suave);
-            margin-bottom: 36px;
-        }
-
-        .hero-ctas {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-bottom: 36px;
-        }
-
-        @media (min-width: 480px) {
-            .hero-ctas { flex-direction: row; }
-        }
-
-        .hero-social-proof {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-            color: var(--texto-suave);
-            font-weight: 600;
-        }
-
-        .stars { color: var(--dourado); }
-
-        .hero-image-wrapper { 
-            position: relative; 
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-img {
-            width: 100%;
-            max-width: 480px;
-            height: 480px;
-            object-fit: cover;
-            border-radius: var(--border-radius);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-            transition: var(--transicao);
-        }
-
-        .hero-img:hover {
-            transform: scale(1.02);
-        }
-
-        .floating-badge {
-            position: absolute;
-            bottom: -20px;
-            left: 10px;
-            background-color: var(--branco);
-            padding: 14px 24px;
-            border-radius: 16px;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            color: var(--bordo);
-            font-size: 0.95rem;
-            border: 1px solid rgba(128, 0, 32, 0.1);
-        }
-
-        /* MOSAICO VISUAL DOS PRODUTOS REAIS */
-        .showcase-section {
-            background-color: var(--creme-suave);
-        }
-
-        .mosaic-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 20px;
-        }
-
-        @media (min-width: 768px) {
-            .mosaic-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .mosaic-card {
-            position: relative;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--sombra-card);
-            height: 320px;
-            transition: var(--transicao);
-        }
-
-        .mosaic-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .mosaic-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transicao);
-        }
-
-        .mosaic-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .mosaic-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(35, 31, 32, 0.85) 0%, rgba(35, 31, 32, 0) 60%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 24px;
-            color: var(--branco);
-        }
-
-        .mosaic-overlay h3 {
-            font-family: var(--fonte-titulo);
-            font-size: 1.4rem;
-            margin-bottom: 4px;
-        }
-
-        .mosaic-overlay p {
-            font-size: 0.88rem;
-            opacity: 0.9;
-        }
-
-        /* Metrics */
-        .metrics-bar {
-            background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
-            color: var(--branco);
-            padding: 40px 0;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 30px;
-            text-align: center;
-        }
-
-        @media (min-width: 576px) {
-            .metrics-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
-        .metric-number {
-            font-family: var(--fonte-titulo);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--branco);
-        }
-
-        /* MONTE SEU PEDIDO */
-        .builder-section {
-            background-color: var(--creme-suave);
-        }
-
-        .builder-card {
-            background-color: var(--branco);
-            border-radius: var(--border-radius);
-            padding: 36px;
-            box-shadow: var(--sombra-card);
-            max-width: 900px;
-            margin: 0 auto;
-            border: 1px solid rgba(128, 0, 32, 0.08);
-        }
-
-        .builder-group {
-            margin-bottom: 32px;
-            padding-bottom: 28px;
-            border-bottom: 1px dashed rgba(128, 0, 32, 0.2);
-        }
-
-        .builder-group:last-of-type {
-            border-bottom: none;
-        }
-
-        .builder-group label {
-            display: block;
-            font-weight: 700;
-            color: var(--bordo);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-
-        .builder-select, .builder-input {
-            width: 100%;
-            padding: 16px 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(0,0,0,0.12);
-            background-color: var(--creme-suave);
-            font-family: var(--fonte-corpo);
-            font-size: 1rem;
-            color: var(--texto-principal);
-            outline: none;
-            transition: var(--transicao);
-        }
-
-        .builder-select:focus, .builder-input:focus {
-            border-color: var(--bordo);
-            background-color: var(--branco);
-            box-shadow: 0 0 0 4px rgba(128, 0, 32, 0.1);
-        }
-
-        .builder-grid-2 {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
-        }
-
-        @media (min-width: 576px) {
-            .builder-grid-2 { grid-template-columns: 1fr 1fr; }
-        }
-
-        /* SELETORES DE ITENS COM QUANTIDADE LIVRE */
-        .item-category-box {
-            background-color: var(--creme-suave);
-            border: 1px solid rgba(128, 0, 32, 0.12);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .item-category-title {
-            font-weight: 700;
-            color: var(--bordo);
-            font-size: 1rem;
-            margin-bottom: 16px;
-            display: block;
-            border-bottom: 1px solid rgba(128, 0, 32, 0.1);
-            padding-bottom: 8px;
-        }
-
-        .item-row-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 12px;
-        }
-
-        @media (min-width: 576px) {
-            .item-row-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        .item-unit-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--branco);
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 1px solid rgba(0,0,0,0.06);
-            gap: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            transition: var(--transicao);
-        }
-
-        .item-unit-row:hover {
-            border-color: rgba(128, 0, 32, 0.2);
-        }
-
-        .item-unit-row span {
-            font-size: 0.9rem;
-            color: var(--texto-principal);
-            font-weight: 600;
-        }
-
-        .item-unit-row input[type="number"] {
-            width: 75px;
-            padding: 8px;
-            border-radius: 8px;
-            border: 1px solid rgba(0,0,0,0.18);
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--bordo);
-            background-color: var(--creme-suave);
-        }
-
-        .builder-summary {
-            background: linear-gradient(135deg, var(--creme-medio) 0%, var(--creme-suave) 100%);
-            padding: 24px;
-            border-radius: 16px;
-            margin-top: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid rgba(128, 0, 32, 0.15);
-        }
-
-        @media (min-width: 576px) {
-            .builder-summary { flex-direction: row; }
-        }
-
-        .total-price {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--bordo);
-        }
-
-        /* Cardápio Section */
-        .cardapio-section { background-color: var(--branco); }
-
-        .cardapio-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 24px;
-        }
-
-        @media (min-width: 576px) {
-            .cardapio-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (min-width: 992px) {
-            .cardapio-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-
-        .cardapio-card {
-            background-color: var(--creme-suave);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--sombra-leve);
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: var(--transicao);
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .cardapio-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--sombra-card);
-        }
-
-        .cardapio-img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            object-position: top;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .cardapio-info {
-            padding: 18px;
-            text-align: center;
-        }
-
-        .cardapio-info h3 {
-            font-family: var(--fonte-titulo);
-            font-size: 1.25rem;
-            color: var(--bordo);
-            margin-bottom: 4px;
-        }
-
-        .cardapio-info p {
-            font-size: 0.88rem;
-            color: var(--texto-suave);
-        }
-
-        /* Modal Image Zoom */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            padding-top: 40px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.88);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 85vh;
-            border-radius: 12px;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* Differentials & Steps */
-        .diff-section { background-color: var(--branco); }
-
-        .diff-grid, .steps-grid, .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 30px;
-        }
-
-        @media (min-width: 768px) {
-            .diff-grid { grid-template-columns: repeat(2, 1fr); }
-            .steps-grid { grid-template-columns: repeat(3, 1fr); }
-            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (min-width: 992px) {
-            .diff-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-
-        .diff-card {
-            padding: 24px;
-            border-left: 4px solid var(--bordo);
-            background-color: var(--creme-suave);
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-            box-shadow: var(--sombra-leve);
-        }
-
-        .diff-card i {
-            font-size: 2rem;
-            color: var(--bordo);
-            margin-bottom: 14px;
-        }
-
-        .step-card {
-            background-color: var(--branco);
-            padding: 36px 28px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            box-shadow: var(--sombra-leve);
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-
-        .step-number {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
-            color: var(--branco);
-            font-weight: 700;
-            font-size: 1.1rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px auto;
-            box-shadow: 0 6px 16px rgba(128, 0, 32, 0.25);
-        }
-
-        .testimonial-card {
-            background-color: var(--creme-suave);
-            padding: 32px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--sombra-leve);
-            border: 1px solid rgba(128, 0, 32, 0.08);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            color: var(--texto-suave);
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--bordo);
-        }
-
-        /* FAQ */
-        .faq-wrapper { max-width: 800px; margin: 0 auto; }
-
-        .faq-item {
-            background-color: var(--branco);
-            border-radius: 14px;
-            margin-bottom: 14px;
-            box-shadow: var(--sombra-leve);
-            overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-
-        .faq-question {
-            padding: 22px 26px;
-            width: 100%;
-            text-align: left;
-            background: none;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--texto-principal);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-family: var(--fonte-corpo);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding: 0 26px;
-            color: var(--texto-suave);
-        }
-
-        .faq-answer p { padding-bottom: 22px; }
-
-        .faq-item.active .faq-question i { transform: rotate(180deg); }
-
-        /* Footer & CTA Final */
-        .cta-final {
-            background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
-            color: var(--branco);
-            text-align: center;
-        }
-
-        .cta-final .section-title { color: var(--branco); }
-
-        .cta-final p {
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 620px;
-            margin: 0 auto 36px auto;
-            font-size: 1.1rem;
-        }
-
-        .footer {
-            background-color: var(--bordo-dark);
-            color: rgba(255, 255, 255, 0.85);
-            padding: 36px 0;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 64px;
-            height: 64px;
-            background-color: var(--verde-whatsapp);
-            color: var(--branco);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.2rem;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-            z-index: 999;
-            transition: var(--transicao);
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 991px) {
-            .whatsapp-float { display: none; }
-        }
-
-        .mobile-sticky-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--branco);
-            padding: 12px 20px;
-            box-shadow: 0 -6px 20px rgba(0,0,0,0.12);
-            z-index: 998;
-            display: flex;
-            justify-content: center;
-        }
-
-        .mobile-sticky-bar .btn { width: 100%; }
-
-        @media (min-width: 992px) {
-            .mobile-sticky-bar { display: none; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Divina Bolacha | Confeitaria Artesanal, Tortas e Kits Festa em Pelotas</title>
+  <meta name="description" content="Tortas artesanais, docinhos tradicionais e gourmet, folhados e salgadinhos feitos no dia em Pelotas por Aline Fernandes. Simule seu kit festa online e peça pelo WhatsApp!" />
+  <meta property="og:title" content="Divina Bolacha | Confeitaria Artesanal e Kits Festa em Pelotas" />
+  <meta property="og:description" content="Tortas, docinhos e salgadinhos artesanais feitos no dia em Pelotas. Escolha um Kit Pronto em 1 clique ou monte sua encomenda personalizada online!" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Divina Bolacha — Confeitaria Artesanal por Aline Fernandes",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "R. Dr. Edmundo Berchon, 199",
+      "addressLocality": "Pelotas",
+      "addressRegion": "RS",
+      "addressCountry": "BR"
+    },
+    "telephone": "+55-53-98151-7232",
+    "AggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "180"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bordo: #800020;
+      --bordo-dark: #5A0016;
+      --bordo-soft: rgba(128, 0, 32, 0.08);
+      --creme-suave: #FAF7F2;
+      --creme-medio: #F2ECE1;
+      --branco: #FFFFFF;
+      --texto-principal: #231F20;
+      --texto-suave: #5C5254;
+      --verde-whatsapp: #25D366;
+      --verde-whatsapp-hover: #1EBE5A;
+      --dourado: #D4AF37;
+      --dourado-soft: rgba(212, 175, 55, 0.16);
+      --fonte-titulo: 'Playfair Display', Georgia, serif;
+      --fonte-corpo: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --sombra-leve: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --sombra-card: 0 16px 40px rgba(128, 0, 32, 0.09);
+      --border-radius: 20px;
+      --border-radius-btn: 50px;
+      --transicao: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; max-width: 100%; overflow-x: hidden; }
+    body {
+      font-family: var(--fonte-corpo);
+      color: var(--texto-principal);
+      background-color: var(--creme-suave);
+      line-height: 1.6;
+      max-width: 100%;
+      overflow-x: hidden;
+      padding-bottom: 84px;
+    }
+    @media (min-width: 992px) { body { padding-bottom: 0; } }
+    img { max-width: 100%; object-fit: cover; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { width: 92%; max-width: 1220px; margin: 0 auto; }
+    .section-padding { padding: 72px 0; }
+    @media (min-width: 992px) { .section-padding { padding: 96px 0; } }
+    .text-center { text-align: center; }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background-color: var(--bordo-soft);
+      color: var(--bordo);
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      border: 1px solid rgba(128, 0, 32, 0.16);
+    }
+
+    .section-title {
+      font-family: var(--fonte-titulo);
+      font-size: clamp(2rem, 3.5vw, 2.85rem);
+      color: var(--bordo);
+      margin-bottom: 14px;
+      line-height: 1.18;
+    }
+
+    .section-subtitle {
+      font-size: 1.08rem;
+      color: var(--texto-suave);
+      max-width: 680px;
+      margin: 0 auto 46px auto;
+    }
+
+    /* Botões */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 32px;
+      border-radius: var(--border-radius-btn);
+      font-weight: 700;
+      font-size: 1rem;
+      min-height: 52px;
+      cursor: pointer;
+      transition: var(--transicao);
+      border: none;
+      text-align: center;
+    }
+    .btn-bordo {
+      background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
+      color: var(--branco);
+      box-shadow: 0 8px 24px rgba(128, 0, 32, 0.28);
+    }
+    .btn-bordo:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(128, 0, 32, 0.38); }
+    .btn-outline {
+      background-color: transparent;
+      color: var(--bordo);
+      border: 2px solid var(--bordo);
+    }
+    .btn-outline:hover { background-color: var(--bordo); color: var(--branco); }
+    .btn-whatsapp {
+      background: linear-gradient(135deg, var(--verde-whatsapp) 0%, var(--verde-whatsapp-hover) 100%);
+      color: var(--branco);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+    }
+    .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.42); }
+
+    /* Header Sticky + Nav */
+    .header {
+      background-color: rgba(250, 247, 242, 0.94);
+      backdrop-filter: blur(12px);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      border-bottom: 1px solid rgba(128, 0, 32, 0.08);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo-brand { display: flex; align-items: center; gap: 12px; }
+    .logo-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--bordo);
+      box-shadow: 0 4px 12px rgba(128, 0, 32, 0.16);
+    }
+    .logo-text {
+      font-family: var(--fonte-titulo);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--bordo);
+      line-height: 1.1;
+    }
+    .logo-subtext {
+      font-size: 0.72rem;
+      color: var(--texto-suave);
+      font-weight: 600;
+      letter-spacing: 0.4px;
+    }
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: var(--texto-principal);
+    }
+    .nav-links a:hover { color: var(--bordo); }
+    @media (min-width: 992px) { .nav-links { display: flex; } }
+
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(128, 0, 32, 0.2);
+      background: var(--branco);
+      color: var(--bordo);
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    @media (min-width: 992px) { .menu-toggle { display: none; } }
+
+    .mobile-nav-drawer {
+      display: none;
+      background: var(--branco);
+      border-bottom: 1px solid rgba(128, 0, 32, 0.12);
+      padding: 16px 4%;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .mobile-nav-drawer.open { display: flex; }
+    .mobile-nav-drawer a {
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      color: var(--texto-principal);
+      background: var(--creme-suave);
+    }
+
+    /* Hero */
+    .hero {
+      background: radial-gradient(circle at 85% 20%, rgba(128, 0, 32, 0.05), transparent 45%), var(--branco);
+      padding: 46px 0 80px 0;
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 44px;
+      align-items: center;
+    }
+    @media (min-width: 992px) {
+      .hero-grid { grid-template-columns: 1.12fr 0.88fr; gap: 56px; }
+    }
+    .hero-title {
+      font-family: var(--fonte-titulo);
+      font-size: clamp(2.25rem, 4vw, 3.35rem);
+      color: var(--bordo);
+      line-height: 1.16;
+      margin-bottom: 20px;
+    }
+    .hero-subtitle {
+      font-size: 1.14rem;
+      color: var(--texto-suave);
+      margin-bottom: 30px;
+    }
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    @media (min-width: 520px) { .hero-ctas { flex-direction: row; flex-wrap: wrap; } }
+
+    .hero-trust-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .trust-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 50px;
+      background: var(--creme-suave);
+      color: var(--texto-principal);
+      border: 1px solid rgba(128, 0, 32, 0.12);
+    }
+    .trust-pill i { color: var(--bordo); }
+
+    .hero-social-proof {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.94rem;
+      color: var(--texto-suave);
+      font-weight: 600;
+    }
+    .stars { color: var(--dourado); }
+
+    .hero-image-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-img {
+      width: 100%;
+      max-width: 490px;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 22px 54px rgba(128, 0, 32, 0.18);
+      border: 4px solid var(--branco);
+    }
+    .floating-badge {
+      position: absolute;
+      bottom: -18px;
+      left: 12px;
+      background-color: var(--branco);
+      padding: 13px 20px;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--bordo);
+      font-size: 0.92rem;
+      border: 1px solid rgba(128, 0, 32, 0.12);
+    }
+    .floating-badge-top {
+      position: absolute;
+      top: 16px;
+      right: 12px;
+      background: rgba(128, 0, 32, 0.92);
+      color: var(--branco);
+      padding: 9px 16px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(128, 0, 32, 0.25);
+      backdrop-filter: blur(6px);
+    }
+
+    /* Vitrine Mosaico */
+    .showcase-section { background-color: var(--creme-suave); }
+    .mosaic-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+    @media (min-width: 768px) { .mosaic-grid { grid-template-columns: repeat(3, 1fr); } }
+    .mosaic-card {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--sombra-card);
+      height: 330px;
+      transition: var(--transicao);
+      cursor: pointer;
+    }
+    .mosaic-card:hover { transform: translateY(-7px); }
+    .mosaic-card img { width: 100%; height: 100%; object-fit: cover; transition: var(--transicao); }
+    .mosaic-card:hover img { transform: scale(1.07); }
+    .mosaic-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(35, 31, 32, 0.88) 0%, rgba(35, 31, 32, 0.05) 62%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      color: var(--branco);
+    }
+    .mosaic-overlay h3 { font-family: var(--fonte-titulo); font-size: 1.42rem; margin-bottom: 4px; }
+    .mosaic-overlay p { font-size: 0.88rem; opacity: 0.92; }
+
+    /* Faixa de Métricas */
+    .metrics-bar {
+      background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
+      color: var(--branco);
+      padding: 42px 0;
+    }
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      text-align: center;
+    }
+    @media (min-width: 640px) { .metrics-grid { grid-template-columns: repeat(4, 1fr); } }
+    .metric-number {
+      font-family: var(--fonte-titulo);
+      font-size: 2.35rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--dourado);
+    }
+
+    /* NOVO: KITS FESTA PRONTOS (1 CLIQUE) + SIMULADOR POR CONVIDADOS */
+    .kits-section { background-color: var(--branco); }
+    .guest-helper-card {
+      background: linear-gradient(135deg, var(--creme-medio) 0%, var(--creme-suave) 100%);
+      border: 1px solid rgba(128, 0, 32, 0.18);
+      border-radius: var(--border-radius);
+      padding: 24px 28px;
+      margin-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @media (min-width: 860px) { .guest-helper-card { flex-direction: row; } }
+    .guest-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+    .guest-input-box {
+      display: inline-flex;
+      align-items: center;
+      background: var(--branco);
+      border: 2px solid var(--bordo);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .guest-step-btn {
+      width: 42px;
+      height: 44px;
+      border: none;
+      background: var(--bordo-soft);
+      color: var(--bordo);
+      font-size: 1.2rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .guest-step-btn:hover { background: var(--bordo); color: var(--branco); }
+    #guestCountInput {
+      width: 68px;
+      height: 44px;
+      border: none;
+      text-align: center;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--bordo);
+      font-family: var(--fonte-corpo);
+    }
+    .guest-recommendation {
+      font-size: 0.94rem;
+      color: var(--texto-principal);
+      background: rgba(255, 255, 255, 0.78);
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(128, 0, 32, 0.12);
+    }
+
+    .kits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 860px) { .kits-grid { grid-template-columns: repeat(3, 1fr); } }
+    .kit-card {
+      background: var(--creme-suave);
+      border: 1px solid rgba(128, 0, 32, 0.14);
+      border-radius: var(--border-radius);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      box-shadow: var(--sombra-leve);
+      transition: var(--transicao);
+    }
+    .kit-card:hover { transform: translateY(-6px); box-shadow: var(--sombra-card); }
+    .kit-card.featured {
+      background: var(--branco);
+      border: 2px solid var(--bordo);
+      box-shadow: var(--sombra-card);
+    }
+    .kit-ribbon {
+      position: absolute;
+      top: -13px;
+      right: 20px;
+      background: var(--bordo);
+      color: var(--branco);
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      letter-spacing: 0.5px;
+    }
+    .kit-title {
+      font-family: var(--fonte-titulo);
+      font-size: 1.45rem;
+      color: var(--bordo);
+      margin-bottom: 4px;
+    }
+    .kit-guests {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--texto-suave);
+      margin-bottom: 16px;
+    }
+    .kit-list {
+      list-style: none;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 0.93rem;
+    }
+    .kit-list li { display: flex; align-items: center; gap: 8px; }
+    .kit-list i { color: var(--bordo); }
+    .kit-price-box {
+      border-top: 1px dashed rgba(128, 0, 32, 0.2);
+      padding-top: 16px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .kit-price { font-size: 1.55rem; font-weight: 800; color: var(--bordo); }
+
+    /* Calculadora Monte Seu Pedido */
+    .builder-section { background-color: var(--creme-suave); }
+    .builder-card {
+      background-color: var(--branco);
+      border-radius: var(--border-radius);
+      padding: 28px 22px;
+      box-shadow: var(--sombra-card);
+      max-width: 980px;
+      margin: 0 auto;
+      border: 1px solid rgba(128, 0, 32, 0.1);
+    }
+    @media (min-width: 768px) { .builder-card { padding: 38px 36px; } }
+
+    .builder-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(128, 0, 32, 0.1);
+    }
+    .filter-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter-tab {
+      padding: 8px 15px;
+      border-radius: 50px;
+      border: 1px solid rgba(128, 0, 32, 0.22);
+      background: var(--creme-suave);
+      color: var(--texto-principal);
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transicao);
+    }
+    .filter-tab.active { background: var(--bordo); color: var(--branco); border-color: var(--bordo); }
+    .search-box {
+      flex: 1;
+      min-width: 210px;
+      max-width: 320px;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 10px 14px 10px 36px;
+      border-radius: 50px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: var(--creme-suave);
+      font-size: 0.9rem;
+      font-family: var(--fonte-corpo);
+    }
+    .search-box i {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--texto-suave);
+      font-size: 0.85rem;
+    }
+
+    .builder-group {
+      margin-bottom: 30px;
+      padding-bottom: 26px;
+      border-bottom: 1px dashed rgba(128, 0, 32, 0.2);
+    }
+    .builder-group:last-of-type { border-bottom: none; }
+    .builder-group > label {
+      display: block;
+      font-weight: 800;
+      color: var(--bordo);
+      margin-bottom: 14px;
+      font-size: 1.12rem;
+    }
+    .builder-select, .builder-input {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      background-color: var(--creme-suave);
+      font-family: var(--fonte-corpo);
+      font-size: 0.98rem;
+      color: var(--texto-principal);
+      outline: none;
+      transition: var(--transicao);
+    }
+    .builder-select:focus, .builder-input:focus {
+      border-color: var(--bordo);
+      background-color: var(--branco);
+      box-shadow: 0 0 0 4px rgba(128, 0, 32, 0.1);
+    }
+    .builder-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 600px) { .builder-grid-2 { grid-template-columns: 1fr 1fr; } }
+
+    .item-category-box {
+      background-color: var(--creme-suave);
+      border: 1px solid rgba(128, 0, 32, 0.12);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .item-category-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(128, 0, 32, 0.1);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+    .item-category-title {
+      font-weight: 800;
+      color: var(--bordo);
+      font-size: 0.98rem;
+    }
+    .item-row-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 640px) { .item-row-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .item-unit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--branco);
+      padding: 9px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      gap: 8px;
+      transition: var(--transicao);
+    }
+    .item-unit-row.has-qty {
+      border-color: var(--bordo);
+      background: linear-gradient(90deg, rgba(128, 0, 32, 0.05), var(--branco));
+      box-shadow: 0 4px 12px rgba(128, 0, 32, 0.08);
+    }
+    .item-unit-row span.item-label {
+      font-size: 0.89rem;
+      color: var(--texto-principal);
+      font-weight: 600;
+      flex: 1;
+    }
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .qty-btn {
+      width: 28px;
+      height: 30px;
+      border-radius: 7px;
+      border: 1px solid rgba(128, 0, 32, 0.22);
+      background: var(--creme-suave);
+      color: var(--bordo);
+      font-weight: 800;
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+    .qty-btn:hover { background: var(--bordo); color: var(--branco); }
+    .item-unit-row input[type="number"] {
+      width: 58px;
+      padding: 6px 4px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.18);
+      text-align: center;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--bordo);
+      background-color: var(--creme-suave);
+    }
+
+    /* Resumo Visual do Pedido (Cupom) */
+    .receipt-box {
+      background: var(--creme-suave);
+      border: 1px solid rgba(128, 0, 32, 0.18);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 18px;
+    }
+    .receipt-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-weight: 800;
+      color: var(--bordo);
+      font-size: 0.96rem;
+    }
+    .receipt-items {
+      font-size: 0.88rem;
+      color: var(--texto-suave);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .receipt-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--branco);
+      border: 1px solid rgba(128, 0, 32, 0.18);
+      color: var(--texto-principal);
+      padding: 5px 11px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.82rem;
+    }
+
+    .builder-summary {
+      background: linear-gradient(135deg, var(--creme-medio) 0%, var(--creme-suave) 100%);
+      padding: 22px 24px;
+      border-radius: 16px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      border: 2px solid rgba(128, 0, 32, 0.2);
+    }
+    @media (min-width: 640px) { .builder-summary { flex-direction: row; } }
+    .total-price { font-size: 1.85rem; font-weight: 800; color: var(--bordo); line-height: 1.1; }
+    .total-counters { font-size: 0.83rem; color: var(--texto-suave); font-weight: 600; margin-top: 3px; }
+
+    /* Cardápio Oficial */
+    .cardapio-section { background-color: var(--branco); }
+    .cardapio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+    @media (min-width: 576px) { .cardapio-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 992px) { .cardapio-grid { grid-template-columns: repeat(4, 1fr); } }
+    .cardapio-card {
+      background-color: var(--creme-suave);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--sombra-leve);
+      border: 1px solid rgba(128, 0, 32, 0.08);
+      transition: var(--transicao);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .cardapio-card:hover { transform: translateY(-7px); box-shadow: var(--sombra-card); }
+    .cardapio-img { width: 100%; height: 370px; object-fit: cover; object-position: top; }
+    .cardapio-info { padding: 16px; text-align: center; }
+    .cardapio-info h3 { font-family: var(--fonte-titulo); font-size: 1.22rem; color: var(--bordo); margin-bottom: 4px; }
+    .cardapio-info p { font-size: 0.86rem; color: var(--texto-suave); font-weight: 600; }
+
+    /* Modal Zoom */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      padding: 40px 16px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(20, 14, 16, 0.9);
+      backdrop-filter: blur(6px);
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 92%;
+      max-height: 84vh;
+      border-radius: 14px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+    .close-modal {
+      position: absolute;
+      top: 18px;
+      right: 28px;
+      color: #fff;
+      font-size: 42px;
+      font-weight: bold;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* Sobre Nós em 2 Colunas + Endereço */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 42px;
+      align-items: center;
+    }
+    @media (min-width: 992px) { .about-grid { grid-template-columns: 0.95fr 1.05fr; } }
+    .about-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      position: relative;
+    }
+    .about-photos img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: var(--sombra-card);
+    }
+    .about-photos img:first-child { transform: translateY(14px); }
+    .location-card {
+      margin-top: 22px;
+      background: var(--branco);
+      border-left: 4px solid var(--bordo);
+      border-radius: 0 16px 16px 0;
+      padding: 18px 20px;
+      box-shadow: var(--sombra-leve);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Diferenciais, Passos e Depoimentos */
+    .diff-section { background-color: var(--branco); }
+    .diff-grid, .steps-grid, .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 26px;
+    }
+    @media (min-width: 768px) {
+      .diff-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(3, 1fr); }
+      .testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 992px) { .diff-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .diff-card {
+      padding: 24px;
+      border-left: 4px solid var(--bordo);
+      background-color: var(--creme-suave);
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      box-shadow: var(--sombra-leve);
+    }
+    .diff-card i { font-size: 1.9rem; color: var(--bordo); margin-bottom: 12px; }
+
+    .step-card {
+      background-color: var(--branco);
+      padding: 34px 26px;
+      border-radius: var(--border-radius);
+      text-align: center;
+      box-shadow: var(--sombra-leve);
+      border: 1px solid rgba(128, 0, 32, 0.08);
+    }
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
+      color: var(--branco);
+      font-weight: 800;
+      font-size: 1.15rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px auto;
+      box-shadow: 0 6px 16px rgba(128, 0, 32, 0.25);
+    }
+
+    .testimonial-card {
+      background-color: var(--creme-suave);
+      padding: 28px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--sombra-leve);
+      border: 1px solid rgba(128, 0, 32, 0.08);
+    }
+    .testimonial-text { font-style: italic; color: var(--texto-suave); margin-bottom: 16px; font-size: 1rem; }
+    .testimonial-author { font-weight: 700; color: var(--bordo); font-size: 0.92rem; }
+
+    /* FAQ */
+    .faq-wrapper { max-width: 820px; margin: 0 auto; }
+    .faq-item {
+      background-color: var(--branco);
+      border-radius: 14px;
+      margin-bottom: 12px;
+      box-shadow: var(--sombra-leve);
+      overflow: hidden;
+      border: 1px solid rgba(128, 0, 32, 0.08);
+    }
+    .faq-question {
+      padding: 20px 24px;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--texto-principal);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: var(--fonte-corpo);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      padding: 0 24px;
+      color: var(--texto-suave);
+    }
+    .faq-answer p { padding-bottom: 20px; }
+    .faq-item.active .faq-question i { transform: rotate(180deg); }
+
+    /* CTA Final & Footer */
+    .cta-final {
+      background: linear-gradient(135deg, var(--bordo) 0%, var(--bordo-dark) 100%);
+      color: var(--branco);
+      text-align: center;
+    }
+    .cta-final .section-title { color: var(--branco); }
+    .cta-final p { color: rgba(255, 255, 255, 0.9); max-width: 620px; margin: 0 auto 32px auto; font-size: 1.08rem; }
+    .footer {
+      background-color: var(--bordo-dark);
+      color: rgba(255, 255, 255, 0.86);
+      padding: 40px 0;
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 64px;
+      height: 64px;
+      background-color: var(--verde-whatsapp);
+      color: var(--branco);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.1rem;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.26);
+      z-index: 999;
+      transition: var(--transicao);
+    }
+    .whatsapp-float:hover { transform: scale(1.08); }
+    @media (max-width: 991px) { .whatsapp-float { display: none; } }
+
+    .mobile-sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--branco);
+      padding: 10px 16px;
+      box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.12);
+      z-index: 998;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mobile-sticky-bar .btn { flex: 1; min-height: 48px; padding: 12px 18px; font-size: 0.95rem; }
+    @media (min-width: 992px) { .mobile-sticky-bar { display: none; } }
+  </style>
+<style>/* img-safety */
+html { scroll-behavior: smooth; }
+html, body { max-width: 100%; overflow-x: hidden; }
+img { max-width: 100%; object-fit: cover; display: block; }
+</style>
 </head>
 <body>
 
-    <!-- CABEÇALHO -->
-    <header class="header">
-        <div class="container">
-            <a href="#" class="logo-brand">
-                <img src="logo.jpg" alt="Logo Divina Bolacha" class="logo-img">
-                <div>
-                    <div class="logo-text">Divina Bolacha</div>
-                    <div class="logo-subtext">por Aline Fernandes</div>
-                </div>
-            </a>
-            <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20encomendas." target="_blank" class="btn btn-outline" style="padding: 10px 22px; min-height: auto; font-size: 0.92rem;">
-                <i class="fa-brands fa-whatsapp"></i> (53) 98151-7232
-            </a>
+  <!-- CABEÇALHO STICKY COM NAVEGAÇÃO -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo-brand">
+        <img src="logo.jpg" alt="Logo Divina Bolacha por Aline Fernandes" class="logo-img" />
+        <div>
+          <div class="logo-text">Divina Bolacha</div>
+          <div class="logo-subtext">por Aline Fernandes • Pelotas</div>
         </div>
-    </header>
+      </a>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <span class="section-badge"><i class="fa-solid fa-location-dot"></i> Confeitaria Artesanal em Pelotas</span>
-                    <h1 class="hero-title">A festa perfeita e sem estresse: Kits artesanais com o sabor de Pelotas.</h1>
-                    <p class="hero-subtitle">Tortas, docinhos e salgadinhos fritos e assados feitos no dia. Digite a quantidade exata de cada item abaixo para calcular na hora!</p>
-                    
-                    <div class="hero-ctas">
-                        <a href="#monte-seu-pedido" class="btn btn-bordo">
-                            <i class="fa-solid fa-utensils"></i> Monte Seu Pedido Online
-                        </a>
-                    </div>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#delicias">Delícias</a>
+        <a href="#kits-prontos">Kits Prontos</a>
+        <a href="#monte-seu-pedido">Calcular Pedido</a>
+        <a href="#cardapio">Cardápio & Preços</a>
+        <a href="#sobre">Sobre Aline</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
 
-                    <div class="hero-social-proof">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                        <span>⭐ 4.9/5 em Pelotas • Praticidade e Sabor Artesanal</span>
-                    </div>
-                </div>
-
-                <div class="hero-image-wrapper">
-                    <img src="bolo.jpg" alt="Torta Especial de Chocolate Divina Bolacha" class="hero-img">
-                    <div class="floating-badge">
-                        <i class="fa-solid fa-box-open" style="color: var(--bordo);"></i>
-                        <span>Produção Artesanal Diária</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- VITRINE VISUAL DOS PRODUTOS REAIS -->
-    <section class="section-padding showcase-section">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-badge"><i class="fa-solid fa-camera"></i> Nossas Delícias</span>
-                <h2 class="section-title">Qualidade Que Dá Água Na Boca</h2>
-                <p class="section-subtitle">Salgadinhos crocantes e sequinhos, preparados artesanalmente para tornar qualquer momento inesquecível.</p>
-            </div>
-
-            <div class="mosaic-grid">
-                <div class="mosaic-card">
-                    <img src="salgados1.jpg" alt="Caixa com Salgados Assados e Folhados">
-                    <div class="mosaic-overlay">
-                        <h3>Folhados e Assados</h3>
-                        <p>Croissants, empadinhas e folhadinhos recheados</p>
-                    </div>
-                </div>
-
-                <div class="mosaic-card">
-                    <img src="salgados2.jpg" alt="Caixa Mista de Salgados Fritos e Folhados">
-                    <div class="mosaic-overlay">
-                        <h3>Fritos Crocantes</h3>
-                        <p>Coxinhas, croquetes e bolinhas de queijo douradas</p>
-                    </div>
-                </div>
-
-                <div class="mosaic-card">
-                    <img src="salgados3.jpg" alt="Caixa com Salgados Especiais">
-                    <div class="mosaic-overlay">
-                        <h3>Salgados Especiais</h3>
-                        <p>Pastelzinhos, empadas e folhados finos</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAIXA DE MÉTRICAS -->
-    <section class="metrics-bar">
-        <div class="container">
-            <div class="metrics-grid">
-                <div>
-                    <div class="metric-number">+1.000</div>
-                    <div>Festas adoçadas em Pelotas</div>
-                </div>
-                <div>
-                    <div class="metric-number">100%</div>
-                    <div>Produção artesanal e diária</div>
-                </div>
-                <div>
-                    <div class="metric-number">4.9/5★</div>
-                    <div>Avaliação média dos clientes</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO MONTE SEU PEDIDO -->
-    <section class="section-padding builder-section" id="monte-seu-pedido">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-badge"><i class="fa-solid fa-calculator"></i> Calculadora de Pedidos</span>
-                <h2 class="section-title">Monte sua Encomenda Personalizada</h2>
-                <p class="section-subtitle">Escolha o tamanho da sua torta e digite a quantidade de unidades que desejar para cada doce ou salgado!</p>
-            </div>
-
-            <div class="builder-card">
-                <form id="orderForm">
-                    
-                    <!-- 1. Torta / Bolo -->
-                    <div class="builder-group">
-                        <label><i class="fa-solid fa-cake-candles"></i> 1. Escolha a Torta / Bolo (Opcional):</label>
-                        <div class="builder-grid-2">
-                            <select id="tortaCategoria" class="builder-select" onchange="updateTortaOptions()">
-                                <option value="nenhuma" data-price="0">Sem Torta</option>
-                                <option value="tradicional">Torta Tradicional</option>
-                                <option value="especial">Torta Especial</option>
-                                <option value="outro">Outro (Personalizado)</option>
-                            </select>
-                            <select id="tortaTamanho" class="builder-select" onchange="updateSaborField(); calculateTotal();">
-                                <option value="nenhum" data-price="0">Selecione a categoria primeiro</option>
-                            </select>
-                        </div>
-
-                        <div id="tortaSaborContainer" style="margin-top: 14px; display: none;">
-                            <label style="font-size: 0.95rem; font-weight: 600;">Sabor da Torta:</label>
-                            <select id="tortaSaborSelect" class="builder-select" onchange="checkTortaCustomSabor()">
-                                <option value="">Selecione o sabor...</option>
-                            </select>
-                            <input type="text" id="tortaSaborOutro" class="builder-input" placeholder="Digite o sabor ou detalhes da torta..." style="margin-top: 10px; display: none;">
-                        </div>
-                    </div>
-
-                    <!-- 2. Docinhos com Quantidade Livre -->
-                    <div class="builder-group">
-                        <label><i class="fa-solid fa-candy-cane"></i> 2. Escolha os Docinhos (Digite a quantidade de unidades):</label>
-                        
-                        <!-- Tradicionais -->
-                        <div class="item-category-box">
-                            <span class="item-category-title">🍬 Tradicionais (R$ 1,80 / unidade — Cento R$ 180,00)</span>
-                            <div class="item-row-grid">
-                                <div class="item-unit-row">
-                                    <span>Brigadeiro Tradicional</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Brigadeiro Tradicional" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Branquinho no Açúcar</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Branquinho no Açúcar" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Beijinho (Côco)</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Beijinho (Côco)" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Nesquick</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Nesquick" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Casadinho</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Casadinho" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Gourmet -->
-                        <div class="item-category-box">
-                            <span class="item-category-title">✨ Gourmet (R$ 2,20 / unidade — Cento R$ 220,00)</span>
-                            <div class="item-row-grid">
-                                <div class="item-unit-row">
-                                    <span>Ninho com Nutella</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Ninho com Nutella" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Coloridos / Neon</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Coloridos / Neon" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Branco c/ Raspas</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Branco c/ Raspas" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Ao Leite c/ Raspas</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Ao Leite c/ Raspas" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Churros</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Churros" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Paçoca</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Paçoca" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Meio Amargo c/ Raspas</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Meio Amargo c/ Raspas" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Stikadinho / M&M's</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Stikadinho / M&M's" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Especiais -->
-                        <div class="item-category-box">
-                            <span class="item-category-title">⭐ Especiais (R$ 2,80 / unidade — Cento R$ 280,00)</span>
-                            <div class="item-row-grid">
-                                <div class="item-unit-row">
-                                    <span>Nozes</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Nozes" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Meio Amargo c/ Belga</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Meio Amargo c/ Belga" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Ao Leite c/ Belga</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Ao Leite c/ Belga" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Amêndoas / Brulè</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Amêndoas / Brulè" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>KitKat / Oreo</span>
-                                    <input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="KitKat / Oreo" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                            </div>
-                        </div>
-
-                        <input type="text" id="docinhoOutroInput" class="builder-input" placeholder="Outros docinhos ou observações personalizadas..." style="margin-top: 10px;">
-                    </div>
-
-                    <!-- 3. Salgados com Quantidade Livre -->
-                    <div class="builder-group">
-                        <label><i class="fa-solid fa-bread-slice"></i> 3. Escolha os Salgados (Digite a quantidade de unidades):</label>
-                        
-                        <!-- FOLHADOS -->
-                        <div class="item-category-box">
-                            <span class="item-category-title">🥐 Folhados (R$ 1,30 / unidade — Cento R$ 130,00)</span>
-                            <div class="item-row-grid">
-                                <div class="item-unit-row">
-                                    <span>Croissant Chocolate</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croissant Chocolate" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Croissant Presunto/Queijo</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croissant Presunto e Queijo" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Empadinha de Frango</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Empadinha de Frango" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Enroladinho de Salsicha</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Enroladinho de Salsicha" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Enroladinho de Goiabada</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Enroladinho de Goiabada" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Folhadinho de Ricota</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Folhadinho de Ricota" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Pastelzinho Frango/Req.</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Pastelzinho Frango e Requeijão" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- FRITOS -->
-                        <div class="item-category-box">
-                            <span class="item-category-title">🍗 Fritos (R$ 1,30 / unidade — Cento R$ 130,00)</span>
-                            <div class="item-row-grid">
-                                <div class="item-unit-row">
-                                    <span>Bolinhas de Provolone</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Bolinhas de Provolone" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Coxinha</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Coxinha" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Croquete de Carne</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croquete de Carne" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Croquete Carne c/ Req.</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croquete Carne c/ Requeijão" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Croquete de Calabresa</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croquete de Calabresa" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Mini Churros</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Mini Churros" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Pastelzinho de Carne</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Pastelzinho de Carne" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Pastelzinho de Queijo</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Pastelzinho de Queijo" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Risóles de Queijo</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Risóles de Queijo" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Risóles Presunto/Queijo</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Risóles Presunto e Queijo" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- CLÁSSICOS -->
-                        <div class="item-category-box">
-                            <span class="item-category-title">🧁 Clássicos (R$ 1,50 / unidade — Cento R$ 150,00)</span>
-                            <div class="item-row-grid">
-                                <div class="item-unit-row">
-                                    <span>Barquete (Frango)</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Barquete Frango" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Barquete (Saladinha)</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Barquete Saladinha" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Bregeré</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Bregeré" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Canudinho (Frango)</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Canudinho Frango" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Canudinho (Carne)</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Canudinho Carne" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Mini Pizza (Frios)</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Mini Pizza Frios" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Mini Pizza (Calabresa)</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Mini Pizza Calabresa" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- ESPECIAIS -->
-                        <div class="item-category-box">
-                            <span class="item-category-title">🍔 Especiais (R$ 1,80 / unidade — Cento R$ 180,00)</span>
-                            <div class="item-row-grid">
-                                <div class="item-unit-row">
-                                    <span>Cachorrinho</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Cachorrinho" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Hamburguinho</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Hamburguinho" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Sanduíchinho (Frios)</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Sanduíchinho Frios" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Sanduíchinho (Atum/Ricota)</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Sanduíchinho Atum/Ricota" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                                <div class="item-unit-row">
-                                    <span>Bauruzinho</span>
-                                    <input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Bauruzinho" min="0" value="0" placeholder="0" onchange="calculateTotal()" oninput="calculateTotal()">
-                                </div>
-                            </div>
-                        </div>
-
-                        <input type="text" id="salgadoOutroInput" class="builder-input" placeholder="Outros salgados ou observações personalizadas..." style="margin-top: 10px;">
-                    </div>
-
-                    <!-- Observações Gerais -->
-                    <div class="builder-group">
-                        <label><i class="fa-solid fa-pen-to-square"></i> Data do Evento e Observações:</label>
-                        <input type="text" id="observacoes" class="builder-input" placeholder="Ex: Entrega para o dia 15/08 às 15h.">
-                    </div>
-
-                    <!-- Resumo e Envio -->
-                    <div class="builder-summary">
-                        <div>
-                            <span style="font-size: 0.95rem; color: var(--texto-suave); font-weight: 600;">Total Estimado:</span>
-                            <div class="total-price" id="totalDisplay">R$ 0,00</div>
-                        </div>
-                        <button type="button" class="btn btn-whatsapp" onclick="sendOrderToWhatsApp()">
-                            <i class="fa-brands fa-whatsapp"></i> Enviar Pedido no WhatsApp
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- GALERIA DO CARDÁPIO OFICIAL -->
-    <section class="section-padding cardapio-section" id="cardapio">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-badge"><i class="fa-solid fa-book-open"></i> Menu Oficial</span>
-                <h2 class="section-title">Confira Nossas Delícias e Valores</h2>
-                <p class="section-subtitle">Clique em qualquer imagem para ampliar e ver as tabelas completas de sabores e recheios.</p>
-            </div>
-
-            <div class="cardapio-grid">
-                <div class="cardapio-card" onclick="openModal('torta-especial.jpg')">
-                    <img src="torta-especial.jpg" alt="Cardápio Tortas Doces Especiais" class="cardapio-img">
-                    <div class="cardapio-info">
-                        <h3>Tortas Doces Especiais</h3>
-                        <p>Clique para ampliar <i class="fa-solid fa-magnifying-glass-plus"></i></p>
-                    </div>
-                </div>
-
-                <div class="cardapio-card" onclick="openModal('torta-tradicional.jpg')">
-                    <img src="torta-tradicional.jpg" alt="Cardápio Tortas Doces Tradicionais" class="cardapio-img">
-                    <div class="cardapio-info">
-                        <h3>Tortas Tradicionais</h3>
-                        <p>Clique para ampliar <i class="fa-solid fa-magnifying-glass-plus"></i></p>
-                    </div>
-                </div>
-
-                <div class="cardapio-card" onclick="openModal('docinhos.jpg')">
-                    <img src="docinhos.jpg" alt="Cardápio Docinhos Tradicionais e Gourmet" class="cardapio-img">
-                    <div class="cardapio-info">
-                        <h3>Docinhos & Gourmet</h3>
-                        <p>Clique para ampliar <i class="fa-solid fa-magnifying-glass-plus"></i></p>
-                    </div>
-                </div>
-
-                <div class="cardapio-card" onclick="openModal('salgados.jpg')">
-                    <img src="salgados.jpg" alt="Cardápio Salgados Folhados, Fritos e Assados" class="cardapio-img">
-                    <div class="cardapio-info">
-                        <h3>Salgados Variados</h3>
-                        <p>Clique para ampliar <i class="fa-solid fa-magnifying-glass-plus"></i></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MODAL DE VISUALIZAÇÃO DE IMAGEM -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="imgModalTarget">
-    </div>
-
-    <!-- SOBRE NÓS -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="about-grid" style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 40px; align-items: center;">
-                <div>
-                    <span class="section-badge"><i class="fa-solid fa-heart"></i> Nossa História</span>
-                    <h2 class="section-title">Feito à mão, para celebrar momentos inesquecíveis.</h2>
-                    <p style="margin-bottom:16px; color:var(--texto-suave); font-size: 1.05rem;">A Divina Bolacha nasceu do amor por reunir pessoas queridas ao redor de uma mesa farta e saborosa. Em Pelotas, uma cidade que respira a tradição dos bons doces, nosso propósito é unir receitas afetivas com a praticidade que a sua rotina exige.</p>
-                    <p style="color:var(--texto-suave); font-size: 1.05rem;">Não somos apenas uma confeitaria; somos o seu parceiro de celebração. Queremos que você aproveite a sua festa sem se preocupar com os preparativos. Cada salgadinho, cada fatia de torta e cada docinho é preparado com ingredientes selecionados e muito carinho.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DIFERENCIAIS -->
-    <section class="section-padding diff-section">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-badge"><i class="fa-solid fa-star"></i> Diferenciais</span>
-                <h2 class="section-title">O Cuidado Que Faz A Diferença</h2>
-                <p class="section-subtitle">Pensamos em cada detalhe para que sua única preocupação seja aproveitar a festa.</p>
-            </div>
-
-            <div class="diff-grid">
-                <div class="diff-card">
-                    <i class="fa-solid fa-utensils"></i>
-                    <h3 style="margin-bottom: 8px; color: var(--bordo);">Tudo em um só lugar</h3>
-                    <p>Sem necessidade de cotar em múltiplos locais. Resolvemos doces, salgados e torta no mesmo pedido.</p>
-                </div>
-
-                <div class="diff-card">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <h3 style="margin-bottom: 8px; color: var(--bordo);">Praticidade Escolar</h3>
-                    <p>Kits embalados individualmente, perfeitos para festas de aniversário na sala de aula.</p>
-                </div>
-
-                <div class="diff-card">
-                    <i class="fa-solid fa-heart"></i>
-                    <h3 style="margin-bottom: 8px; color: var(--bordo);">100% Artesanal</h3>
-                    <p>Receitas afetivas com sabor real de comida feita em casa, sem produção industrial.</p>
-                </div>
-
-                <div class="diff-card">
-                    <i class="fa-solid fa-clock"></i>
-                    <h3 style="margin-bottom: 8px; color: var(--bordo);">Pontualidade Garantida</h3>
-                    <p>Respeito rigoroso aos horários combinados para que nada atrase a sua comemoração.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ETAPAS DE ATENDIMENTO -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-badge"><i class="fa-solid fa-list-check"></i> Passo a Passo</span>
-                <h2 class="section-title">Sua Encomenda Pronta em 3 Passos</h2>
-                <p class="section-subtitle">Simplicidade e rapidez para agendar seu pedido pelo WhatsApp.</p>
-            </div>
-
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3 style="margin-bottom: 10px; color: var(--bordo);">Monte Seu Pedido</h3>
-                    <p>Selecione sua torta, docinhos e salgados na nossa calculadora interativa acima.</p>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3 style="margin-bottom: 10px; color: var(--bordo);">Combine no WhatsApp</h3>
-                    <p>Fale conosco no (53) 98151-7232 para definir os recheios e agendar data/horário.</p>
-                </div>
-
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3 style="margin-bottom: 10px; color: var(--bordo);">Aproveite a sua Festa</h3>
-                    <p>Receba tudo fresquinho e pronto para ser servido e elogiado por todos os convidados.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DEPOIMENTOS -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-badge"><i class="fa-solid fa-comment-dots"></i> Depoimentos</span>
-                <h2 class="section-title">Quem Experimenta em Pelotas, Recomenda!</h2>
-                <p class="section-subtitle">A alegria e satisfação de quem já comemorou com as nossas delícias.</p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars" style="margin-bottom: 14px;">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Encomendei os docinhos e os salgados para o aniversário do meu filho. O atendimento no WhatsApp foi super rápido e o pedido veio impecável!"</p>
-                    <div class="testimonial-author">— Camila, Bairro Areal</div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars" style="margin-bottom: 14px;">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"A torta de 4 Leites é simplesmente maravilhosa e os salgados folhados chegaram fresquinhos. Recomendo de olhos fechados!"</p>
-                    <div class="testimonial-author">— Roberto, Centro</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="text-center">
-                <span class="section-badge"><i class="fa-solid fa-circle-question"></i> Tire suas Dúvidas</span>
-                <h2 class="section-title">Perguntas Frequentes</h2>
-                <p class="section-subtitle">Respostas para as principais dúvidas sobre pedidos e entregas.</p>
-            </div>
-
-            <div class="faq-wrapper">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Com quanta antecedência devo fazer a minha encomenda?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Recomendamos que os pedidos sejam feitos com antecedência para garantirmos a disponibilidade da data e prepararmos tudo com a excelência que seu evento merece.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Vocês fazem entregas em Pelotas? Onde fica a loja?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Realizamos entregas na região de Pelotas ou você pode retirar sua encomenda no nosso endereço oficial: R. Dr. Edmundo Berchon, 199.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Posso alterar os itens ou personalizar os sabores?
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Com certeza! Você pode personalizar as opções de tortas, os centos de salgados e os docinhos diretamente no nosso atendimento do WhatsApp.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA FINAL E RODAPÉ -->
-    <section class="section-padding cta-final">
-        <div class="container">
-            <h2 class="section-title">Pronto para deixar sua festa ainda mais especial?</h2>
-            <p>Fale conosco agora no WhatsApp e garanta a sua encomenda com o cardápio oficial da Divina Bolacha.</p>
-            <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Gostaria%20de%20garantir%20a%20data%20da%20minha%20festa." target="_blank" class="btn btn-whatsapp" style="font-size: 1.15rem; padding: 20px 40px;">
-                <i class="fa-brands fa-whatsapp"></i> Garantir Encomenda no (53) 98151-7232
-            </a>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <p><strong>Divina Bolacha — Confeitaria Artesanal por Aline Fernandes</strong></p>
-            <p style="margin: 4px 0;">📍 R. Dr. Edmundo Berchon, 199 - Pelotas/RS</p>
-            <p>📞 WhatsApp: (53) 98151-7232</p>
-            <p style="font-size: 0.78rem; margin-top: 18px; opacity: 0.6;">© 2026 Divina Bolacha. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20encomenda." target="_blank" class="whatsapp-float" aria-label="Atendimento via WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- Barra Fixa Mobile -->
-    <div class="mobile-sticky-bar">
-        <a href="#monte-seu-pedido" class="btn btn-whatsapp">
-            <i class="fa-solid fa-utensils"></i> Monte Seu Pedido Online
+      <div class="header-actions">
+        <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Divina%20Bolacha%20e%20gostaria%20de%20informacoes%20sobre%20encomendas." target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 9px 18px; min-height: 42px; font-size: 0.88rem;">
+          <i class="fa-brands fa-whatsapp"></i> (53) 98151-7232
         </a>
+        <button type="button" class="menu-toggle" aria-label="Abrir menu" onclick="document.getElementById('mobileDrawer').classList.toggle('open')">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
     </div>
+    <div id="mobileDrawer" class="mobile-nav-drawer">
+      <a href="#delicias" onclick="this.parentElement.classList.remove('open')">Nossas Delícias</a>
+      <a href="#kits-prontos" onclick="this.parentElement.classList.remove('open')">Kits Festa Prontos (1 Clique)</a>
+      <a href="#monte-seu-pedido" onclick="this.parentElement.classList.remove('open')">Calculadora de Encomendas</a>
+      <a href="#cardapio" onclick="this.parentElement.classList.remove('open')">Cardápio Oficial (Tabelas)</a>
+      <a href="#sobre" onclick="this.parentElement.classList.remove('open')">Nossa História & Endereço</a>
+      <a href="#duvidas" onclick="this.parentElement.classList.remove('open')">Perguntas Frequentes</a>
+    </div>
+  </header>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        function openModal(imageSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('imgModalTarget');
-            modal.style.display = "block";
-            modalImg.src = imageSrc;
-        }
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <span class="section-badge"><i class="fa-solid fa-location-dot"></i> Confeitaria Artesanal em Pelotas • RS</span>
+          <h1 class="hero-title">A festa perfeita e sem estresse: tortas, doces e salgados artesanais com o sabor de Pelotas.</h1>
+          <p class="hero-subtitle">Escolha um <strong>Kit Festa Pronto em 1 clique</strong> ou monte sua encomenda item por item na calculadora online com cálculo imediato e envio direto para o nosso WhatsApp!</p>
 
-        function closeModal() {
-            document.getElementById('imageModal').style.display = "none";
-        }
+          <div class="hero-trust-pills">
+            <span class="trust-pill"><i class="fa-solid fa-check-circle"></i> Feitos fresquinhos no dia</span>
+            <span class="trust-pill"><i class="fa-solid fa-truck-fast"></i> Entrega em Pelotas ou Retirada</span>
+            <span class="trust-pill"><i class="fa-solid fa-calculator"></i> Orçamento na hora</span>
+          </div>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const faqItem = question.parentElement;
-                    const faqAnswer = question.nextElementSibling;
+          <div class="hero-ctas">
+            <a href="#monte-seu-pedido" class="btn btn-bordo">
+              <i class="fa-solid fa-utensils"></i> Monte Seu Pedido Online
+            </a>
+            <a href="#kits-prontos" class="btn btn-outline">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Ver Kits Prontos
+            </a>
+          </div>
 
-                    document.querySelectorAll('.faq-item').forEach(item => {
-                        if (item !== faqItem) {
-                            item.classList.remove('active');
-                            item.querySelector('.faq-answer').style.maxHeight = null;
-                        }
-                    });
+          <div class="hero-social-proof">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <span>4.9/5 em Pelotas • +1.000 comemorações atendidas</span>
+          </div>
+        </div>
 
-                    faqItem.classList.toggle('active');
-                    if (faqItem.classList.contains('active')) {
-                        faqAnswer.style.maxHeight = faqAnswer.scrollHeight + "px";
-                    } else {
-                        faqAnswer.style.maxHeight = null;
-                    }
-                });
-            });
+        <div class="hero-image-wrapper">
+          <span class="floating-badge-top"><i class="fa-solid fa-heart"></i> Receitas de Aline Fernandes</span>
+          <img src="bolo.jpg" alt="Torta Especial Artesanal Divina Bolacha em Pelotas" class="hero-img" onclick="openModal('bolo.jpg')" style="cursor:pointer;" />
+          <div class="floating-badge">
+            <i class="fa-solid fa-box-open" style="color: var(--bordo);"></i>
+            <span>Produção 100% Artesanal & Diária</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VITRINE VISUAL DOS PRODUTOS REAIS -->
+  <section class="section-padding showcase-section" id="delicias">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge"><i class="fa-solid fa-camera"></i> Produção Real</span>
+        <h2 class="section-title">Qualidade Que Dá Água Na Boca</h2>
+        <p class="section-subtitle">Salgadinhos crocantes e sequinhos, folhados amanteigados, docinhos gourmet e tortas recheadas feitas artesanalmente para o seu evento.</p>
+      </div>
+
+      <div class="mosaic-grid">
+        <div class="mosaic-card" onclick="openModal('salgados1.jpg')">
+          <img src="salgados1.jpg" alt="Caixa com Salgados Assados e Folhados Divina Bolacha" loading="lazy" />
+          <div class="mosaic-overlay">
+            <h3>Folhados e Assados</h3>
+            <p>Croissants, empadinhas, pastelzinhos e folhadinhos recheados</p>
+          </div>
+        </div>
+
+        <div class="mosaic-card" onclick="openModal('salgados2.jpg')">
+          <img src="salgados2.jpg" alt="Caixa Mista de Salgados Fritos e Folhados Divina Bolacha" loading="lazy" />
+          <div class="mosaic-overlay">
+            <h3>Fritos Dourados & Sequinhos</h3>
+            <p>Coxinhas, croquetes, bolinhas de provolone e mini churros</p>
+          </div>
+        </div>
+
+        <div class="mosaic-card" onclick="openModal('salgados3.jpg')">
+          <img src="salgados3.jpg" alt="Caixa com Salgados Especiais Divina Bolacha" loading="lazy" />
+          <div class="mosaic-overlay">
+            <h3>Clássicos & Especiais de Festa</h3>
+            <p>Barquetes, canudinhos, mini pizzas, hamburguinhos e bauruzinhos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAIXA DE MÉTRICAS -->
+  <section class="metrics-bar">
+    <div class="container">
+      <div class="metrics-grid">
+        <div>
+          <div class="metric-number">+1.000</div>
+          <div>Festas adoçadas em Pelotas</div>
+        </div>
+        <div>
+          <div class="metric-number">67+</div>
+          <div>Opções de sabores no cardápio</div>
+        </div>
+        <div>
+          <div class="metric-number">100%</div>
+          <div>Produção artesanal no dia</div>
+        </div>
+        <div>
+          <div class="metric-number">4.9/5★</div>
+          <div>Avaliação média dos clientes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVO: KITS FESTA PRONTOS EM 1 CLIQUE + SIMULADOR POR CONVIDADOS -->
+  <section class="section-padding kits-section" id="kits-prontos">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Praticidade Total</span>
+        <h2 class="section-title">Sugestões de Kits Festa Prontos (1 Clique)</h2>
+        <p class="section-subtitle">Não sabe quanto pedir? Descubra a quantidade ideal pelo número de convidados ou escolha um Kit Pronto para preencher a calculadora automaticamente e ajustar como quiser!</p>
+      </div>
+
+      <!-- Simulador Rápido por Número de Convidados -->
+      <div class="guest-helper-card">
+        <div>
+          <strong style="color:var(--bordo);font-size:1.12rem;display:block;"><i class="fa-solid fa-users"></i> Quantos convidados vão na sua festa?</strong>
+          <span style="font-size:0.9rem;color:var(--texto-suave);">Calculamos a média ideal (1 fatia de torta + 5 docinhos + 10 salgados por pessoa):</span>
+        </div>
+        <div class="guest-controls">
+          <div class="guest-input-box">
+            <button type="button" class="guest-step-btn" onclick="changeGuests(-5)">−</button>
+            <input type="number" id="guestCountInput" value="20" min="5" max="200" onchange="updateGuestRecommendation()" oninput="updateGuestRecommendation()" />
+            <button type="button" class="guest-step-btn" onclick="changeGuests(5)">+</button>
+          </div>
+          <div id="guestRecommendationText" class="guest-recommendation">
+            Sugestão p/ <strong>20 pessoas</strong>: Torta M (28 fatias) + 100 docinhos + 200 salgados
+          </div>
+          <button type="button" class="btn btn-bordo" style="padding:11px 22px;min-height:44px;font-size:0.9rem;" onclick="applyGuestSuggestion()">
+            <i class="fa-solid fa-bolt"></i> Preencher na Calculadora
+          </button>
+        </div>
+      </div>
+
+      <!-- 3 Kits Festa Prontos -->
+      <div class="kits-grid">
+        <div class="kit-card">
+          <div>
+            <div class="kit-title">Kit Intimista / Escolar</div>
+            <div class="kit-guests"><i class="fa-solid fa-user-group"></i> Ideal para 10 a 12 pessoas</div>
+            <ul class="kit-list">
+              <li><i class="fa-solid fa-cake-candles"></i> <strong>1 Torta Tradicional P</strong> (até 12 fatias — Chocolatudo)</li>
+              <li><i class="fa-solid fa-candy-cane"></i> <strong>50 Docinhos Tradicionais</strong> (25 Brigadeiros + 25 Branquinhos)</li>
+              <li><i class="fa-solid fa-bread-slice"></i> <strong>100 Salgados Variados</strong> (50 Coxinhas + 25 Croissant + 25 Pastelzinhos)</li>
+            </ul>
+          </div>
+          <div>
+            <div class="kit-price-box">
+              <span style="font-size:0.85rem;color:var(--texto-suave);font-weight:600;">Total do Kit:</span>
+              <span class="kit-price">R$ 350,00</span>
+            </div>
+            <button type="button" class="btn btn-outline" style="width:100%;" onclick="applyPresetKit('kit1')">
+              <i class="fa-solid fa-cart-plus"></i> Personalizar Este Kit
+            </button>
+          </div>
+        </div>
+
+        <div class="kit-card featured">
+          <span class="kit-ribbon">Mais Pedido em Pelotas</span>
+          <div>
+            <div class="kit-title">Kit Festa Família</div>
+            <div class="kit-guests"><i class="fa-solid fa-user-group"></i> Ideal para 20 a 25 pessoas</div>
+            <ul class="kit-list">
+              <li><i class="fa-solid fa-cake-candles"></i> <strong>1 Torta Especial M</strong> (até 28 fatias — 4 Leites)</li>
+              <li><i class="fa-solid fa-candy-cane"></i> <strong>100 Docinhos</strong> (50 Brigadeiros + 25 Beijinhos + 25 Ninho c/ Nutella)</li>
+              <li><i class="fa-solid fa-bread-slice"></i> <strong>200 Salgados</strong> (50 Coxinhas + 50 Bolinhas Provolone + 50 Croissants + 50 Empadinhas)</li>
+            </ul>
+          </div>
+          <div>
+            <div class="kit-price-box">
+              <span style="font-size:0.85rem;color:var(--texto-suave);font-weight:600;">Total do Kit:</span>
+              <span class="kit-price">R$ 685,00</span>
+            </div>
+            <button type="button" class="btn btn-bordo" style="width:100%;" onclick="applyPresetKit('kit2')">
+              <i class="fa-solid fa-cart-plus"></i> Carregar Kit na Calculadora
+            </button>
+          </div>
+        </div>
+
+        <div class="kit-card">
+          <div>
+            <div class="kit-title">Kit Grande Celebração</div>
+            <div class="kit-guests"><i class="fa-solid fa-user-group"></i> Ideal para 35 a 40 pessoas</div>
+            <ul class="kit-list">
+              <li><i class="fa-solid fa-cake-candles"></i> <strong>1 Torta Especial G</strong> (até 38 fatias — Marta Rocha)</li>
+              <li><i class="fa-solid fa-candy-cane"></i> <strong>150 Docinhos</strong> (100 Tradicionais + 50 Gourmet Churros/Ninho)</li>
+              <li><i class="fa-solid fa-bread-slice"></i> <strong>350 Salgados</strong> (150 Fritos + 100 Folhados + 100 Clássicos/Especiais)</li>
+            </ul>
+          </div>
+          <div>
+            <div class="kit-price-box">
+              <span style="font-size:0.85rem;color:var(--texto-suave);font-weight:600;">Total do Kit:</span>
+              <span class="kit-price">R$ 1.075,00</span>
+            </div>
+            <button type="button" class="btn btn-outline" style="width:100%;" onclick="applyPresetKit('kit3')">
+              <i class="fa-solid fa-cart-plus"></i> Personalizar Este Kit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO MONTE SEU PEDIDO (CALCULADORA INTERATIVA TURBINADA) -->
+  <section class="section-padding builder-section" id="monte-seu-pedido">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge"><i class="fa-solid fa-calculator"></i> Calculadora Interativa</span>
+        <h2 class="section-title">Monte sua Encomenda Personalizada</h2>
+        <p class="section-subtitle">Escolha sua torta e use os botões <strong>+10 / −10</strong> (ou digite a quantidade exata) para cada doce e salgado. O valor é calculado na hora!</p>
+      </div>
+
+      <div class="builder-card">
+        <div class="builder-toolbar">
+          <div class="filter-tabs">
+            <button type="button" class="filter-tab active" data-filter="all" onclick="setBuilderFilter('all', this)">Todos (47)</button>
+            <button type="button" class="filter-tab" data-filter="doces" onclick="setBuilderFilter('doces', this)">Só Docinhos (18)</button>
+            <button type="button" class="filter-tab" data-filter="salgados" onclick="setBuilderFilter('salgados', this)">Só Salgados (29)</button>
+            <button type="button" class="filter-tab" data-filter="selected" onclick="setBuilderFilter('selected', this)">Selecionados</button>
+          </div>
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="itemSearchInput" placeholder="Buscar doce ou salgado..." oninput="filterBuilderItems()" />
+          </div>
+          <button type="button" class="filter-tab" onclick="resetOrderCalculator()" title="Zerar quantidades">
+            <i class="fa-solid fa-rotate-left"></i> Limpar
+          </button>
+        </div>
+
+        <form id="orderForm" onsubmit="event.preventDefault(); sendOrderToWhatsApp();">
+          <!-- 1. Torta / Bolo -->
+          <div class="builder-group" id="groupTorta">
+            <label><i class="fa-solid fa-cake-candles"></i> 1. Escolha a Torta / Bolo (Opcional):</label>
+            <div class="builder-grid-2">
+              <select id="tortaCategoria" class="builder-select" onchange="updateTortaOptions()">
+                <option value="nenhuma" data-price="0">Sem Torta</option>
+                <option value="tradicional">Torta Tradicional (P R$130 • M R$200 • G R$270 • GG R$340)</option>
+                <option value="especial">Torta Especial (P R$150 • M R$230 • G R$300 • GG R$370)</option>
+                <option value="outro">Outro (Personalizado)</option>
+              </select>
+              <select id="tortaTamanho" class="builder-select" onchange="updateSaborField(); calculateTotal();">
+                <option value="nenhum" data-price="0">Selecione a categoria primeiro</option>
+              </select>
+            </div>
+
+            <div id="tortaSaborContainer" style="margin-top: 14px; display: none;">
+              <label style="font-size: 0.95rem; font-weight: 700; color: var(--bordo); display:block; margin-bottom:6px;">Sabor da Torta:</label>
+              <select id="tortaSaborSelect" class="builder-select" onchange="checkTortaCustomSabor(); calculateTotal();">
+                <option value="">Selecione o sabor...</option>
+              </select>
+              <input type="text" id="tortaSaborOutro" class="builder-input" placeholder="Digite o sabor ou detalhes da torta..." style="margin-top: 10px; display: none;" oninput="calculateTotal()" />
+            </div>
+          </div>
+
+          <!-- 2. Docinhos -->
+          <div class="builder-group" id="groupDoces">
+            <label><i class="fa-solid fa-candy-cane"></i> 2. Escolha os Docinhos (Unidades livres):</label>
+
+            <!-- Tradicionais -->
+            <div class="item-category-box">
+              <div class="item-category-head">
+                <span class="item-category-title">🍬 Tradicionais (R$ 1,80 / un — Cento R$ 180,00)</span>
+              </div>
+              <div class="item-row-grid">
+                <div class="item-unit-row"><span class="item-label">Brigadeiro Tradicional</span><input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Brigadeiro Tradicional" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Branquinho no Açúcar</span><input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Branquinho no Açúcar" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Beijinho (Côco)</span><input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Beijinho (Côco)" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Nesquick</span><input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Nesquick" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Casadinho</span><input type="number" class="docinho-item-qtd" data-price="1.80" data-nome="Casadinho" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+              </div>
+            </div>
+
+            <!-- Gourmet -->
+            <div class="item-category-box">
+              <div class="item-category-head">
+                <span class="item-category-title">✨ Gourmet (R$ 2,20 / un — Cento R$ 220,00)</span>
+              </div>
+              <div class="item-row-grid">
+                <div class="item-unit-row"><span class="item-label">Ninho com Nutella</span><input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Ninho com Nutella" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Coloridos / Neon</span><input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Coloridos / Neon" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Branco c/ Raspas</span><input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Branco c/ Raspas" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Ao Leite c/ Raspas</span><input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Ao Leite c/ Raspas" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Churros</span><input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Churros" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Paçoca</span><input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Paçoca" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Meio Amargo c/ Raspas</span><input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Meio Amargo c/ Raspas" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Stikadinho / M&amp;M's</span><input type="number" class="docinho-item-qtd" data-price="2.20" data-nome="Stikadinho / M&M's" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+              </div>
+            </div>
+
+            <!-- Especiais -->
+            <div class="item-category-box">
+              <div class="item-category-head">
+                <span class="item-category-title">⭐ Especiais (R$ 2,80 / un — Cento R$ 280,00)</span>
+              </div>
+              <div class="item-row-grid">
+                <div class="item-unit-row"><span class="item-label">Nozes</span><input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Nozes" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Meio Amargo c/ Belga</span><input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Meio Amargo c/ Belga" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Ao Leite c/ Belga</span><input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Ao Leite c/ Belga" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Amêndoas / Brulè</span><input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="Amêndoas / Brulè" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">KitKat / Oreo</span><input type="number" class="docinho-item-qtd" data-price="2.80" data-nome="KitKat / Oreo" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+              </div>
+            </div>
+
+            <input type="text" id="docinhoOutroInput" class="builder-input" placeholder="Outros docinhos ou observações de doces..." style="margin-top: 8px;" />
+          </div>
+
+          <!-- 3. Salgados -->
+          <div class="builder-group" id="groupSalgados">
+            <label><i class="fa-solid fa-bread-slice"></i> 3. Escolha os Salgados (Unidades livres):</label>
+
+            <!-- Folhados -->
+            <div class="item-category-box">
+              <div class="item-category-head">
+                <span class="item-category-title">🥐 Folhados (R$ 1,30 / un — Cento R$ 130,00)</span>
+              </div>
+              <div class="item-row-grid">
+                <div class="item-unit-row"><span class="item-label">Croissant Chocolate</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croissant Chocolate" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Croissant Presunto/Queijo</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croissant Presunto e Queijo" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Empadinha de Frango</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Empadinha de Frango" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Enroladinho de Salsicha</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Enroladinho de Salsicha" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Enroladinho de Goiabada</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Enroladinho de Goiabada" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Folhadinho de Ricota</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Folhadinho de Ricota" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Pastelzinho Frango/Req.</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Pastelzinho Frango e Requeijão" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+              </div>
+            </div>
+
+            <!-- Fritos -->
+            <div class="item-category-box">
+              <div class="item-category-head">
+                <span class="item-category-title">🍗 Fritos Sequinhos (R$ 1,30 / un — Cento R$ 130,00)</span>
+              </div>
+              <div class="item-row-grid">
+                <div class="item-unit-row"><span class="item-label">Bolinhas de Provolone</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Bolinhas de Provolone" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Coxinha</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Coxinha" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Croquete de Carne</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croquete de Carne" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Croquete Carne c/ Req.</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croquete Carne c/ Requeijão" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Croquete de Calabresa</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Croquete de Calabresa" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Mini Churros</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Mini Churros" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Pastelzinho de Carne</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Pastelzinho de Carne" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Pastelzinho de Queijo</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Pastelzinho de Queijo" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Risóles de Queijo</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Risóles de Queijo" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Risóles Presunto/Queijo</span><input type="number" class="salgado-item-qtd" data-price="1.30" data-nome="Risóles Presunto e Queijo" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+              </div>
+            </div>
+
+            <!-- Clássicos -->
+            <div class="item-category-box">
+              <div class="item-category-head">
+                <span class="item-category-title">🧁 Clássicos (R$ 1,50 / un — Cento R$ 150,00)</span>
+              </div>
+              <div class="item-row-grid">
+                <div class="item-unit-row"><span class="item-label">Barquete (Frango)</span><input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Barquete Frango" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Barquete (Saladinha)</span><input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Barquete Saladinha" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Bregeré</span><input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Bregeré" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Canudinho (Frango)</span><input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Canudinho Frango" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Canudinho (Carne)</span><input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Canudinho Carne" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Mini Pizza (Frios)</span><input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Mini Pizza Frios" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Mini Pizza (Calabresa)</span><input type="number" class="salgado-item-qtd" data-price="1.50" data-nome="Mini Pizza Calabresa" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+              </div>
+            </div>
+
+            <!-- Especiais -->
+            <div class="item-category-box">
+              <div class="item-category-head">
+                <span class="item-category-title">🍔 Especiais (R$ 1,80 / un — Cento R$ 180,00)</span>
+              </div>
+              <div class="item-row-grid">
+                <div class="item-unit-row"><span class="item-label">Cachorrinho</span><input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Cachorrinho" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Hamburguinho</span><input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Hamburguinho" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Sanduíchinho (Frios)</span><input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Sanduíchinho Frios" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Sanduíchinho (Atum/Ricota)</span><input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Sanduíchinho Atum/Ricota" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+                <div class="item-unit-row"><span class="item-label">Bauruzinho</span><input type="number" class="salgado-item-qtd" data-price="1.80" data-nome="Bauruzinho" min="0" value="0" onchange="calculateTotal()" oninput="calculateTotal()" /></div>
+              </div>
+            </div>
+
+            <input type="text" id="salgadoOutroInput" class="builder-input" placeholder="Outros salgados ou observações de salgados..." style="margin-top: 8px;" />
+          </div>
+
+          <!-- 4. Dados de Entrega e Data do Evento -->
+          <div class="builder-group">
+            <label><i class="fa-solid fa-calendar-check"></i> 4. Dados da Sua Encomenda:</label>
+            <div class="builder-grid-2" style="margin-bottom:12px;">
+              <input type="text" id="clienteNome" class="builder-input" placeholder="Seu nome (ex: Camila)" />
+              <select id="tipoEntrega" class="builder-select">
+                <option value="Retirada no local (R. Dr. Edmundo Berchon, 199)">Retirar na Loja (R. Dr. Edmundo Berchon, 199)</option>
+                <option value="Entrega em Pelotas (consultar taxa do bairro)">Receber por Entrega em Pelotas</option>
+              </select>
+            </div>
+            <input type="text" id="observacoes" class="builder-input" placeholder="Data, horário do evento e observações (ex: Sábado dia 20 às 16h)" />
+          </div>
+
+          <!-- Cupom Visual dos Itens Selecionados -->
+          <div class="receipt-box" id="receiptBox">
+            <div class="receipt-head">
+              <span><i class="fa-solid fa-receipt"></i> Itens Selecionados no Seu Pedido</span>
+              <span id="receiptCounters">0 docinhos • 0 salgados</span>
+            </div>
+            <div class="receipt-items" id="receiptItemsList">
+              <span>Nenhum item selecionado ainda. Escolha um Kit Pronto acima ou adicione unidades!</span>
+            </div>
+          </div>
+
+          <!-- Resumo e Botão WhatsApp -->
+          <div class="builder-summary">
+            <div>
+              <span style="font-size: 0.92rem; color: var(--texto-suave); font-weight: 700;">Total Estimado da Encomenda:</span>
+              <div class="total-price" id="totalDisplay">R$ 0,00</div>
+              <div class="total-counters" id="totalBreakdown">Selecione os itens para calcular</div>
+            </div>
+            <button type="submit" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Enviar Pedido no WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA DO CARDÁPIO OFICIAL -->
+  <section class="section-padding cardapio-section" id="cardapio">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge"><i class="fa-solid fa-book-open"></i> Menu Oficial</span>
+        <h2 class="section-title">Confira Nossas Tabelas Oficiais e Sabores</h2>
+        <p class="section-subtitle">Clique em qualquer cardápio abaixo para ampliar na tela e conferir todos os recheios e tamanhos.</p>
+      </div>
+
+      <div class="cardapio-grid">
+        <div class="cardapio-card" onclick="openModal('torta-especial.jpg')">
+          <img src="torta-especial.jpg" alt="Cardápio Tortas Doces Especiais Divina Bolacha" class="cardapio-img" loading="lazy" />
+          <div class="cardapio-info">
+            <h3>Tortas Doces Especiais</h3>
+            <p>4 Leites, Marta Rocha, Nozes, Supreme... <i class="fa-solid fa-magnifying-glass-plus"></i></p>
+          </div>
+        </div>
+
+        <div class="cardapio-card" onclick="openModal('torta-tradicional.jpg')">
+          <img src="torta-tradicional.jpg" alt="Cardápio Tortas Doces Tradicionais Divina Bolacha" class="cardapio-img" loading="lazy" />
+          <div class="cardapio-info">
+            <h3>Tortas Tradicionais</h3>
+            <p>Chocolatudo, Morango, Divina, Dois Amores... <i class="fa-solid fa-magnifying-glass-plus"></i></p>
+          </div>
+        </div>
+
+        <div class="cardapio-card" onclick="openModal('docinhos.jpg')">
+          <img src="docinhos.jpg" alt="Cardápio Docinhos Tradicionais, Gourmet e Especiais" class="cardapio-img" loading="lazy" />
+          <div class="cardapio-info">
+            <h3>Docinhos &amp; Gourmet</h3>
+            <p>Tradicionais, Ninho c/ Nutella, Belga, Nozes... <i class="fa-solid fa-magnifying-glass-plus"></i></p>
+          </div>
+        </div>
+
+        <div class="cardapio-card" onclick="openModal('salgados.jpg')">
+          <img src="salgados.jpg" alt="Cardápio Salgados Folhados, Fritos, Clássicos e Especiais" class="cardapio-img" loading="lazy" />
+          <div class="cardapio-info">
+            <h3>Salgados Variados</h3>
+            <p>Folhados, Fritos, Barquetes, Hamburguinhos... <i class="fa-solid fa-magnifying-glass-plus"></i></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DE VISUALIZAÇÃO DE IMAGEM -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="imgModalTarget" alt="Cardápio ampliado Divina Bolacha" />
+  </div>
+
+  <!-- SOBRE NÓS EM 2 COLUNAS + LOCALIZAÇÃO EM PELOTAS -->
+  <section class="section-padding" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photos">
+          <img src="bolo.jpg" alt="Torta artesanal preparada por Aline Fernandes" loading="lazy" />
+          <img src="salgados1.jpg" alt="Salgados artesanais fresquinhos Divina Bolacha" loading="lazy" />
+        </div>
+        <div>
+          <span class="section-badge"><i class="fa-solid fa-heart"></i> Nossa História</span>
+          <h2 class="section-title">Feito à mão por Aline Fernandes para celebrar momentos inesquecíveis.</h2>
+          <p style="margin-bottom:14px; color:var(--texto-suave); font-size: 1.04rem;">A <strong>Divina Bolacha</strong> nasceu do amor por reunir pessoas queridas ao redor de uma mesa farta e saborosa. Em <strong>Pelotas</strong>, capital nacional do doce, nosso propósito é unir receitas afetivas com a praticidade que a sua rotina exige.</p>
+          <p style="color:var(--texto-suave); font-size: 1.04rem;">Não somos apenas uma confeitaria; somos o seu parceiro de celebração. Cada salgadinho, cada fatia de torta e cada docinho é preparado com ingredientes selecionados, massa leve e muito carinho para que você só precise aproveitar a festa.</p>
+
+          <div class="location-card">
+            <strong style="color:var(--bordo);font-size:1.02rem;"><i class="fa-solid fa-location-dot"></i> Endereço Oficial para Retirada &amp; Produção</strong>
+            <span style="color:var(--texto-principal);font-weight:600;">R. Dr. Edmundo Berchon, 199 — Pelotas/RS</span>
+            <span style="font-size:0.88rem;color:var(--texto-suave);">Entregamos em toda a região de Pelotas ou você pode retirar sua encomenda no horário agendado.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="section-padding diff-section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge"><i class="fa-solid fa-star"></i> Diferenciais</span>
+        <h2 class="section-title">Por Que Escolher a Divina Bolacha</h2>
+        <p class="section-subtitle">Pensamos em cada detalhe para que sua única preocupação seja comemorar com quem você ama.</p>
+      </div>
+
+      <div class="diff-grid">
+        <div class="diff-card">
+          <i class="fa-solid fa-utensils"></i>
+          <h3 style="margin-bottom: 8px; color: var(--bordo);">Tudo em um só lugar</h3>
+          <p>Resolva a torta, os docinhos e os salgados da sua festa em um único pedido, com padrão artesanal impecável.</p>
+        </div>
+        <div class="diff-card">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h3 style="margin-bottom: 8px; color: var(--bordo);">Praticidade Escolar &amp; Eventos</h3>
+          <p>Opções práticas e organizadas para festas na escola, aniversários em casa ou confraternizações em empresas.</p>
+        </div>
+        <div class="diff-card">
+          <i class="fa-solid fa-heart"></i>
+          <h3 style="margin-bottom: 8px; color: var(--bordo);">100% Artesanal e Fresquinho</h3>
+          <p>Receitas afetivas com sabor real de feito em casa, produzidas especialmente para o dia da sua comemoração.</p>
+        </div>
+        <div class="diff-card">
+          <i class="fa-solid fa-clock"></i>
+          <h3 style="margin-bottom: 8px; color: var(--bordo);">Pontualidade Garantida</h3>
+          <p>Compromisso rigoroso com o horário combinado para que sua festa em Pelotas aconteça com zero imprevistos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ETAPAS DE ATENDIMENTO -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge"><i class="fa-solid fa-list-check"></i> Como Funciona</span>
+        <h2 class="section-title">Sua Encomenda Pronta em 3 Passos</h2>
+        <p class="section-subtitle">Simplicidade e transparência do orçamento até a entrega.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3 style="margin-bottom: 10px; color: var(--bordo);">Escolha um Kit ou Monte Online</h3>
+          <p>Clique em um Kit Festa Pronto ou selecione exatamente a torta, os docinhos e os salgados na calculadora acima.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3 style="margin-bottom: 10px; color: var(--bordo);">Envie em 1 Clique no WhatsApp</h3>
+          <p>Seu pedido já vai formatado com quantidades e valor estimado para o nosso WhatsApp (53) 98151-7232.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3 style="margin-bottom: 10px; color: var(--bordo);">Receba Fresquinho e Comemore</h3>
+          <p>Retire na R. Dr. Edmundo Berchon, 199 ou receba em Pelotas tudo quentinho, fresco e pronto para servir!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section-padding" style="background:var(--branco);">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge"><i class="fa-solid fa-comment-dots"></i> Depoimentos</span>
+        <h2 class="section-title">Quem Experimenta em Pelotas, Recomenda!</h2>
+        <p class="section-subtitle">A satisfação de quem já comemorou com as delícias da Aline Fernandes.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars" style="margin-bottom: 12px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-text">"Encomendei os docinhos e os salgados para o aniversário do meu filho. O atendimento no WhatsApp foi super rápido e o pedido veio impecável!"</p>
+          <div class="testimonial-author">— Camila, Bairro Areal • Pelotas</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars" style="margin-bottom: 12px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-text">"A torta de 4 Leites é simplesmente maravilhosa e os salgados folhados chegaram fresquinhos. Recomendo de olhos fechados!"</p>
+          <div class="testimonial-author">— Roberto, Centro • Pelotas</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars" style="margin-bottom: 12px;">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="testimonial-text">"A calculadora do site facilitou demais! Escolhi tudo rapidinho pelo celular, mandei no WhatsApp da Aline e veio tudo delicioso e no horário."</p>
+          <div class="testimonial-author">— Fernanda, Três Vendas • Pelotas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-padding" id="duvidas">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge"><i class="fa-solid fa-circle-question"></i> Tire suas Dúvidas</span>
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <p class="section-subtitle">Tudo o que você precisa saber sobre pedidos, prazos e entregas em Pelotas.</p>
+      </div>
+
+      <div class="faq-wrapper">
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            Com quanta antecedência devo fazer a minha encomenda?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Recomendamos encomendar com antecedência para garantir a disponibilidade da sua data, mas se precisar de algo para os próximos dias, chame no WhatsApp (53) 98151-7232 que conferimos nossa agenda na hora!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            Vocês fazem entregas em Pelotas? Onde fica o endereço para retirada?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Fazemos entregas em Pelotas (consulte a taxa para o seu bairro no WhatsApp) ou você pode retirar diretamente conosco na <strong>R. Dr. Edmundo Berchon, 199 - Pelotas/RS</strong>.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            Posso misturar vários sabores de docinhos e salgados no mesmo pedido?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Com certeza! Na nossa calculadora você pode escolher a quantidade por sabor (ex: 25 coxinhas, 25 bolinhas de provolone, 25 croissants...) e montar a variedade ideal para os seus convidados.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            Quais são as formas de pagamento aceitas?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Aceitamos Pix, dinheiro e cartões. Ao enviar a simulação do seu pedido pelo WhatsApp, combinamos todos os detalhes da confirmação e pagamento com total transparência.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL E RODAPÉ -->
+  <section class="section-padding cta-final">
+    <div class="container">
+      <h2 class="section-title">Pronto para garantir a data da sua festa em Pelotas?</h2>
+      <p>Monte seu pedido na calculadora ou fale direto com a Aline Fernandes pelo WhatsApp para reservar sua encomenda.</p>
+      <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Gostaria%20de%20garantir%20a%20data%20da%20minha%20festa%20com%20a%20Divina%20Bolacha." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="font-size: 1.12rem; padding: 18px 38px;">
+        <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp (53) 98151-7232
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Divina Bolacha — Confeitaria Artesanal por Aline Fernandes</strong></p>
+      <p style="margin: 6px 0;">📍 R. Dr. Edmundo Berchon, 199 - Pelotas/RS</p>
+      <p>📞 WhatsApp de Encomendas: (53) 98151-7232</p>
+      <p style="font-size: 0.8rem; margin-top: 18px; opacity: 0.7;">© 2026 Divina Bolacha. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante do WhatsApp (Desktop) -->
+  <a href="https://wa.me/5553981517232?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Divina%20Bolacha%20e%20gostaria%20de%20fazer%20uma%20encomenda." target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Atendimento via WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Barra Fixa Mobile com Total ao Vivo -->
+  <div class="mobile-sticky-bar">
+    <div style="display:flex;flex-direction:column;">
+      <span style="font-size:0.72rem;color:var(--texto-suave);font-weight:700;">SEU PEDIDO</span>
+      <strong id="mobileStickyTotal" style="color:var(--bordo);font-size:1.1rem;">R$ 0,00</strong>
+    </div>
+    <a href="#monte-seu-pedido" class="btn btn-whatsapp">
+      <i class="fa-solid fa-utensils"></i> Montar / Enviar Pedido
+    </a>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const saboresTradicionais = ["Chocolatudo", "Morango", "Divina", "Sensação", "Abacaxi", "Julia", "Mousse", "Bombom", "Dois Amores", "Outro (digitar abaixo)"];
+    const saboresEspeciais = ["4 Leites", "Supreme", "Nozes", "Abacaxi com Côco", "Dueto", "Festa", "Três Amores", "Floresta Negra", "Marta Rocha", "Outro (digitar abaixo)"];
+    let currentBuilderFilter = 'all';
+
+    function openModal(imageSrc) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('imgModalTarget');
+      modal.style.display = 'block';
+      modalImg.src = imageSrc;
+    }
+
+    function closeModal() {
+      document.getElementById('imageModal').style.display = 'none';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Injeta botões -10 e +10 em todos os itens da calculadora para facilitar no celular!
+    function enhanceQuantityInputs() {
+      document.querySelectorAll('.item-unit-row').forEach((row) => {
+        const input = row.querySelector('input[type="number"]');
+        if (!input || row.querySelector('.qty-controls')) return;
+        const wrap = document.createElement('div');
+        wrap.className = 'qty-controls';
+
+        const btnMinus = document.createElement('button');
+        btnMinus.type = 'button';
+        btnMinus.className = 'qty-btn';
+        btnMinus.textContent = '-10';
+        btnMinus.onclick = () => {
+          input.value = Math.max(0, (parseInt(input.value, 10) || 0) - 10);
+          calculateTotal();
+        };
+
+        const btnPlus = document.createElement('button');
+        btnPlus.type = 'button';
+        btnPlus.className = 'qty-btn';
+        btnPlus.textContent = '+10';
+        btnPlus.onclick = () => {
+          input.value = (parseInt(input.value, 10) || 0) + 10;
+          calculateTotal();
+        };
+
+        input.parentNode.insertBefore(wrap, input);
+        wrap.appendChild(btnMinus);
+        wrap.appendChild(input);
+        wrap.appendChild(btnPlus);
+      });
+    }
+
+    function changeGuests(delta) {
+      const el = document.getElementById('guestCountInput');
+      const next = Math.max(5, Math.min(200, (parseInt(el.value, 10) || 20) + delta));
+      el.value = next;
+      updateGuestRecommendation();
+    }
+
+    function getGuestRecommendation(guests) {
+      let tortaCat = 'tradicional';
+      let tortaIdx = 0;
+      let tortaLabel = 'Torta P (12 fatias)';
+      if (guests <= 12) { tortaIdx = 0; tortaLabel = 'Torta P (12 fatias)'; }
+      else if (guests <= 28) { tortaIdx = 1; tortaLabel = 'Torta M (28 fatias)'; }
+      else if (guests <= 38) { tortaIdx = 2; tortaLabel = 'Torta G (38 fatias)'; }
+      else { tortaIdx = 3; tortaLabel = 'Torta GG (56 fatias)'; }
+
+      const doces = Math.ceil((guests * 5) / 10) * 10;
+      const salgados = Math.ceil((guests * 10) / 10) * 10;
+      return { guests, tortaCat, tortaIdx, tortaLabel, doces, salgados };
+    }
+
+    function updateGuestRecommendation() {
+      const guests = Math.max(5, parseInt(document.getElementById('guestCountInput').value, 10) || 20);
+      const rec = getGuestRecommendation(guests);
+      document.getElementById('guestRecommendationText').innerHTML =
+        `Sugestão p/ <strong>${rec.guests} pessoas</strong>: ${rec.tortaLabel} + <strong>${rec.doces} docinhos</strong> + <strong>${rec.salgados} salgados</strong>`;
+    }
+
+    function setItemQty(name, qty) {
+      const input = document.querySelector(`input[data-nome="${name}"]`);
+      if (input) input.value = qty;
+    }
+
+    function resetOrderCalculator(silent = false) {
+      document.getElementById('tortaCategoria').value = 'nenhuma';
+      updateTortaOptions();
+      document.querySelectorAll('.docinho-item-qtd, .salgado-item-qtd').forEach((i) => { i.value = 0; });
+      document.getElementById('docinhoOutroInput').value = '';
+      document.getElementById('salgadoOutroInput').value = '';
+      calculateTotal();
+      if (!silent) {
+        setBuilderFilter('all', document.querySelector('.filter-tab[data-filter="all"]'));
+      }
+    }
+
+    function applyGuestSuggestion() {
+      const guests = Math.max(5, parseInt(document.getElementById('guestCountInput').value, 10) || 20);
+      const rec = getGuestRecommendation(guests);
+      resetOrderCalculator(true);
+
+      document.getElementById('tortaCategoria').value = 'especial';
+      updateTortaOptions();
+      document.getElementById('tortaTamanho').selectedIndex = rec.tortaIdx;
+      document.getElementById('tortaSaborSelect').value = '4 Leites';
+
+      const halfDoces = Math.round(rec.doces / 2);
+      setItemQty('Brigadeiro Tradicional', halfDoces);
+      setItemQty('Branquinho no Açúcar', rec.doces - halfDoces);
+
+      const qSalg = Math.round(rec.salgados / 4);
+      setItemQty('Coxinha', qSalg);
+      setItemQty('Bolinhas de Provolone', qSalg);
+      setItemQty('Croissant Presunto e Queijo', qSalg);
+      setItemQty('Empadinha de Frango', rec.salgados - qSalg * 3);
+
+      calculateTotal();
+      document.getElementById('monte-seu-pedido').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function applyPresetKit(kitId) {
+      resetOrderCalculator(true);
+      if (kitId === 'kit1') {
+        document.getElementById('tortaCategoria').value = 'tradicional';
+        updateTortaOptions();
+        document.getElementById('tortaTamanho').selectedIndex = 0;
+        document.getElementById('tortaSaborSelect').value = 'Chocolatudo';
+        setItemQty('Brigadeiro Tradicional', 25);
+        setItemQty('Branquinho no Açúcar', 25);
+        setItemQty('Coxinha', 50);
+        setItemQty('Croissant Presunto e Queijo', 25);
+        setItemQty('Pastelzinho de Carne', 25);
+      } else if (kitId === 'kit2') {
+        document.getElementById('tortaCategoria').value = 'especial';
+        updateTortaOptions();
+        document.getElementById('tortaTamanho').selectedIndex = 1;
+        document.getElementById('tortaSaborSelect').value = '4 Leites';
+        setItemQty('Brigadeiro Tradicional', 50);
+        setItemQty('Beijinho (Côco)', 25);
+        setItemQty('Ninho com Nutella', 25);
+        setItemQty('Coxinha', 50);
+        setItemQty('Bolinhas de Provolone', 50);
+        setItemQty('Croissant Presunto e Queijo', 50);
+        setItemQty('Empadinha de Frango', 50);
+      } else if (kitId === 'kit3') {
+        document.getElementById('tortaCategoria').value = 'especial';
+        updateTortaOptions();
+        document.getElementById('tortaTamanho').selectedIndex = 2;
+        document.getElementById('tortaSaborSelect').value = 'Marta Rocha';
+        setItemQty('Brigadeiro Tradicional', 50);
+        setItemQty('Branquinho no Açúcar', 50);
+        setItemQty('Ninho com Nutella', 25);
+        setItemQty('Churros', 25);
+        setItemQty('Coxinha', 100);
+        setItemQty('Bolinhas de Provolone', 50);
+        setItemQty('Croissant Presunto e Queijo', 50);
+        setItemQty('Empadinha de Frango', 50);
+        setItemQty('Mini Pizza Calabresa', 50);
+        setItemQty('Hamburguinho', 50);
+      }
+      calculateTotal();
+      document.getElementById('monte-seu-pedido').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function setBuilderFilter(mode, btn) {
+      currentBuilderFilter = mode;
+      document.querySelectorAll('.filter-tab[data-filter]').forEach((b) => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      filterBuilderItems();
+    }
+
+    function filterBuilderItems() {
+      const q = (document.getElementById('itemSearchInput').value || '').trim().toLowerCase();
+      const gDoces = document.getElementById('groupDoces');
+      const gSalgados = document.getElementById('groupSalgados');
+
+      gDoces.style.display = currentBuilderFilter === 'salgados' ? 'none' : 'block';
+      gSalgados.style.display = currentBuilderFilter === 'doces' ? 'none' : 'block';
+
+      document.querySelectorAll('.item-unit-row').forEach((row) => {
+        const input = row.querySelector('input[type="number"]');
+        const name = (input?.getAttribute('data-nome') || '').toLowerCase();
+        const qty = parseInt(input?.value, 10) || 0;
+        const matchesQuery = !q || name.includes(q);
+        const matchesSelected = currentBuilderFilter !== 'selected' || qty > 0;
+        row.style.display = matchesQuery && matchesSelected ? 'flex' : 'none';
+      });
+    }
+
+    function updateTortaOptions() {
+      const cat = document.getElementById('tortaCategoria').value;
+      const tamanhoSelect = document.getElementById('tortaTamanho');
+      const saborContainer = document.getElementById('tortaSaborContainer');
+      const saborSelect = document.getElementById('tortaSaborSelect');
+
+      tamanhoSelect.innerHTML = '';
+      saborSelect.innerHTML = '<option value="">Selecione o sabor...</option>';
+
+      if (cat === 'tradicional') {
+        tamanhoSelect.innerHTML = `
+          <option value="Torta Tradicional P (12 fatias)" data-price="130">P (até 12 fatias) — R$ 130,00</option>
+          <option value="Torta Tradicional M (28 fatias)" data-price="200">M (até 28 fatias) — R$ 200,00</option>
+          <option value="Torta Tradicional G (38 fatias)" data-price="270">G (até 38 fatias) — R$ 270,00</option>
+          <option value="Torta Tradicional GG (56 fatias)" data-price="340">GG (até 56 fatias) — R$ 340,00</option>
+        `;
+        saboresTradicionais.forEach((sabor) => {
+          saborSelect.innerHTML += `<option value="${sabor}">${sabor}</option>`;
         });
+        saborContainer.style.display = 'block';
+      } else if (cat === 'especial') {
+        tamanhoSelect.innerHTML = `
+          <option value="Torta Especial P (12 fatias)" data-price="150">P (até 12 fatias) — R$ 150,00</option>
+          <option value="Torta Especial M (28 fatias)" data-price="230">M (até 28 fatias) — R$ 230,00</option>
+          <option value="Torta Especial G (38 fatias)" data-price="300">G (até 38 fatias) — R$ 300,00</option>
+          <option value="Torta Especial GG (56 fatias)" data-price="370">GG (até 56 fatias) — R$ 370,00</option>
+        `;
+        saboresEspeciais.forEach((sabor) => {
+          saborSelect.innerHTML += `<option value="${sabor}">${sabor}</option>`;
+        });
+        saborContainer.style.display = 'block';
+      } else if (cat === 'outro') {
+        tamanhoSelect.innerHTML = '<option value="Torta Personalizada / Outro" data-price="0">Torta Personalizada (A combinar)</option>';
+        saborSelect.innerHTML = '<option value="Outro (digitar abaixo)">Personalizado</option>';
+        saborContainer.style.display = 'block';
+        document.getElementById('tortaSaborOutro').style.display = 'block';
+      } else {
+        tamanhoSelect.innerHTML = '<option value="Sem Torta" data-price="0">Sem Torta</option>';
+        saborContainer.style.display = 'none';
+      }
+      updateSaborField();
+      calculateTotal();
+    }
 
-        const saboresTradicionais = ["Chocolatudo", "Morango", "Divina", "Sensação", "Abacaxi", "Julia", "Mousse", "Bombom", "Dois Amores", "Outro (digitar abaixo)"];
-        const saboresEspeciais = ["4 Leites", "Supreme", "Nozes", "Abacaxi com Côco", "Dueto", "Festa", "Três Amores", "Floresta Negra", "Marta Rocha", "Outro (digitar abaixo)"];
+    function updateSaborField() {
+      const cat = document.getElementById('tortaCategoria').value;
+      document.getElementById('tortaSaborContainer').style.display = cat === 'nenhuma' ? 'none' : 'block';
+    }
 
-        function updateTortaOptions() {
-            const cat = document.getElementById('tortaCategoria').value;
-            const tamanhoSelect = document.getElementById('tortaTamanho');
-            const saborContainer = document.getElementById('tortaSaborContainer');
-            const saborSelect = document.getElementById('tortaSaborSelect');
-            
-            tamanhoSelect.innerHTML = '';
-            saborSelect.innerHTML = '<option value="">Selecione o sabor...</option>';
+    function checkTortaCustomSabor() {
+      const val = document.getElementById('tortaSaborSelect').value;
+      document.getElementById('tortaSaborOutro').style.display = val.includes('Outro') ? 'block' : 'none';
+    }
 
-            if (cat === 'tradicional') {
-                tamanhoSelect.innerHTML = `
-                    <option value="Torta Tradicional P (12 fatias)" data-price="130">P (até 12 fatias) — R$ 130,00</option>
-                    <option value="Torta Tradicional M (28 fatias)" data-price="200">M (até 28 fatias) — R$ 200,00</option>
-                    <option value="Torta Tradicional G (38 fatias)" data-price="270">G (até 38 fatias) — R$ 270,00</option>
-                    <option value="Torta Tradicional GG (56 fatias)" data-price="340">GG (até 56 fatias) — R$ 340,00</option>
-                `;
-                saboresTradicionais.forEach(sabor => {
-                    saborSelect.innerHTML += `<option value="${sabor}">${sabor}</option>`;
-                });
-                saborContainer.style.display = 'block';
-            } else if (cat === 'especial') {
-                tamanhoSelect.innerHTML = `
-                    <option value="Torta Especial P (12 fatias)" data-price="150">P (até 12 fatias) — R$ 150,00</option>
-                    <option value="Torta Especial M (28 fatias)" data-price="230">M (até 28 fatias) — R$ 230,00</option>
-                    <option value="Torta Especial G (38 fatias)" data-price="300">G (até 38 fatias) — R$ 300,00</option>
-                    <option value="Torta Especial GG (56 fatias)" data-price="370">GG (até 56 fatias) — R$ 370,00</option>
-                `;
-                saboresEspeciais.forEach(sabor => {
-                    saborSelect.innerHTML += `<option value="${sabor}">${sabor}</option>`;
-                });
-                saborContainer.style.display = 'block';
-            } else if (cat === 'outro') {
-                tamanhoSelect.innerHTML = `<option value="Torta Personalizada / Outro" data-price="0">Torta Personalizada (A combinar)</option>`;
-                saborSelect.innerHTML = `<option value="Outro (digitar abaixo)">Personalizado</option>`;
-                saborContainer.style.display = 'block';
-                document.getElementById('tortaSaborOutro').style.display = 'block';
-            } else {
-                tamanhoSelect.innerHTML = `<option value="Sem Torta" data-price="0">Sem Torta</option>`;
-                saborContainer.style.display = 'none';
-            }
-            updateSaborField();
-            calculateTotal();
+    function calculateTotal() {
+      let total = 0;
+      let countDoces = 0;
+      let countSalgados = 0;
+      const pills = [];
+
+      const tortaCat = document.getElementById('tortaCategoria').value;
+      const tortaSelect = document.getElementById('tortaTamanho');
+      if (tortaCat !== 'nenhuma' && tortaSelect.options.length > 0) {
+        const opt = tortaSelect.options[tortaSelect.selectedIndex];
+        const tortaPrice = parseFloat(opt.getAttribute('data-price') || 0);
+        total += tortaPrice;
+        const sabor = document.getElementById('tortaSaborSelect').value || 'sabor a definir';
+        pills.push(`🎂 ${opt.value} (${sabor})`);
+      }
+
+      document.querySelectorAll('.docinho-item-qtd').forEach((input) => {
+        const qtd = Math.max(0, parseInt(input.value, 10) || 0);
+        const unitPrice = parseFloat(input.getAttribute('data-price') || 0);
+        const row = input.closest('.item-unit-row');
+        if (row) row.classList.toggle('has-qty', qtd > 0);
+        if (qtd > 0) {
+          total += qtd * unitPrice;
+          countDoces += qtd;
+          pills.push(`🍬 ${qtd}x ${input.getAttribute('data-nome')}`);
         }
+      });
 
-        function updateSaborField() {
-            const cat = document.getElementById('tortaCategoria').value;
-            const saborContainer = document.getElementById('tortaSaborContainer');
-            if (cat === 'nenhuma') {
-                saborContainer.style.display = 'none';
-            } else {
-                saborContainer.style.display = 'block';
-            }
+      document.querySelectorAll('.salgado-item-qtd').forEach((input) => {
+        const qtd = Math.max(0, parseInt(input.value, 10) || 0);
+        const unitPrice = parseFloat(input.getAttribute('data-price') || 0);
+        const row = input.closest('.item-unit-row');
+        if (row) row.classList.toggle('has-qty', qtd > 0);
+        if (qtd > 0) {
+          total += qtd * unitPrice;
+          countSalgados += qtd;
+          pills.push(`🥐 ${qtd}x ${input.getAttribute('data-nome')}`);
         }
+      });
 
-        function checkTortaCustomSabor() {
-            const val = document.getElementById('tortaSaborSelect').value;
-            const outroInput = document.getElementById('tortaSaborOutro');
-            if (val.includes('Outro')) {
-                outroInput.style.display = 'block';
-            } else {
-                outroInput.style.display = 'none';
-            }
+      const formatted = `R$ ${total.toFixed(2).replace('.', ',')}`;
+      document.getElementById('totalDisplay').innerText = formatted;
+      const stickyTotal = document.getElementById('mobileStickyTotal');
+      if (stickyTotal) stickyTotal.innerText = formatted;
+
+      document.getElementById('receiptCounters').innerText = `${countDoces} docinhos • ${countSalgados} salgados`;
+      document.getElementById('totalBreakdown').innerText =
+        pills.length > 0
+          ? `${pills.length} item(ns) no pedido • ${countDoces} doces e ${countSalgados} salgados`
+          : 'Selecione os itens acima para calcular';
+
+      const receiptList = document.getElementById('receiptItemsList');
+      if (pills.length === 0) {
+        receiptList.innerHTML = '<span>Nenhum item selecionado ainda. Escolha um Kit Pronto acima ou adicione unidades!</span>';
+      } else {
+        receiptList.innerHTML = pills.map((p) => `<span class="receipt-pill">${p}</span>`).join('');
+      }
+      return total;
+    }
+
+    function sendOrderToWhatsApp() {
+      const tortaCat = document.getElementById('tortaCategoria').value;
+      let tortaInfo = 'Sem Torta';
+      if (tortaCat !== 'nenhuma') {
+        const tortaSelect = document.getElementById('tortaTamanho');
+        const tortaText = tortaSelect.options.length > 0 ? tortaSelect.options[tortaSelect.selectedIndex].text : '';
+        let saborVal = document.getElementById('tortaSaborSelect').value;
+        if (saborVal.includes('Outro') || tortaCat === 'outro') {
+          saborVal = document.getElementById('tortaSaborOutro').value || 'Sabor a combinar';
         }
+        tortaInfo = `${tortaText} (Sabor: ${saborVal || 'A definir'})`;
+      }
 
-        function calculateTotal() {
-            let total = 0;
+      const docinhosResumo = [];
+      document.querySelectorAll('.docinho-item-qtd').forEach((input) => {
+        const qtd = parseInt(input.value, 10) || 0;
+        if (qtd > 0) docinhosResumo.push(`• ${qtd}un de ${input.getAttribute('data-nome')}`);
+      });
+      const docinhoOutro = document.getElementById('docinhoOutroInput').value.trim();
+      if (docinhoOutro) docinhosResumo.push(`• *Obs Doces:* ${docinhoOutro}`);
+      const docinhoText = docinhosResumo.length > 0 ? '\n' + docinhosResumo.join('\n') : 'Sem Docinhos';
 
-            // Torta
-            const tortaSelect = document.getElementById('tortaTamanho');
-            if (tortaSelect.options.length > 0) {
-                const tortaPrice = parseFloat(tortaSelect.options[tortaSelect.selectedIndex].getAttribute('data-price') || 0);
-                total += tortaPrice;
+      const salgadosResumo = [];
+      document.querySelectorAll('.salgado-item-qtd').forEach((input) => {
+        const qtd = parseInt(input.value, 10) || 0;
+        if (qtd > 0) salgadosResumo.push(`• ${qtd}un de ${input.getAttribute('data-nome')}`);
+      });
+      const salgadoOutro = document.getElementById('salgadoOutroInput').value.trim();
+      if (salgadoOutro) salgadosResumo.push(`• *Obs Salgados:* ${salgadoOutro}`);
+      const salgadosText = salgadosResumo.length > 0 ? '\n' + salgadosResumo.join('\n') : 'Sem Salgados';
+
+      const clienteNome = document.getElementById('clienteNome').value.trim();
+      const tipoEntrega = document.getElementById('tipoEntrega').value;
+      const observacoes = document.getElementById('observacoes').value.trim() || 'A combinar';
+      const total = document.getElementById('totalDisplay').innerText;
+
+      let mensagem = `*Olá! Montei meu pedido no site da Divina Bolacha:*\n\n`;
+      if (clienteNome) mensagem += `👤 *Cliente:* ${clienteNome}\n`;
+      mensagem += `🎂 *Torta/Bolo:* ${tortaInfo}\n\n`;
+      mensagem += `🍬 *Docinhos:* ${docinhoText}\n\n`;
+      mensagem += `🥐 *Salgados:* ${salgadosText}\n\n`;
+      mensagem += `🚚 *Retirada/Entrega:* ${tipoEntrega}\n`;
+      mensagem += `📝 *Data/Observações:* ${observacoes}\n\n`;
+      mensagem += `💰 *Total Estimado:* ${total}\n\n`;
+      mensagem += `Gostaria de confirmar a disponibilidade da data e finalizar a encomenda!`;
+
+      const url = `https://wa.me/5553981517232?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      enhanceQuantityInputs();
+      updateGuestRecommendation();
+      document.querySelectorAll('.faq-question').forEach((question) => {
+        question.addEventListener('click', () => {
+          const faqItem = question.parentElement;
+          const faqAnswer = question.nextElementSibling;
+          document.querySelectorAll('.faq-item').forEach((item) => {
+            if (item !== faqItem) {
+              item.classList.remove('active');
+              item.querySelector('.faq-answer').style.maxHeight = null;
             }
-
-            // Docinhos
-            document.querySelectorAll('.docinho-item-qtd').forEach(input => {
-                const qtd = parseInt(input.value) || 0;
-                const unitPrice = parseFloat(input.getAttribute('data-price') || 0);
-                if (qtd > 0) {
-                    total += (qtd * unitPrice);
-                }
-            });
-
-            // Salgados
-            document.querySelectorAll('.salgado-item-qtd').forEach(input => {
-                const qtd = parseInt(input.value) || 0;
-                const unitPrice = parseFloat(input.getAttribute('data-price') || 0);
-                if (qtd > 0) {
-                    total += (qtd * unitPrice);
-                }
-            });
-
-            document.getElementById('totalDisplay').innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
-            return total;
-        }
-
-        function sendOrderToWhatsApp() {
-            // Torta
-            const tortaCat = document.getElementById('tortaCategoria').value;
-            let tortaInfo = "Sem Torta";
-            if (tortaCat !== 'nenhuma') {
-                const tortaSelect = document.getElementById('tortaTamanho');
-                const tortaText = tortaSelect.options.length > 0 ? tortaSelect.options[tortaSelect.selectedIndex].text : '';
-                
-                let saborVal = document.getElementById('tortaSaborSelect').value;
-                if (saborVal.includes('Outro') || tortaCat === 'outro') {
-                    saborVal = document.getElementById('tortaSaborOutro').value || 'Sabor a combinar';
-                }
-                tortaInfo = `${tortaText} (Sabor: ${saborVal || 'Não informado'})`;
-            }
-
-            // Docinhos
-            let docinhosResumo = [];
-            document.querySelectorAll('.docinho-item-qtd').forEach(input => {
-                const qtd = parseInt(input.value) || 0;
-                if (qtd > 0) {
-                    const nome = input.getAttribute('data-nome');
-                    docinhosResumo.push(`• ${qtd}un de ${nome}`);
-                }
-            });
-            const docinhoOutro = document.getElementById('docinhoOutroInput').value;
-            if (docinhoOutro) {
-                docinhosResumo.push(`• *Outros/Obs Doces:* ${docinhoOutro}`);
-            }
-            const docinhoText = docinhosResumo.length > 0 ? "\n" + docinhosResumo.join("\n") : "Sem Docinhos";
-
-            // Salgados
-            let salgadosResumo = [];
-            document.querySelectorAll('.salgado-item-qtd').forEach(input => {
-                const qtd = parseInt(input.value) || 0;
-                if (qtd > 0) {
-                    const nome = input.getAttribute('data-nome');
-                    salgadosResumo.push(`• ${qtd}un de ${nome}`);
-                }
-            });
-
-            const salgadoOutro = document.getElementById('salgadoOutroInput').value;
-            if (salgadoOutro) {
-                salgadosResumo.push(`• *Outros/Obs Salgados:* ${salgadoOutro}`);
-            }
-
-            const salgadosText = salgadosResumo.length > 0 ? "\n" + salgadosResumo.join("\n") : "Sem Salgados";
-
-            const observacoes = document.getElementById('observacoes').value || 'Não informado';
-            const total = document.getElementById('totalDisplay').innerText;
-
-            let mensagem = `*Olá! Montei meu pedido no site da Divina Bolacha:*\n\n`;
-            mensagem += `🎂 *Torta/Bolo:* ${tortaInfo}\n\n`;
-            mensagem += `🍬 *Docinhos:* ${docinhoText}\n\n`;
-            mensagem += `🥐 *Salgados:* ${salgadosText}\n\n`;
-            mensagem += `📝 *Observações/Data:* ${observacoes}\n\n`;
-            mensagem += `💰 *Total Estimado:* ${total}\n\n`;
-            mensagem += `Gostaria de confirmar a disponibilidade da data e finalizar a encomenda!`;
-
-            const url = `https://wa.me/5553981517232?text=${encodeURIComponent(mensagem)}`;
-            window.open(url, '_blank');
-        }
-    </script>
+          });
+          faqItem.classList.toggle('active');
+          faqAnswer.style.maxHeight = faqItem.classList.contains('active') ? faqAnswer.scrollHeight + 'px' : null;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
